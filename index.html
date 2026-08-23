@@ -84,12 +84,14 @@ html, body {
 }
 
 .screen.hidden {
+    display: none !important;
     opacity: 0;
     pointer-events: none;
     z-index: -1;
 }
 
 .screen.active {
+    display: flex !important;
     opacity: 1;
     z-index: 1;
 }
@@ -191,13 +193,18 @@ h2.neon-text {
     padding: 0 14px;
     border-radius: 16px;
     text-decoration: none;
-    background: linear-gradient(120deg, rgba(0, 243, 255, 0.16), rgba(255, 0, 85, 0.16));
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    /* 배경을 조금 더 어둡게 하여 글씨가 잘 보이게 변경 */
+    background: linear-gradient(120deg, rgba(0, 243, 255, 0.25), rgba(255, 0, 85, 0.25)), rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* 테두리를 진하게 변경 */
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     transition: transform 0.15s ease, border-color 0.15s ease;
 }
 .ad-banner:active { transform: scale(0.98); }
 
-.ad-banner-icon { font-size: 1.5rem; flex-shrink: 0; }
+.ad-banner-icon { font-size: 1.5rem; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
 
 .ad-banner-text {
     flex: 1;
@@ -211,26 +218,30 @@ h2.neon-text {
     color: #fff;
     font-size: 0.86rem;
     font-weight: 800;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
 }
 
 .ad-banner-sub {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.68rem;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
 }
 
 .ad-banner-cta {
     flex-shrink: 0;
     padding: 6px 12px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #fff;
     font-size: 0.68rem;
     font-weight: 700;
     white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
 /* 볼드 벤토 — 균등한 6칸 대신 위계를 준다.
@@ -275,7 +286,8 @@ h2.neon-text {
 }
 
 .quad-btn {
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    /* 테두리를 약간 더 밝게 하여 윤곽선을 뚜렷하게 */
+    border: 1px solid rgba(255, 255, 255, 0.35);
     outline: none;
     cursor: pointer;
     display: flex;
@@ -284,7 +296,8 @@ h2.neon-text {
     justify-content: flex-end;
     gap: 3px;
     font-family: var(--font-main);
-    background: rgba(18, 18, 28, 0.75);
+    /* 배경을 더 어둡게 하여 네온 배경과 분리 */
+    background: rgba(10, 10, 16, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     position: relative;
@@ -292,14 +305,14 @@ h2.neon-text {
     border-radius: 14px;
     padding: clamp(10px, 3vw, 16px);
     text-align: left;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     transition: all 0.2s cubic-bezier(0.2, 0.8, 0.3, 1);
 }
 
 .quad-btn:hover, .quad-btn:focus-visible {
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-2px);
-    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 85, 0.3);
+    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 0, 85, 0.4);
 }
 
 .quad-btn:active {
@@ -315,13 +328,13 @@ h2.neon-text {
     font-size: clamp(0.6rem, 2.2vw, 0.72rem);
     font-weight: 800;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #ffffff;
     margin-bottom: 3px;
     letter-spacing: 0.02em;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .quad-btn::before {
@@ -341,7 +354,7 @@ h2.neon-text {
 .quad-icon {
     font-size: clamp(1.5rem, 6vw, 2rem);
     line-height: 1;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.45));
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.8));
 }
 
 .quad-label-en {
@@ -349,14 +362,14 @@ h2.neon-text {
     font-weight: 800;
     letter-spacing: -0.005em;
     color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.55);
+    text-shadow: 0 2px 4px #000, 0 4px 12px rgba(0,0,0,0.9);
 }
 
 .quad-label-kr {
     font-size: clamp(0.66rem, 2.5vw, 0.78rem);
     font-weight: 600;
-    color: rgba(255,255,255,0.85);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 3px #000, 0 2px 8px rgba(0,0,0,0.8);
 }
 
 /* HOT 모드에서 벌칙·미션 내용이 실제로 바뀌는 미션 룰렛·시간 폭탄 — 배너(카드
@@ -566,52 +579,118 @@ h2.neon-text {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Roulette */
+/* Roulette Screen & Elements */
 .roulette-screen {
-    background: radial-gradient(ellipse at center, #2a0016 0%, #0d0008 80%);
+    background:
+        radial-gradient(ellipse at center, rgba(42, 0, 30, 0.85) 0%, rgba(13, 0, 15, 0.95) 80%),
+        url('assets/slot_jackpot_fever_spicy_1787296479718.jpg') center/cover;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: clamp(14px, 3vh, 24px);
+    padding-bottom: clamp(14px, 3vh, 24px);
+}
+
+body.hot .roulette-screen {
+    background:
+        radial-gradient(ellipse at center, rgba(60, 0, 20, 0.85) 0%, rgba(15, 0, 5, 0.98) 80%),
+        url('assets/drink_spicy_main_banner_1787296777970.jpg') center/cover;
 }
 
 .roulette-container {
     position: relative;
-    width: min(85vw, 420px);
-    height: min(85vw, 420px);
-    margin-bottom: 20px;
+    width: min(82vw, 400px);
+    height: min(82vw, 400px);
+    margin-bottom: clamp(12px, 2.5vh, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* 휠 뒤 은은한 후광 — 메뉴의 대담한 그래픽 배경을 게임 화면까지 이어준다 */
+/* 휠 뒤 은은한 후광 */
 .roulette-container::before {
     content: '';
     position: absolute;
-    inset: -10%;
-    background: radial-gradient(circle, rgba(255, 0, 85, 0.45) 0%, rgba(255, 107, 157, 0.25) 45%, transparent 72%);
+    inset: -8%;
+    background: radial-gradient(circle, rgba(255, 0, 85, 0.45) 0%, rgba(0, 243, 255, 0.25) 45%, transparent 72%);
     border-radius: 50%;
-    filter: blur(6px);
+    filter: blur(10px);
     pointer-events: none;
+    animation: roulette-aura 4s infinite alternate ease-in-out;
+}
+
+body.hot .roulette-container::before {
+    background: radial-gradient(circle, rgba(255, 0, 85, 0.6) 0%, rgba(255, 107, 157, 0.3) 50%, transparent 75%);
+}
+
+@keyframes roulette-aura {
+    0% { transform: scale(0.96); opacity: 0.7; }
+    100% { transform: scale(1.04); opacity: 1; }
+}
+
+.roulette-wheel-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, #2b2b3a 0%, #101018 100%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 243, 255, 0.4);
+    box-sizing: border-box;
+}
+
+body.hot .roulette-wheel-wrapper {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 0, 85, 0.55);
 }
 
 .roulette-wheel {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 6px solid var(--primary-neon);
-    box-shadow: 0 0 35px var(--primary-neon), inset 0 0 25px rgba(255, 0, 85, 0.4);
+    border: 4px solid #fff;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7);
     position: relative;
     overflow: hidden;
-    transition: transform 4s cubic-bezier(0.15, 0.85, 0.35, 1);
+    transition: transform 4.2s cubic-bezier(0.12, 0.88, 0.32, 1);
+    box-sizing: border-box;
 }
 
-.roulette-wheel::after {
-    content: '';
+/* Center Hub with Neon GIJO Emblem */
+.roulette-center-hub {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background: var(--bg-color);
+    width: clamp(48px, 13vw, 62px);
+    height: clamp(48px, 13vw, 62px);
+    background: radial-gradient(circle at 35% 35%, #2a2a3e 0%, #0c0c16 100%);
     border-radius: 50%;
     border: 3px solid var(--secondary-neon);
-    z-index: 5;
+    box-shadow: 0 0 18px rgba(0, 243, 255, 0.6), inset 0 2px 6px rgba(255, 255, 255, 0.4);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+body.hot .roulette-center-hub {
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.7), inset 0 2px 6px rgba(255, 255, 255, 0.4);
+}
+
+.roulette-center-hub-icon {
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    line-height: 1;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+.roulette-center-hub-text {
+    font-size: clamp(0.48rem, 1.5vw, 0.58rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #fff;
 }
 
 .roulette-slice-label {
@@ -624,27 +703,286 @@ h2.neon-text {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 15px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    color: #fff;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 5px rgba(0, 0, 0, 0.8);
+    padding-top: clamp(14px, 3.5vw, 22px);
+    font-weight: 900;
+    font-size: clamp(0.78rem, 2.4vw, 0.95rem);
+    color: #ffffff;
+    text-shadow: 0 2px 4px #000, 0 0 8px rgba(0, 0, 0, 0.95);
     pointer-events: none;
     box-sizing: border-box;
+    letter-spacing: -0.01em;
 }
 
+/* 3D Pointer with Physics Twitch */
 .roulette-pointer {
     position: absolute;
-    top: -15px;
+    top: -16px;
     left: 50%;
     transform: translateX(-50%);
     width: 0; 
     height: 0; 
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 35px solid #fff;
-    filter: drop-shadow(0 0 5px #fff);
-    z-index: 10;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 36px solid #ff0055;
+    filter: drop-shadow(0 0 10px #ff0055) drop-shadow(0 4px 6px rgba(0,0,0,0.8));
+    z-index: 20;
+    transform-origin: 50% 0%;
+    transition: transform 0.05s ease;
+}
+
+.roulette-pointer::after {
+    content: '';
+    position: absolute;
+    top: -36px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+}
+
+.roulette-pointer.twitch {
+    animation: pointer-twitch 0.08s ease-in-out;
+}
+
+@keyframes pointer-twitch {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(-16deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* Quick Presets on Input Screen */
+.roulette-presets-container {
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.roulette-presets-title {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--secondary-neon);
+    text-shadow: 0 0 8px var(--secondary-neon);
+}
+
+.roulette-preset-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.roulette-chip-btn {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: clamp(0.72rem, 2.4vw, 0.82rem);
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.roulette-chip-btn:hover {
+    border-color: var(--secondary-neon);
+    background: rgba(0, 243, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+}
+
+.roulette-chip-btn.active {
+    border-color: var(--primary-neon);
+    background: rgba(255, 0, 85, 0.25);
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+    color: #fff;
+}
+
+/* Roulette Result Banner (Screen) */
+.roulette-result-card {
+    margin-top: 12px;
+    width: 90%;
+    max-width: 380px;
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.roulette-result-card.has-result {
+    border-color: var(--secondary-neon);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.35);
+    animation: result-card-pop 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@keyframes result-card-pop {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Roulette Winner Modal (대형 당첨 결과 팝업) */
+.roulette-winner-modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.roulette-winner-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.roulette-winner-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.roulette-winner-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transform: scale(0.7) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.roulette-winner-modal.active .roulette-winner-content {
+    transform: scale(1) translateY(0);
+}
+
+.roulette-winner-card {
+    width: 100%;
+    border-radius: 24px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    background: radial-gradient(circle at center, #260f38 0%, #0c0414 100%);
+    border: 3px solid var(--secondary-neon);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 243, 255, 0.5);
+    box-sizing: border-box;
+}
+
+body.hot .roulette-winner-card {
+    background: radial-gradient(circle at center, #45001c 0%, #150007 100%);
+    border-color: var(--primary-neon);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 0, 85, 0.65);
+}
+
+.roulette-winner-badge {
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    padding: 4px 18px;
+    border-radius: 20px;
+    background: rgba(0, 243, 255, 0.2);
+    border: 2px solid var(--secondary-neon);
+    color: var(--secondary-neon);
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+body.hot .roulette-winner-badge {
+    background: rgba(255, 0, 85, 0.25);
+    border-color: var(--primary-neon);
+    color: #ff5588;
+    box-shadow: 0 0 15px var(--primary-neon);
+}
+
+.roulette-winner-icon {
+    font-size: 4.2rem;
+    line-height: 1;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.8));
+    animation: winner-icon-pop 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes winner-icon-pop {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.15) rotate(6deg); }
+}
+
+.roulette-winner-title {
+    font-size: clamp(1.45rem, 6.5vw, 2.1rem);
+    font-weight: 900;
+    line-height: 1.25;
+    word-break: keep-all;
+    color: #ffffff;
+    text-shadow: 0 0 20px var(--secondary-neon), 0 4px 10px #000;
+}
+
+body.hot .roulette-winner-title {
+    text-shadow: 0 0 20px var(--primary-neon), 0 4px 10px #000;
+}
+
+.roulette-winner-sub {
+    font-size: clamp(0.9rem, 3.8vw, 1.05rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.35;
+    word-break: keep-all;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 90%;
+}
+
+.roulette-winner-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.roulette-spin-again-btn {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 10px 16px;
+}
+
+.roulette-winner-close-btn {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.roulette-winner-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .result-text {
@@ -781,28 +1119,146 @@ h2.neon-text {
     display: none;
 }
 
-/* Cards */
+/* Cards Screen & Elements */
+.cards-screen {
+    background:
+        radial-gradient(ellipse at center, rgba(30, 8, 45, 0.75) 0%, rgba(10, 5, 18, 0.95) 80%),
+        url('assets/slot_double_gamble_cards_1787296496813.jpg') center/cover;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    padding-top: clamp(14px, 3vh, 24px);
+    padding-bottom: clamp(14px, 3vh, 24px);
+}
+
+body.hot .cards-screen {
+    background:
+        radial-gradient(ellipse at center, rgba(55, 0, 20, 0.82) 0%, rgba(15, 0, 5, 0.98) 80%),
+        url('assets/drink_spicy_main_banner_1787296777970.jpg') center/cover;
+}
+
+.cards-header {
+    text-align: center;
+    margin-bottom: clamp(8px, 1.5vh, 16px);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.cards-suit-deco {
+    font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+    letter-spacing: 0.35em;
+    color: var(--secondary-neon);
+    text-shadow: 0 0 10px var(--secondary-neon);
+    animation: suit-glow 3s infinite alternate ease-in-out;
+}
+
+body.hot .cards-suit-deco {
+    color: var(--primary-neon);
+    text-shadow: 0 0 12px var(--primary-neon);
+}
+
+@keyframes suit-glow {
+    0% { opacity: 0.6; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-2px); }
+}
+
+.cards-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.cards-badge-counter {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 243, 255, 0.5);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: clamp(0.75rem, 2.4vw, 0.85rem);
+    font-weight: 800;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.25);
+}
+
+body.hot .cards-badge-counter {
+    border-color: rgba(255, 0, 85, 0.6);
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.35);
+}
+
+.cards-hint {
+    font-size: clamp(0.72rem, 2.2vw, 0.82rem);
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    animation: hint-pulse 2s infinite alternate;
+}
+
+@keyframes hint-pulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.cards-grid-wrapper {
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+    padding: 6px 0;
+    z-index: 2;
+}
+
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: clamp(8px, 2vw, 14px);
     width: 100%;
-    max-width: 520px;
+    perspective: 1200px;
 }
 
 .card {
     aspect-ratio: 2/3;
-    perspective: 1000px;
+    perspective: 1200px;
     cursor: pointer;
+    border-radius: 12px;
+    position: relative;
+    user-select: none;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+.card:active {
+    transform: scale(0.96);
+}
+
+.card.shuffling {
+    animation: cardShuffleAnim 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cardShuffleAnim {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    30% { transform: translate(var(--shf-x, 15px), var(--shf-y, -25px)) rotate(var(--shf-r, 12deg)) scale(1.08); }
+    60% { transform: translate(var(--shf-x2, -15px), var(--shf-y2, 10px)) rotate(var(--shf-r2, -8deg)) scale(0.95); }
+    100% { transform: translate(0, 0) rotate(0deg) scale(1); }
 }
 
 .card-inner {
     width: 100%;
     height: 100%;
     position: relative;
-    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform 0.65s cubic-bezier(0.34, 1.3, 0.64, 1);
     transform-style: preserve-3d;
+    border-radius: 12px;
 }
 
 .card.flipped .card-inner {
@@ -814,34 +1270,500 @@ h2.neon-text {
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    border-radius: 8px;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.card-front {
-    background: linear-gradient(135deg, var(--tertiary-neon), #4a0080);
-    border: 1px solid var(--tertiary-neon);
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 900;
-}
-
-.card-back {
-    background: #1a1a24;
-    border: 1px solid var(--secondary-neon);
-    transform: rotateY(180deg);
-    color: var(--secondary-neon);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-shadow: 0 0 5px var(--secondary-neon);
-    word-break: keep-all;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 10px rgba(0, 0, 0, 0.4);
     overflow: hidden;
-    line-height: 1.3;
+}
+
+/* Card Front (Face-down card) */
+.card-front {
+    background: linear-gradient(135deg, #1b0c2e 0%, #0c0418 50%, #1e0933 100%);
+    border: 2px solid rgba(162, 0, 255, 0.7);
+    color: white;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7), inset 0 0 15px rgba(162, 0, 255, 0.3);
+}
+
+body.hot .card-front {
+    background: linear-gradient(135deg, #30030f 0%, #120106 50%, #3d0013 100%);
+    border-color: rgba(255, 0, 85, 0.85);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.8), inset 0 0 20px rgba(255, 0, 85, 0.4);
+}
+
+/* Pattern overlay for Card Front */
+.card-front::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    background:
+        radial-gradient(circle at center, rgba(162, 0, 255, 0.2) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 6px, transparent 6px, transparent 12px);
+    pointer-events: none;
+}
+
+body.hot .card-front::before {
+    border-color: rgba(255, 100, 150, 0.35);
+    background:
+        radial-gradient(circle at center, rgba(255, 0, 85, 0.3) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255,0,85,0.06) 0px, rgba(255,0,85,0.06) 6px, transparent 6px, transparent 12px);
+}
+
+/* Shimmer shine animation */
+.card-front::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+    transform: rotate(30deg);
+    animation: card-shimmer 4s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes card-shimmer {
+    0% { transform: translateY(-100%) rotate(30deg); }
+    100% { transform: translateY(100%) rotate(30deg); }
+}
+
+.card-front-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.card-front-emblem {
+    font-size: clamp(1.4rem, 5vw, 2.1rem);
+    filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.7));
+    line-height: 1;
+}
+
+body.hot .card-front-emblem {
+    filter: drop-shadow(0 0 12px rgba(255, 0, 85, 0.8));
+}
+
+.card-front-label {
+    font-size: clamp(0.62rem, 2vw, 0.76rem);
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(162, 0, 255, 0.9);
+}
+
+.card-front-name-badge {
+    margin-top: 4px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: clamp(0.72rem, 2.3vw, 0.88rem);
+    font-weight: 900;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.card-front-name-badge.suit-red {
+    border-color: rgba(255, 50, 100, 0.8);
+    color: #ffccd8;
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.45);
+}
+
+.card-front-name-badge.suit-black {
+    border-color: rgba(0, 243, 255, 0.8);
+    color: #d8fcff;
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.45);
+}
+
+.card-corner-index {
+    position: absolute;
+    font-size: clamp(0.72rem, 2.4vw, 0.95rem);
+    font-weight: 900;
+    line-height: 1.1;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-corner-index.top-left { top: 6px; left: 7px; }
+.card-corner-index.bottom-right { bottom: 6px; right: 7px; transform: rotate(180deg); }
+
+.card-corner-index.suit-red {
+    color: #ff3366;
+    text-shadow: 0 0 8px rgba(255, 0, 85, 0.8), 0 1px 2px #000;
+}
+
+.card-corner-index.suit-black {
+    color: #00f3ff;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.8), 0 1px 2px #000;
+}
+
+.card-back-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    padding: 0 2px;
+}
+
+.card-playing-id {
+    font-size: clamp(0.6rem, 1.9vw, 0.72rem);
+    font-weight: 900;
+    border-radius: 8px;
+    padding: 1px 5px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid;
+    white-space: nowrap;
+}
+
+.card-playing-id.suit-red { color: #ff6699; border-color: #ff0055; text-shadow: 0 0 6px #ff0055; }
+.card-playing-id.suit-black { color: #00f3ff; border-color: #00f3ff; text-shadow: 0 0 6px #00f3ff; }
+
+.spotlight-card-id-banner {
+    font-size: clamp(1.15rem, 4.8vw, 1.5rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    padding: 6px 20px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid;
+    margin-bottom: 2px;
+}
+
+.spotlight-card-id-banner.suit-red {
+    color: #ff5588;
+    border-color: #ff0055;
+    box-shadow: 0 0 18px rgba(255, 0, 85, 0.65);
+}
+
+.spotlight-card-id-banner.suit-black {
+    color: #00f3ff;
+    border-color: #00f3ff;
+    box-shadow: 0 0 18px rgba(0, 243, 255, 0.65);
+}
+
+/* Card Back (Face-up revealed card) */
+.card-back {
+    transform: rotateY(180deg);
+    padding: clamp(6px, 1.5vw, 10px) clamp(4px, 1.2vw, 8px);
+    justify-content: space-between;
+    background: #12121c;
+    border: 2px solid var(--secondary-neon);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85), inset 0 0 20px rgba(0, 243, 255, 0.15);
+}
+
+/* Category: LUCKY (Gold) */
+.card-back.cat-lucky {
+    background: radial-gradient(circle at center, #261e05 0%, #110e02 100%);
+    border-color: #ffd700;
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.45), inset 0 0 15px rgba(255, 215, 0, 0.2);
+}
+.card-back.cat-lucky .card-back-badge {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    color: #ffd700;
+    text-shadow: 0 0 6px #ffd700;
+}
+.card-back.cat-lucky .card-back-title {
+    color: #fff9d2;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 4px #000;
+}
+
+/* Category: SPICY (19+ Hot Crimson) */
+.card-back.cat-spicy {
+    background: radial-gradient(circle at center, #350012 0%, #140006 100%);
+    border-color: #ff0055;
+    box-shadow: 0 0 24px rgba(255, 0, 85, 0.55), inset 0 0 18px rgba(255, 0, 85, 0.25);
+}
+.card-back.cat-spicy .card-back-badge {
+    background: rgba(255, 0, 85, 0.25);
+    border-color: #ff0055;
+    color: #ff5588;
+    text-shadow: 0 0 8px #ff0055;
+}
+.card-back.cat-spicy .card-back-title {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 0, 85, 0.9), 0 2px 4px #000;
+}
+
+/* Category: ACTION (Electric Blue/Purple) */
+.card-back.cat-action {
+    background: radial-gradient(circle at center, #071f30 0%, #040d16 100%);
+    border-color: #00f3ff;
+    box-shadow: 0 0 24px rgba(0, 243, 255, 0.4), inset 0 0 15px rgba(0, 243, 255, 0.2);
+}
+.card-back.cat-action .card-back-badge {
+    background: rgba(0, 243, 255, 0.2);
+    border-color: #00f3ff;
+    color: #00f3ff;
+    text-shadow: 0 0 6px #00f3ff;
+}
+.card-back.cat-action .card-back-title {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 2px 4px #000;
+}
+
+/* Category: BOMB (Danger Orange/Red) */
+.card-back.cat-bomb {
+    background: radial-gradient(circle at center, #351500 0%, #150600 100%);
+    border-color: #ff7700;
+    box-shadow: 0 0 24px rgba(255, 119, 0, 0.5), inset 0 0 15px rgba(255, 119, 0, 0.2);
+}
+.card-back.cat-bomb .card-back-badge {
+    background: rgba(255, 119, 0, 0.25);
+    border-color: #ff7700;
+    color: #ff9933;
+    text-shadow: 0 0 6px #ff7700;
+}
+.card-back.cat-bomb .card-back-title {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 119, 0, 0.9), 0 2px 4px #000;
+}
+
+/* Card Back Contents */
+.card-back-badge {
+    font-size: clamp(0.55rem, 1.8vw, 0.68rem);
+    font-weight: 900;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 1px 6px;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+}
+
+.card-back-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    margin: auto 0;
+    width: 100%;
+}
+
+.card-back-icon {
+    font-size: clamp(1.2rem, 4.5vw, 1.8rem);
+    line-height: 1.1;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+}
+
+.card-back-title {
+    font-size: clamp(0.85rem, 2.9vw, 1.15rem);
+    font-weight: 900;
+    line-height: 1.25;
+    word-break: keep-all;
+    padding: 0 4px;
+    letter-spacing: -0.01em;
+}
+
+.card-back-sub {
+    font-size: clamp(0.62rem, 2.0vw, 0.74rem);
+    font-weight: 600;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.2;
+    word-break: keep-all;
+    padding: 0 4px;
+}
+
+.card-zoom-hint {
+    font-size: clamp(0.55rem, 1.6vw, 0.65rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 2px;
+}
+
+.cards-action-bar {
+    margin-top: clamp(10px, 2vh, 18px);
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.cards-shuffle-btn {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+    font-weight: 800;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.35);
+}
+
+/* Spotlight Card Reveal Modal (대형 팝업/스포트라이트 카드) */
+.card-spotlight-modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.card-spotlight-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card-spotlight-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.card-spotlight-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transform: scale(0.7) rotateY(20deg);
+    transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.card-spotlight-modal.active .card-spotlight-content {
+    transform: scale(1) rotateY(0deg);
+}
+
+.spotlight-card-body {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 20px;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 243, 255, 0.5);
+    background: radial-gradient(circle at center, #181828 0%, #0a0a14 100%);
+    border: 3px solid var(--secondary-neon);
+    box-sizing: border-box;
+}
+
+.spotlight-card-body.cat-lucky {
+    background: radial-gradient(circle at center, #3a2e05 0%, #151102 100%);
+    border-color: #ffd700;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 215, 0, 0.6);
+}
+
+.spotlight-card-body.cat-spicy {
+    background: radial-gradient(circle at center, #4d001b 0%, #1a0008 100%);
+    border-color: #ff0055;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 0, 85, 0.7);
+}
+
+.spotlight-card-body.cat-action {
+    background: radial-gradient(circle at center, #092c44 0%, #04121d 100%);
+    border-color: #00f3ff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 243, 255, 0.6);
+}
+
+.spotlight-card-body.cat-bomb {
+    background: radial-gradient(circle at center, #461b00 0%, #1a0800 100%);
+    border-color: #ff7700;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 119, 0, 0.65);
+}
+
+.spotlight-badge {
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    padding: 4px 16px;
+    border-radius: 20px;
+    border: 2px solid;
+    color: #fff;
+    box-shadow: 0 0 15px currentColor;
+}
+
+.spotlight-card-body.cat-lucky .spotlight-badge { border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.2); }
+.spotlight-card-body.cat-spicy .spotlight-badge { border-color: #ff0055; color: #ff5588; background: rgba(255, 0, 85, 0.25); }
+.spotlight-card-body.cat-action .spotlight-badge { border-color: #00f3ff; color: #00f3ff; background: rgba(0, 243, 255, 0.2); }
+.spotlight-card-body.cat-bomb .spotlight-badge { border-color: #ff7700; color: #ff9933; background: rgba(255, 119, 0, 0.25); }
+
+.spotlight-icon {
+    font-size: 4rem;
+    line-height: 1;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.8));
+    animation: icon-bounce 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes icon-bounce {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-8px) scale(1.08); }
+}
+
+.spotlight-title {
+    font-size: clamp(1.4rem, 6vw, 1.85rem);
+    font-weight: 900;
+    line-height: 1.25;
+    word-break: keep-all;
+    color: #fff;
+    text-shadow: 0 0 20px currentColor, 0 4px 10px #000;
+}
+
+.spotlight-sub {
+    font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.35;
+    word-break: keep-all;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 90%;
+}
+
+.spotlight-corner-deco {
+    position: absolute;
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.4);
+}
+.spotlight-corner-deco.top-left { top: 12px; left: 14px; }
+.spotlight-corner-deco.bottom-right { bottom: 12px; right: 14px; transform: rotate(180deg); }
+
+.spotlight-close-btn {
+    width: 100%;
+    max-width: 260px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    padding: 12px 24px;
+    box-shadow: 0 0 25px var(--secondary-neon);
 }
 
 /* Settings */
@@ -948,8 +1870,8 @@ textarea:focus {
     padding: 0 !important;
     justify-content: flex-start !important;
     overflow: hidden;
-    background: radial-gradient(ellipse at center, #0f3d22 0%, #06140d 75%, #030806 100%);
-    position: relative;
+    /* 배경을 더 늪지대/악어 느낌이 나는 깊은 네온 초록빛으로 업그레이드 */
+    background: radial-gradient(ellipse at center, #185934 0%, #082114 60%, #030a06 100%);
 }
 
 .croc-back-btn {
@@ -1207,8 +2129,16 @@ textarea:focus {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,255,140,0) 0%, rgba(0,255,140,0) 100%);
+    /* 투명했던 이빨에 은은한 형광 초록빛을 추가하여 클릭 가능 영역을 직관적으로 표시 */
+    background: radial-gradient(circle, rgba(0,255,140,0.2) 0%, rgba(0,255,140,0) 80%);
+    box-shadow: inset 0 0 10px rgba(0,255,140,0.3);
     transition: background 0.15s ease, box-shadow 0.15s ease;
+    animation: tooth-idle-pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes tooth-idle-pulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
 }
 
 .croc-tooth::before {
@@ -1273,6 +2203,7 @@ textarea:focus {
 .croc-tooth.pressed::after {
     background: radial-gradient(circle at 35% 30%, #5a0e10 0%, #2a0405 65%, #1a0202 100%);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 0 6px rgba(0,0,0,0.5);
+    animation: none !important;
 }
 
 .croc-tooth.bomb {
@@ -1504,17 +2435,20 @@ textarea:focus {
 
 /* Bridge Screen Elements */
 .bridge-screen {
-    background: radial-gradient(ellipse at center, #1b002a 0%, #090010 85%);
+    /* 배경을 조금 더 화려한 보라색 그라데이션으로 변경 */
+    background: radial-gradient(ellipse at center, #2d0046 0%, #090010 85%);
 }
 
 .bridge-instructions {
     text-align: center;
-    font-size: clamp(1rem, 4vw, 1.25rem);
-    font-weight: bold;
-    color: var(--tertiary-neon);
-    text-shadow: 0 0 10px var(--tertiary-neon);
-    margin-bottom: 12px;
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    font-weight: 900;
+    color: #fff;
+    /* 텍스트 글로우 효과 강화 */
+    text-shadow: 0 0 10px var(--tertiary-neon), 0 0 20px var(--tertiary-neon), 0 0 30px var(--tertiary-neon);
+    margin-bottom: 16px;
     word-break: keep-all;
+    letter-spacing: 0.5px;
 }
 
 /* 참가 모집 카운트다운 숫자 — 손가락을 더 올릴 시간이 남았다는 걸 크게 보여준다. */
@@ -1532,10 +2466,35 @@ textarea:focus {
     width: 100%;
     flex: 1;
     position: relative;
-    border: 2px dashed rgba(162, 0, 255, 0.2);
+    /* 테두리와 배경에 네온 느낌 추가 및 애니메이션 적용 */
+    border: 3px dashed rgba(162, 0, 255, 0.5);
     border-radius: 20px;
-    background: rgba(162, 0, 255, 0.02);
+    background: radial-gradient(circle at center, rgba(162, 0, 255, 0.15) 0%, rgba(162, 0, 255, 0.03) 100%);
+    box-shadow: inset 0 0 50px rgba(162, 0, 255, 0.2), 0 0 30px rgba(162, 0, 255, 0.1);
     overflow: hidden;
+    animation: bridge-pulse 2s infinite alternate ease-in-out;
+    /* 다중 터치 시 화면 확대나 스크롤이 발생하지 않도록 차단 */
+    touch-action: none;
+}
+
+/* 터치 영역이 비어있을 때 중앙에 안내 아이콘 표시 */
+.bridge-area:empty::before {
+    content: '💖 터치 대기중...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(162, 0, 255, 0.8);
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(162, 0, 255, 0.8);
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes bridge-pulse {
+    0% { border-color: rgba(162, 0, 255, 0.4); box-shadow: inset 0 0 40px rgba(162, 0, 255, 0.15), 0 0 20px rgba(162, 0, 255, 0.1); }
+    100% { border-color: rgba(162, 0, 255, 0.8); box-shadow: inset 0 0 80px rgba(162, 0, 255, 0.35), 0 0 40px rgba(162, 0, 255, 0.25); }
 }
 
 /* 러브 드링크 노드 — 원 대신 하트 모양(SVG). 색은 div 의 border/background 가
@@ -1891,8 +2850,19 @@ body.hot .hot-toggle-btn {
         <section id="screen-roulette-input" class="screen hidden roulette-screen">
             <button class="btn-back" onclick="history.back()">&larr; Back</button>
             <h2 class="neon-text">GIJO Penalty List<br><span class="title-kr">벌칙 입력</span></h2>
-            <p class="subtitle">쉼표로 구분해서 벌칙을 입력하세요<span class="i18n-sub">Enter penalties, separated by commas</span></p>
-            <textarea id="roulette-input-text" rows="6" placeholder="원샷, 양옆 마시기, 다같이 건배, 지목해서 마시기"></textarea>
+            <p class="subtitle">쉼표로 구분해서 벌칙을 입력하거나 프리셋을 선택하세요<span class="i18n-sub">Enter penalties or choose a quick preset</span></p>
+
+            <div class="roulette-presets-container">
+                <div class="roulette-presets-title">⚡ 빠른 프리셋 선택 · Quick Presets</div>
+                <div class="roulette-preset-chips">
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('classic')">🍹 기본 파티</button>
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('spicy')">🔥 19+ 스파이시</button>
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('king')">👑 왕게임 벌칙</button>
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('players')">👥 참가자 지목</button>
+                </div>
+            </div>
+
+            <textarea id="roulette-input-text" rows="5" placeholder="원샷!, 양옆 마시기, 다같이 건배!, 지목해서 마시기"></textarea>
             <button class="btn neon-btn" style="margin-top:16px;" onclick="app.confirmRouletteMissions()">룰렛 시작! · Start</button>
         </section>
 
@@ -1901,11 +2871,36 @@ body.hot .hot-toggle-btn {
             <button class="btn-back" onclick="history.back()">&larr; Back</button>
             <h2 class="neon-text">GIJO Mission Roulette<br><span class="title-kr">미션 룰렛</span></h2>
             <div class="roulette-container">
-                <div class="roulette-wheel" id="roulette-wheel"></div>
-                <div class="roulette-pointer"></div>
+                <div class="roulette-pointer" id="roulette-pointer"></div>
+                <div class="roulette-wheel-wrapper">
+                    <div class="roulette-wheel" id="roulette-wheel"></div>
+                    <div class="roulette-center-hub" onclick="app.spinRoulette()" title="클릭하여 스핀!">
+                        <div class="roulette-center-hub-icon">🍸</div>
+                        <div class="roulette-center-hub-text">GIJO</div>
+                    </div>
+                </div>
             </div>
-            <button class="btn neon-btn" onclick="app.spinRoulette()">돌리기! · Spin!</button>
-            <div id="roulette-result" class="result-text"></div>
+            <button class="btn neon-btn" id="roulette-spin-btn" onclick="app.spinRoulette()">🎯 돌리기! · Spin!</button>
+            <div id="roulette-result-card" class="roulette-result-card">
+                <div id="roulette-result" class="result-text">룰렛을 돌려보세요!</div>
+            </div>
+
+            <!-- Roulette Winner Spotlight Modal (대형 당첨 결과 팝업) -->
+            <div class="roulette-winner-modal" id="roulette-winner-modal" onclick="app.closeRouletteWinnerModal()">
+                <div class="roulette-winner-backdrop"></div>
+                <div class="roulette-winner-content" onclick="event.stopPropagation()">
+                    <div class="roulette-winner-card">
+                        <div class="roulette-winner-badge" id="roulette-winner-badge">🏆 당첨 벌칙 · WINNER!</div>
+                        <div class="roulette-winner-icon" id="roulette-winner-icon">🎯</div>
+                        <div class="roulette-winner-title" id="roulette-winner-title">원샷!</div>
+                        <div class="roulette-winner-sub" id="roulette-winner-sub">시원하게 원샷 마시기!</div>
+                        <div class="roulette-winner-actions">
+                            <button class="btn neon-btn roulette-spin-again-btn" onclick="app.spinRouletteAgain()">🎯 다시 돌리기</button>
+                            <button class="roulette-winner-close-btn" onclick="app.closeRouletteWinnerModal()">확인 · OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Bomb Screen -->
@@ -1922,11 +2917,43 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Cards Screen -->
-        <section id="screen-cards" class="screen hidden">
+        <section id="screen-cards" class="screen hidden cards-screen">
             <button class="btn-back" onclick="history.back()">&larr; Back</button>
-            <h2 class="neon-text">GIJO Card Flip<br><span class="title-kr">카드 뒤집기</span></h2>
-            <div class="cards-grid" id="cards-grid"></div>
-            <button class="btn neon-btn" onclick="app.resetCards()">카드 섞기 · Shuffle</button>
+            <div class="cards-header">
+                <div class="cards-suit-deco">♠ &hearts; &diams; ♣</div>
+                <h2 class="neon-text">GIJO Card Flip<br><span class="title-kr">카드 뒤집기</span></h2>
+                <div class="cards-status-bar" id="cards-status-bar">
+                    <span class="cards-badge-counter" id="cards-counter-badge">🃏 남은 카드: 4 / 4</span>
+                    <span class="cards-hint">카드를 탭하여 미션 오픈! 👆</span>
+                </div>
+            </div>
+
+            <div class="cards-grid-wrapper" id="cards-grid-wrapper">
+                <div class="cards-grid" id="cards-grid"></div>
+            </div>
+
+            <div class="cards-action-bar">
+                <button class="btn neon-btn cards-shuffle-btn" id="cards-shuffle-btn" onclick="app.resetCards()">
+                    <span class="btn-icon">🔀</span> 카드 섞기 · Shuffle
+                </button>
+            </div>
+
+            <!-- Spotlight Card Modal (대형 팝업/스포트라이트 카드) -->
+            <div class="card-spotlight-modal" id="card-spotlight-modal" onclick="app.closeCardSpotlight()">
+                <div class="card-spotlight-backdrop"></div>
+                <div class="card-spotlight-content" id="card-spotlight-content" onclick="event.stopPropagation()">
+                    <div class="spotlight-card-body" id="spotlight-card-body">
+                        <div class="spotlight-card-id-banner" id="spotlight-card-id-banner">♦ 10 · 다이아 10</div>
+                        <div class="spotlight-badge" id="spotlight-badge">🔥 SPICY 19+</div>
+                        <div class="spotlight-icon" id="spotlight-icon">💋</div>
+                        <div class="spotlight-title" id="spotlight-title">밀착 러브샷 or 2잔</div>
+                        <div class="spotlight-sub" id="spotlight-sub">가장 섹시한 사람과 밀착 러브샷</div>
+                        <div class="spotlight-corner-deco top-left" id="spotlight-corner-tl">10♦</div>
+                        <div class="spotlight-corner-deco bottom-right" id="spotlight-corner-br">10♦</div>
+                    </div>
+                    <button class="btn neon-btn spotlight-close-btn" onclick="app.closeCardSpotlight()">확인 · OK</button>
+                </div>
+            </div>
         </section>
 
         <!-- Crocodile Screen -->
@@ -2076,10 +3103,83 @@ const soundFX = {
         gain.connect(this.ctx.destination);
         noise.start();
     },
+    playCardFlip() {
+        this.playFlip();
+    },
     playFlip() {
         this.init();
-        this.playTone(400, 'triangle', 0.1, 0.1);
-        setTimeout(() => this.playTone(600, 'triangle', 0.2, 0.1), 80);
+        if(!this.ctx) return;
+        const now = this.ctx.currentTime;
+        // Crisp card snap whoosh + resonant pop
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(320, now);
+        osc.frequency.exponentialRampToValueAtTime(750, now + 0.08);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.12);
+
+        // Sub pop
+        setTimeout(() => this.playTone(920, 'sine', 0.08, 0.08), 40);
+    },
+    playCardHover() {
+        this.init();
+        this.playTone(880, 'sine', 0.04, 0.03);
+    },
+    playCardShuffle() {
+        this.init();
+        if(!this.ctx) return;
+        // Multi-card riffle shuffle sweep
+        for (let i = 0; i < 14; i++) {
+            setTimeout(() => {
+                this.playTone(280 + Math.random() * 450, 'triangle', 0.035, 0.07);
+            }, i * 38);
+        }
+    },
+    playGoldFanfare() {
+        this.init();
+        if(!this.ctx) return;
+        // Glorious crystal chord arpeggio
+        const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51]; // C5, E5, G5, C6, E6
+        notes.forEach((freq, idx) => {
+            setTimeout(() => {
+                this.playTone(freq, 'sine', 0.35, 0.12);
+            }, idx * 75);
+        });
+    },
+    playSpicyBeat() {
+        this.init();
+        if(!this.ctx) return;
+        const now = this.ctx.currentTime;
+        // Deep 808 bass kick + heartbeat tone
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(180, now);
+        osc.frequency.exponentialRampToValueAtTime(45, now + 0.35);
+        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.4);
+
+        // Spicy high sparkle
+        setTimeout(() => this.playTone(1200, 'triangle', 0.15, 0.1), 100);
+        setTimeout(() => this.playTone(1600, 'sine', 0.25, 0.08), 200);
+    },
+    playBombHit() {
+        this.init();
+        this.playBigBoom();
+    },
+    playActionChime() {
+        this.init();
+        this.playTone(587.33, 'triangle', 0.15, 0.12); // D5
+        setTimeout(() => this.playTone(880, 'sine', 0.25, 0.12), 100); // A5
     },
     playTada() {
         this.init();
@@ -2164,19 +3264,37 @@ const HOT_ROULETTE = [
     '🥂 삼각 밀착 러브샷 릴레이!'
 ];
 
+const DEFAULT_CARDS = [
+    '🛡️ 술 방어권 (PASS) - 이번 턴 마시기 완전 면제!',
+    '👑 지목권 (TARGET) - 원하는 사람 1명 지목해서 마시기!',
+    '⚔️ 흑기사 소환권 - 흑기사/흑장미 소환! (소원 1개)',
+    '💃 댄스 타임 5초 - 치명적인 댄스 5초 or 1잔 마시기',
+    '👀 눈싸움 배틀 - 왼쪽 사람과 눈싸움! 깜빡이면 1잔',
+    '🎵 노래 한 소절 - 애창곡 한 소절 부르기 or 1잔',
+    '🥂 다같이 건배! - 분위기 UP! 모두 다같이 원샷 건배',
+    '👈 왼쪽 사람 원샷 - 내 왼쪽 사람이 시원하게 1잔!',
+    '👉 오른쪽 사람 원샷 - 내 오른쪽 사람이 시원하게 1잔!',
+    '💧 물 한잔 원샷 - 알코올 해독 타임! 물 시원하게 1컵',
+    '💋 달콤한 러브샷 - 마음에 드는 사람과 달콤한 러브샷',
+    '💀 벌주 2잔 원샷! - 당첨! 벌주 2잔 시원하게 원샷 💥',
+    '🌊 파도타기 시작! - 내가 첫 주자로 전원 파도타기 원샷'
+];
+
 const HOT_CARDS = [
-    '💋 Love shot 러브샷 or 2잔',
-    '👀 10초 아이콘택트 & 손깍지',
-    '🔥 가장 섹시한 사람 & 밀착 러브샷',
-    '💆 어깨 마사지 15초 or 1잔',
-    '💬 귓속말 심쿵 19금 칭찬',
-    '📖 첫키스/아찔했던 썰 45초',
-    '💃 섹시 댄스 5초 or 2잔',
-    '💋 볼/손등 뽀뽀 3초 or 3잔',
-    '🔞 가장 매력적인 신체 부위 고백',
-    '🫂 5초 백허그 or 2잔',
-    '🤫 귓속말 비밀 진실 응답',
-    '🥂 삼각 밀착 러브샷'
+    '💋 밀착 러브샷 or 2잔 - 가장 섹시한 사람과 밀착 러브샷',
+    '👀 10초 아이콘택트 & 손깍지 - 10초간 눈맞추며 손깍지 끼기 or 2잔',
+    '🔥 섹시 지목 러브샷 - 가장 매력적인 사람 지목 & 러브샷',
+    '💆 어깨 마사지 15초 - 원하는 사람 어깨 마사지 해주기 or 1잔',
+    '💬 귓속말 19금 심쿵 칭찬 - 귓속말로 야릇하고 설레는 19금 칭찬하기',
+    '📖 첫 키스/아찔했던 썰 - 가장 아찔했던 연애 썰 45초 풀기',
+    '💃 섹시 댄스 5초 or 2잔 - 음악에 맞춰 치명적인 섹시 댄스 5초',
+    '💋 볼 or 손등 뽀뽀 3초 - 볼 또는 손등에 뽀뽀 3초 (못하면 3잔)',
+    '🔞 매력 신체부위 솔직 고백 - 가장 매력적인 신체 부위 솔직히 말하기',
+    '🫂 5초 백허그 or 2잔 - 지정된 사람과 5초간 백허그',
+    '🤫 비밀 19금 진실 귓속말 - 19금 질문 받고 귓속말로 진실 응답',
+    '🥂 삼각 밀착 러브샷 - 3명이서 다같이 삼각 러브샷 릴레이!',
+    '👑 19금 지목권 (TARGET) - 원하는 사람 1명에게 19금 벌칙 지목!',
+    '🔥 폭풍 벌주 3잔 원샷! - 화끈한 19금 폭풍 벌주 3잔 원샷 💥'
 ];
 
 /** 시간 폭탄의 돌발 미션 — HOT 모드일 때 이 세트를 씁니다. */
@@ -2218,8 +3336,10 @@ const app = {
     fingerColors: ['#ff0055', '#00f3ff', '#a200ff', '#ffaa00', '#00ffaa'],
 
     // Cards variables
-    defaultCards: ['Love shot', 'Drink water', 'Next person drinks', 'Cheers everyone!', 'Drink 1 shot', 'Left person drinks', 'Right person drinks', 'Sing a song', 'Black Knight'],
+    defaultCards: [...DEFAULT_CARDS],
     cardMissions: [],
+    assignedCardData: [],
+    cardFlippedCount: 0,
 
     init() {
         this.loadSettings();
@@ -2403,24 +3523,49 @@ const app = {
             this.updateRouletteWheel(options);
             document.getElementById('roulette-result').innerText = '';
         }
-        if (screenId === 'cards') this.resetCards();
+        if (screenId === 'cards') this.setupCards();
         if (screenId === 'crocodile') this.initCrocodile();
         if (screenId === 'finger') this.setupFingerRoulette();
         if (screenId === 'titanic') this.initTitanic();
         if (screenId === 'bridge') this.initBridge();
     },
 
+    loadRoulettePreset(presetKey) {
+        soundFX.playTick();
+        haptics.tick();
+        const inputArea = document.getElementById('roulette-input-text');
+        
+        let presetOptions = [];
+        if (presetKey === 'classic') {
+            presetOptions = ['원샷! 🍺', '양옆 마시기 🍻', '다같이 건배! 🥂', '지목해서 마시기 👑', '나 빼고 다 마셔 😎', '물 한잔 마시기 💧', '흑기사 소환 ⚔️', '술 방어권 (PASS) 🛡️'];
+        } else if (presetKey === 'spicy') {
+            presetOptions = [...HOT_ROULETTE];
+        } else if (presetKey === 'king') {
+            presetOptions = ['💃 섹시 댄스 5초', '👀 눈싸움 배틀 (패자 1잔)', '💕 애교 3종 세트', '🎵 노래 한 소절', '🤫 비밀 19금 고백', '🤝 양옆과 손깍지 10초', '💥 벌주 2잔 원샷'];
+        } else if (presetKey === 'players') {
+            presetOptions = Array.from({length: this.playerCount}, (_, i) => `플레이어 ${i + 1} 🎯`);
+        }
+
+        if (inputArea) {
+            inputArea.value = presetOptions.join(', ');
+            inputArea.focus();
+        }
+    },
+
     updateRouletteWheel(options) {
         const wheel = document.getElementById('roulette-wheel');
+        if (!wheel) return;
+        
         // Clear previous slice labels
         const oldLabels = wheel.querySelectorAll('.roulette-slice-label');
         oldLabels.forEach(el => el.remove());
 
-        const colors = ['#ff0055', '#a200ff', '#00f3ff', '#ffaa00', '#00ffaa', '#ff00aa', '#5500ff'];
+        const colors = ['#ff0055', '#a200ff', '#00f3ff', '#ffaa00', '#00ffaa', '#ff00aa', '#5500ff', '#ff7700'];
         let gradient = [];
-        const angle = 360 / options.length;
+        const count = options.length;
+        const angle = 360 / count;
         
-        for(let i=0; i<options.length; i++) {
+        for(let i=0; i<count; i++) {
             const color = colors[i % colors.length];
             gradient.push(`${color} ${i * angle}deg ${(i + 1) * angle}deg`);
 
@@ -2431,9 +3576,9 @@ const app = {
             const rotateDeg = (i * angle) + (angle / 2);
             label.style.transform = `rotate(${rotateDeg}deg)`;
             
-            // Limit character length to fit inside slices nicely
+            // Format slice label
             let text = options[i];
-            if (text.length > 8) text = text.substring(0, 7) + '..';
+            if (text.length > 10) text = text.substring(0, 9) + '..';
             label.innerText = text;
 
             wheel.appendChild(label);
@@ -2448,34 +3593,117 @@ const app = {
         this.isSpinning = true;
         
         const wheel = document.getElementById('roulette-wheel');
+        const pointer = document.getElementById('roulette-pointer');
         const resultText = document.getElementById('roulette-result');
-        resultText.innerText = '';
+        const resultCard = document.getElementById('roulette-result-card');
+        const spinBtn = document.getElementById('roulette-spin-btn');
+        if (resultText) resultText.innerText = '돌아가는 중... 🎯';
+        if (resultCard) resultCard.classList.remove('has-result');
+        if (spinBtn) spinBtn.disabled = true;
 
         let optionsToUse = this.currentRouletteMode === 'player' ? 
             Array.from({length: this.playerCount}, (_, i) => `플레이어 ${i + 1}`) : 
             this.currentMissionRouletteOptions;
 
+        if (!optionsToUse || optionsToUse.length === 0) {
+            optionsToUse = [...this.defaultRoulette];
+        }
+
         soundFX.init();
         
-        // Random spin between 5 to 10 full rotations + random angle
-        const spins = 5 + Math.random() * 5;
+        // Random spin between 6 to 10 full rotations + random angle
+        const spins = 6 + Math.random() * 4;
         const extraDegrees = Math.random() * 360;
         this.rouletteRotation += (spins * 360) + extraDegrees;
         
         wheel.style.transform = `rotate(${this.rouletteRotation}deg)`;
         
-        let spinTicks = setInterval(() => soundFX.playTick(), 150);
+        // Realistic decelerating sound & pointer twitch schedule
+        let tickCount = 0;
+        const totalTicks = 28;
+        const spinDuration = 4200; // ms
+        
+        const triggerTick = (index) => {
+            if (!this.isSpinning) return;
+            soundFX.playTick(index % 2 === 0);
+            haptics.tick();
+            if (pointer) {
+                pointer.classList.remove('twitch');
+                void pointer.offsetWidth; // trigger reflow
+                pointer.classList.add('twitch');
+            }
+        };
+
+        for (let i = 0; i < totalTicks; i++) {
+            // Deceleration power curve
+            const progress = i / totalTicks;
+            const delay = Math.pow(progress, 2.2) * (spinDuration - 300);
+            setTimeout(() => triggerTick(i), delay);
+        }
         
         setTimeout(() => {
-            clearInterval(spinTicks);
-            soundFX.playTada();
             this.isSpinning = false;
+            if (spinBtn) spinBtn.disabled = false;
+            
             // Calculate which segment won based on the final angle
             const normalizedDegrees = this.rouletteRotation % 360;
             const segmentAngle = 360 / optionsToUse.length;
             const segmentIndex = Math.floor(((360 - normalizedDegrees) % 360) / segmentAngle);
-            resultText.innerText = `결과 · Result: ${optionsToUse[segmentIndex] || '당첨! Winner!'}`;
-        }, 4000);
+            const winnerText = optionsToUse[segmentIndex] || '당첨! Winner!';
+            
+            // Sound and effects
+            soundFX.playGoldFanfare();
+            haptics.buildUp();
+
+            if (resultText) resultText.innerHTML = `🏆 당첨: <strong>${winnerText}</strong>`;
+            if (resultCard) resultCard.classList.add('has-result');
+
+            // Open celebratory winner modal
+            setTimeout(() => {
+                this.openRouletteWinnerModal(winnerText);
+            }, 450);
+        }, spinDuration);
+    },
+
+    openRouletteWinnerModal(winnerText) {
+        const modal = document.getElementById('roulette-winner-modal');
+        const title = document.getElementById('roulette-winner-title');
+        const icon = document.getElementById('roulette-winner-icon');
+        const sub = document.getElementById('roulette-winner-sub');
+        const badge = document.getElementById('roulette-winner-badge');
+        if (!modal) return;
+
+        // Choose appropriate icon
+        let iconEmoji = '🎯';
+        if (winnerText.includes('원샷') || winnerText.includes('잔') || winnerText.includes('마시')) iconEmoji = '🍺';
+        if (winnerText.includes('러브샷') || winnerText.includes('뽀뽀') || winnerText.includes('키스')) iconEmoji = '💋';
+        if (winnerText.includes('지목') || winnerText.includes('왕')) iconEmoji = '👑';
+        if (winnerText.includes('물')) iconEmoji = '💧';
+        if (winnerText.includes('댄스') || winnerText.includes('노래')) iconEmoji = '💃';
+        if (winnerText.includes('방어') || winnerText.includes('PASS')) iconEmoji = '🛡️';
+        if (winnerText.includes('폭풍') || winnerText.includes('벌주')) iconEmoji = '💥';
+
+        if (title) title.innerText = winnerText;
+        if (icon) icon.innerText = iconEmoji;
+        if (sub) sub.innerText = this.hotMode ? '화끈하게 미션 수행 or 벌주 마시기! 🔥' : '모두 환호! 당첨된 미션을 시원하게 수행하세요!';
+        if (badge) badge.innerText = this.hotMode ? '🔥 19+ SPICY WINNER!' : '🏆 당첨 벌칙 · WINNER!';
+
+        modal.classList.add('active');
+    },
+
+    closeRouletteWinnerModal() {
+        const modal = document.getElementById('roulette-winner-modal');
+        if (modal) {
+            soundFX.playTick();
+            modal.classList.remove('active');
+        }
+    },
+
+    spinRouletteAgain() {
+        this.closeRouletteWinnerModal();
+        setTimeout(() => {
+            this.spinRoulette();
+        }, 300);
     },
 
     // Bomb Logic
@@ -2611,28 +3839,127 @@ const app = {
         }, 2000);
     },
 
-    // Cards Logic
+    // Cards Logic - 52 Playing Card Deck System
+    generateRandomPlayingDeck(count) {
+        const suits = [
+            { symbol: '♠', kr: '스페이드', en: 'Spade', isRed: false, colorClass: 'suit-black' },
+            { symbol: '♥', kr: '하트', en: 'Heart', isRed: true, colorClass: 'suit-red' },
+            { symbol: '♦', kr: '다이아', en: 'Diamond', isRed: true, colorClass: 'suit-red' },
+            { symbol: '♣', kr: '클로버', en: 'Clover', isRed: false, colorClass: 'suit-black' }
+        ];
+        const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        
+        const deck = [];
+        for (const s of suits) {
+            for (const r of ranks) {
+                deck.push({
+                    suitSymbol: s.symbol,
+                    suitKr: s.kr,
+                    suitEn: s.en,
+                    rank: r,
+                    fullNameKr: `${s.kr} ${r}`,
+                    fullNameEn: `${r} of ${s.en}`,
+                    badgeText: `${s.symbol} ${r}`,
+                    isRed: s.isRed,
+                    colorClass: s.colorClass
+                });
+            }
+        }
+
+        // Fisher-Yates Shuffle
+        for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+        return deck.slice(0, count);
+    },
+
+    parseCardMission(raw) {
+        if (!raw) return { cat: 'action', icon: '🎯', title: '미션 카드', sub: '즐겁게 미션 수행하기!' };
+        if (typeof raw === 'object' && raw.title) return raw;
+        
+        const str = String(raw).trim();
+        let cat = 'action';
+        let icon = '⚡';
+        let title = str;
+        let sub = '미션 수행 or 시원하게 1잔 마시기!';
+
+        if (str.includes(' - ')) {
+            const parts = str.split(' - ');
+            title = parts[0].trim();
+            sub = parts.slice(1).join(' - ').trim();
+        }
+
+        // Category & icon detection
+        if (str.includes('방어') || str.includes('지목') || str.includes('흑기사') || str.includes('PASS') || str.includes('TARGET') || str.includes('Shield') || str.includes('Knight')) {
+            cat = 'lucky';
+            icon = str.includes('방어') || str.includes('PASS') ? '🛡️' : (str.includes('흑기사') ? '⚔️' : '👑');
+        } else if (str.includes('벌주') || str.includes('2잔') || str.includes('3잔') || str.includes('폭풍') || str.includes('파도타기') || str.includes('폭탄') || str.includes('Double') || str.includes('Triple')) {
+            cat = 'bomb';
+            icon = str.includes('3잔') || str.includes('폭풍') ? '🔥' : (str.includes('파도타기') ? '🌊' : '💀');
+        } else if (this.hotMode || str.includes('러브샷') || str.includes('뽀뽀') || str.includes('키스') || str.includes('백허그') || str.includes('섹시') || str.includes('귓속말') || str.includes('신체') || str.includes('19금') || str.includes('Spicy') || str.includes('Love') || str.includes('Hug')) {
+            cat = 'spicy';
+            icon = str.includes('뽀뽀') || str.includes('키스') || str.includes('러브샷') ? '💋' : (str.includes('백허그') ? '🫂' : (str.includes('귓속말') ? '💬' : (str.includes('아이콘택트') ? '👀' : '🔥')));
+        } else {
+            cat = 'action';
+            icon = str.includes('댄스') ? '💃' : (str.includes('노래') ? '🎵' : (str.includes('눈싸움') ? '👀' : (str.includes('물') ? '💧' : (str.includes('건배') ? '🥂' : (str.includes('왼쪽') ? '👈' : (str.includes('오른쪽') ? '👉' : '⚡'))))));
+        }
+
+        // Clean leading emojis from title if already extracted
+        const emojiRegex = /^([\uD800-\uDBFF][\uDC00-\uDFFF]|[\u2600-\u27BF]|\p{Emoji_Presentation}|\p{Extended_Pictographic})\s*/u;
+        const match = title.match(emojiRegex);
+        if (match) {
+            icon = match[1];
+            title = title.replace(emojiRegex, '').trim();
+        }
+
+        return { cat, icon, title, sub };
+    },
+
     setupCards() {
         const grid = document.getElementById('cards-grid');
+        if (!grid) return;
         grid.innerHTML = '';
+        this.cardFlippedCount = 0;
+        this.assignedCardData = [];
+        this.currentPlayingCards = this.generateRandomPlayingDeck(this.playerCount);
         
         let cols = 3;
         if (this.playerCount <= 4) cols = 2;
-        else if (this.playerCount >= 10) cols = 4;
-        else if (this.playerCount >= 15) cols = 5;
+        else if (this.playerCount <= 9) cols = 3;
+        else if (this.playerCount <= 14) cols = 4;
+        else cols = 5;
         grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
         
         // Create cards based on player count
         for(let i=0; i<this.playerCount; i++) {
+            const cardInfo = this.currentPlayingCards[i] || {
+                suitSymbol: '♠', suitKr: '스페이드', rank: 'A', fullNameKr: '스페이드 A', colorClass: 'suit-black'
+            };
+
             const card = document.createElement('div');
             card.className = 'card';
+            card.setAttribute('data-index', i);
             
             const inner = document.createElement('div');
             inner.className = 'card-inner';
             
             const front = document.createElement('div');
             front.className = 'card-front';
-            front.innerText = '?';
+            front.innerHTML = `
+                <div class="card-corner-index top-left ${cardInfo.colorClass}">
+                    <span>${cardInfo.rank}</span>
+                    <span>${cardInfo.suitSymbol}</span>
+                </div>
+                <div class="card-front-content">
+                    <div class="card-front-emblem">${cardInfo.suitSymbol}</div>
+                    <div class="card-front-name-badge ${cardInfo.colorClass}">${cardInfo.fullNameKr}</div>
+                </div>
+                <div class="card-corner-index bottom-right ${cardInfo.colorClass}">
+                    <span>${cardInfo.rank}</span>
+                    <span>${cardInfo.suitSymbol}</span>
+                </div>
+            `;
             
             const back = document.createElement('div');
             back.className = 'card-back';
@@ -2641,42 +3968,194 @@ const app = {
             inner.appendChild(back);
             card.appendChild(inner);
             
+            card.onmouseenter = () => soundFX.playCardHover();
             card.onclick = () => this.flipCard(card, i);
             grid.appendChild(card);
         }
         this.assignCardMissions();
+        this.updateCardStatus();
     },
 
     assignCardMissions() {
-        const cards = document.querySelectorAll('.card-back');
+        const cardBacks = document.querySelectorAll('#cards-grid .card-back');
         let pool = [...this.cardMissions];
-        let selectedMissions = [];
+        this.assignedCardData = [];
         
         for(let i=0; i<this.playerCount; i++) {
-            if(pool.length === 0) pool = [...this.cardMissions];
+            if(pool.length === 0) pool = (this.hotMode ? [...HOT_CARDS] : [...this.defaultCards]);
             const randIndex = Math.floor(Math.random() * pool.length);
-            selectedMissions.push(pool.splice(randIndex, 1)[0]);
+            const rawMission = pool.splice(randIndex, 1)[0];
+            const parsed = this.parseCardMission(rawMission);
+            parsed.playingCard = this.currentPlayingCards[i] || {
+                suitSymbol: '♠', suitKr: '스페이드', rank: 'A', fullNameKr: '스페이드 A', colorClass: 'suit-black'
+            };
+            this.assignedCardData.push(parsed);
         }
         
-        cards.forEach((card, index) => {
-            card.innerText = selectedMissions[index];
+        cardBacks.forEach((back, index) => {
+            const m = this.assignedCardData[index] || this.parseCardMission(this.cardMissions[0]);
+            const cardInfo = m.playingCard;
+            back.className = `card-back cat-${m.cat}`;
+            const catLabel = m.cat === 'lucky' ? '🌟 LUCKY' : (m.cat === 'spicy' ? '🔥 SPICY' : (m.cat === 'bomb' ? '💣 BOMB' : '⚡ ACTION'));
+            back.innerHTML = `
+                <div class="card-back-header">
+                    <div class="card-playing-id ${cardInfo.colorClass}">${cardInfo.fullNameKr}</div>
+                    <div class="card-back-badge">${catLabel}</div>
+                </div>
+                <div class="card-back-center">
+                    <div class="card-back-icon">${m.icon}</div>
+                    <div class="card-back-title">${m.title}</div>
+                    <div class="card-back-sub">${m.sub}</div>
+                </div>
+                <div class="card-zoom-hint">🔍 탭하여 확대</div>
+            `;
         });
     },
 
-    flipCard(cardElement) {
-        if (!cardElement.classList.contains('flipped')) {
-            soundFX.playFlip();
+    updateCardStatus() {
+        const counterBadge = document.getElementById('cards-counter-badge');
+        if (counterBadge) {
+            const remaining = this.playerCount - this.cardFlippedCount;
+            counterBadge.innerText = `🃏 남은 카드: ${remaining} / ${this.playerCount}`;
+        }
+    },
+
+    flipCard(cardElement, index) {
+        const m = this.assignedCardData[index] || this.parseCardMission(this.cardMissions[0]);
+        const isAlreadyFlipped = cardElement.classList.contains('flipped');
+        
+        if (!isAlreadyFlipped) {
+            soundFX.playCardFlip();
             cardElement.classList.add('flipped');
+            this.cardFlippedCount++;
+            this.updateCardStatus();
+            haptics.tick();
+
+            // Category fanfare sound
+            setTimeout(() => {
+                if (m.cat === 'lucky') {
+                    soundFX.playGoldFanfare();
+                } else if (m.cat === 'spicy') {
+                    soundFX.playSpicyBeat();
+                } else if (m.cat === 'bomb') {
+                    soundFX.playBombHit();
+                    haptics.loser();
+                } else {
+                    soundFX.playActionChime();
+                }
+            }, 250);
+
+            // Pop spotlight modal on first flip for maximum party excitement
+            setTimeout(() => {
+                this.openCardSpotlight(m);
+            }, 500);
+        } else {
+            // Already flipped -> reopen spotlight view in large font
+            soundFX.playCardFlip();
+            this.openCardSpotlight(m);
+        }
+    },
+
+    openCardSpotlight(mission) {
+        const modal = document.getElementById('card-spotlight-modal');
+        const body = document.getElementById('spotlight-card-body');
+        const badge = document.getElementById('spotlight-badge');
+        const icon = document.getElementById('spotlight-icon');
+        const title = document.getElementById('spotlight-title');
+        const sub = document.getElementById('spotlight-sub');
+        const idBanner = document.getElementById('spotlight-card-id-banner');
+        const cornerTL = document.getElementById('spotlight-corner-tl');
+        const cornerBR = document.getElementById('spotlight-corner-br');
+        if (!modal || !body) return;
+
+        const cardInfo = mission.playingCard || {
+            suitSymbol: '♠', suitKr: '스페이드', rank: 'A', fullNameKr: '스페이드 A', colorClass: 'suit-black'
+        };
+
+        body.className = `spotlight-card-body cat-${mission.cat}`;
+        const catLabel = mission.cat === 'lucky' ? '🌟 LUCKY GOLD' : (mission.cat === 'spicy' ? '🔥 SPICY 19+ HOT' : (mission.cat === 'bomb' ? '💣 BOMB PENALTY' : '⚡ ACTION MISSION'));
+        badge.innerText = catLabel;
+        icon.innerText = mission.icon;
+        title.innerText = mission.title;
+        sub.innerText = mission.sub;
+
+        if (idBanner) {
+            idBanner.className = `spotlight-card-id-banner ${cardInfo.colorClass}`;
+            idBanner.innerText = `${cardInfo.suitSymbol} ${cardInfo.rank} · ${cardInfo.fullNameKr}`;
+        }
+        if (cornerTL) {
+            cornerTL.className = `spotlight-corner-deco top-left ${cardInfo.colorClass}`;
+            cornerTL.innerText = `${cardInfo.rank}${cardInfo.suitSymbol}`;
+        }
+        if (cornerBR) {
+            cornerBR.className = `spotlight-corner-deco bottom-right ${cardInfo.colorClass}`;
+            cornerBR.innerText = `${cardInfo.rank}${cardInfo.suitSymbol}`;
+        }
+
+        modal.classList.add('active');
+    },
+
+    closeCardSpotlight() {
+        const modal = document.getElementById('card-spotlight-modal');
+        if (modal) {
+            soundFX.playTick();
+            modal.classList.remove('active');
         }
     },
 
     resetCards() {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => card.classList.remove('flipped'));
+        const cards = document.querySelectorAll('#cards-grid .card');
+        soundFX.playCardShuffle();
+        haptics.vibrate([40, 30, 40, 30, 60]);
+
+        // Generate a fresh random 52-card deck subset
+        this.currentPlayingCards = this.generateRandomPlayingDeck(this.playerCount);
+
+        // Trigger 3D shuffle animation
+        cards.forEach((card, idx) => {
+            const randX = (Math.random() - 0.5) * 50;
+            const randY = -20 - Math.random() * 30;
+            const randR = (Math.random() - 0.5) * 35;
+            card.style.setProperty('--shf-x', `${randX}px`);
+            card.style.setProperty('--shf-y', `${randY}px`);
+            card.style.setProperty('--shf-r', `${randR}deg`);
+            card.style.setProperty('--shf-x2', `${-randX * 0.7}px`);
+            card.style.setProperty('--shf-y2', `${15}px`);
+            card.style.setProperty('--shf-r2', `${-randR * 0.5}deg`);
+
+            card.classList.add('shuffling');
+            setTimeout(() => {
+                card.classList.remove('flipped');
+                // Update face-down card front with new card identity
+                const cardInfo = this.currentPlayingCards[idx] || {
+                    suitSymbol: '♠', suitKr: '스페이드', rank: 'A', fullNameKr: '스페이드 A', colorClass: 'suit-black'
+                };
+                const front = card.querySelector('.card-front');
+                if (front) {
+                    front.innerHTML = `
+                        <div class="card-corner-index top-left ${cardInfo.colorClass}">
+                            <span>${cardInfo.rank}</span>
+                            <span>${cardInfo.suitSymbol}</span>
+                        </div>
+                        <div class="card-front-content">
+                            <div class="card-front-emblem">${cardInfo.suitSymbol}</div>
+                            <div class="card-front-name-badge ${cardInfo.colorClass}">${cardInfo.fullNameKr}</div>
+                        </div>
+                        <div class="card-corner-index bottom-right ${cardInfo.colorClass}">
+                            <span>${cardInfo.rank}</span>
+                            <span>${cardInfo.suitSymbol}</span>
+                        </div>
+                    `;
+                }
+            }, 200);
+        });
         
         setTimeout(() => {
+            cards.forEach(card => card.classList.remove('shuffling'));
+            this.cardFlippedCount = 0;
             this.assignCardMissions();
-        }, 600); // Wait for flip animation to finish
+            this.updateCardStatus();
+        }, 700);
     },
 
     // Crocodile Logic
@@ -3007,9 +4486,14 @@ const app = {
         this.bridgeCountdownInterval = null;
     },
 
-    showBridgeWaitMessage() {
-        document.getElementById('bridge-msg').innerHTML =
-            '화면에 손가락을 모두 올려주세요!<span class="i18n-sub">Everyone place a finger on the screen!</span>';
+    showBridgeWaitMessage(count = 0) {
+        if (count === 1) {
+            document.getElementById('bridge-msg').innerHTML =
+                '최소 2명이 필요해요! 한 명 더 올려주세요.<span class="i18n-sub">Need at least 2 players! (Currently 1)</span>';
+        } else {
+            document.getElementById('bridge-msg').innerHTML =
+                '화면에 손가락을 모두 올려주세요!<span class="i18n-sub">Everyone place a finger on the screen!</span>';
+        }
     },
 
     /**
@@ -3050,14 +4534,14 @@ const app = {
 
         const count = this.bridgeNodes.length;
         if (count < 2) {
-            this.showBridgeWaitMessage();
+            this.showBridgeWaitMessage(count);
             return;
         }
 
         let secondsLeft = this.BRIDGE_JOIN_SECONDS;
         const paint = () => {
             document.getElementById('bridge-msg').innerHTML =
-                `${count}명 참가 · <span class="bridge-count">${secondsLeft}</span>` +
+                `${count}명 참가 · <span class="bridge-count">${secondsLeft}</span> 초 후 시작` +
                 `<span class="i18n-sub">${count} players — starting in ${secondsLeft}s. Others, join now!</span>`;
         };
         paint();
