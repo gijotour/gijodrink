@@ -94,12 +94,14 @@ html, body {
 }
 
 .screen.hidden {
+    display: none !important;
     opacity: 0;
     pointer-events: none;
     z-index: -1;
 }
 
 .screen.active {
+    display: flex !important;
     opacity: 1;
     z-index: 1;
 }
@@ -201,13 +203,18 @@ h2.neon-text {
     padding: 0 14px;
     border-radius: 16px;
     text-decoration: none;
-    background: linear-gradient(120deg, rgba(0, 243, 255, 0.16), rgba(255, 0, 85, 0.16));
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    /* 배경을 조금 더 어둡게 하여 글씨가 잘 보이게 변경 */
+    background: linear-gradient(120deg, rgba(0, 243, 255, 0.25), rgba(255, 0, 85, 0.25)), rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* 테두리를 진하게 변경 */
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     transition: transform 0.15s ease, border-color 0.15s ease;
 }
 .ad-banner:active { transform: scale(0.98); }
 
-.ad-banner-icon { font-size: 1.5rem; flex-shrink: 0; }
+.ad-banner-icon { font-size: 1.5rem; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
 
 .ad-banner-text {
     flex: 1;
@@ -221,26 +228,30 @@ h2.neon-text {
     color: #fff;
     font-size: 0.86rem;
     font-weight: 800;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
 }
 
 .ad-banner-sub {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.68rem;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
 }
 
 .ad-banner-cta {
     flex-shrink: 0;
     padding: 6px 12px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #fff;
     font-size: 0.68rem;
     font-weight: 700;
     white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
 /* 볼드 벤토 — 균등한 6칸 대신 위계를 준다.
@@ -285,7 +296,8 @@ h2.neon-text {
 }
 
 .quad-btn {
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    /* 테두리를 약간 더 밝게 하여 윤곽선을 뚜렷하게 */
+    border: 1px solid rgba(255, 255, 255, 0.35);
     outline: none;
     cursor: pointer;
     display: flex;
@@ -294,7 +306,8 @@ h2.neon-text {
     justify-content: flex-end;
     gap: 3px;
     font-family: var(--font-main);
-    background: rgba(18, 18, 28, 0.75);
+    /* 배경을 더 어둡게 하여 네온 배경과 분리 */
+    background: rgba(10, 10, 16, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     position: relative;
@@ -302,14 +315,14 @@ h2.neon-text {
     border-radius: 14px;
     padding: clamp(10px, 3vw, 16px);
     text-align: left;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     transition: all 0.2s cubic-bezier(0.2, 0.8, 0.3, 1);
 }
 
 .quad-btn:hover, .quad-btn:focus-visible {
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-2px);
-    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 85, 0.3);
+    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 0, 85, 0.4);
 }
 
 .quad-btn:active {
@@ -325,13 +338,13 @@ h2.neon-text {
     font-size: clamp(0.6rem, 2.2vw, 0.72rem);
     font-weight: 800;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #ffffff;
     margin-bottom: 3px;
     letter-spacing: 0.02em;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .quad-btn::before {
@@ -351,7 +364,7 @@ h2.neon-text {
 .quad-icon {
     font-size: clamp(1.5rem, 6vw, 2rem);
     line-height: 1;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.45));
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.8));
 }
 
 .quad-label-en {
@@ -359,14 +372,14 @@ h2.neon-text {
     font-weight: 800;
     letter-spacing: -0.005em;
     color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.55);
+    text-shadow: 0 2px 4px #000, 0 4px 12px rgba(0,0,0,0.9);
 }
 
 .quad-label-kr {
     font-size: clamp(0.66rem, 2.5vw, 0.78rem);
     font-weight: 600;
-    color: rgba(255,255,255,0.85);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 3px #000, 0 2px 8px rgba(0,0,0,0.8);
 }
 
 /* HOT 모드에서 벌칙·미션 내용이 실제로 바뀌는 미션 룰렛·시간 폭탄 — 배너(카드
@@ -576,27 +589,67 @@ h2.neon-text {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Roulette */
+/* Roulette Screen & Elements */
 .roulette-screen {
-    background: radial-gradient(ellipse at center, #2a0016 0%, #0d0008 80%);
+    background:
+        radial-gradient(ellipse at center, rgba(42, 0, 30, 0.85) 0%, rgba(13, 0, 15, 0.95) 80%),
+        url('assets/slot_jackpot_fever_spicy_1787296479718.jpg') center/cover;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: clamp(14px, 3vh, 24px);
+    padding-bottom: clamp(14px, 3vh, 24px);
+}
+
+body.hot .roulette-screen {
+    background:
+        radial-gradient(ellipse at center, rgba(60, 0, 20, 0.85) 0%, rgba(15, 0, 5, 0.98) 80%),
+        url('assets/drink_spicy_main_banner_1787296777970.jpg') center/cover;
 }
 
 .roulette-container {
     position: relative;
-    width: min(85vw, 420px);
-    height: min(85vw, 420px);
-    margin-bottom: 20px;
+    width: min(82vw, 400px);
+    height: min(82vw, 400px);
+    margin-bottom: clamp(12px, 2.5vh, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* 휠 뒤 은은한 후광 — 메뉴의 대담한 그래픽 배경을 게임 화면까지 이어준다 */
+/* 휠 뒤 은은한 후광 */
 .roulette-container::before {
     content: '';
     position: absolute;
-    inset: -10%;
-    background: radial-gradient(circle, rgba(255, 0, 85, 0.45) 0%, rgba(255, 107, 157, 0.25) 45%, transparent 72%);
+    inset: -8%;
+    background: radial-gradient(circle, rgba(255, 0, 85, 0.45) 0%, rgba(0, 243, 255, 0.25) 45%, transparent 72%);
     border-radius: 50%;
-    filter: blur(6px);
+    filter: blur(10px);
     pointer-events: none;
+    animation: roulette-aura 4s infinite alternate ease-in-out;
+}
+
+body.hot .roulette-container::before {
+    background: radial-gradient(circle, rgba(255, 0, 85, 0.6) 0%, rgba(255, 107, 157, 0.3) 50%, transparent 75%);
+}
+
+@keyframes roulette-aura {
+    0% { transform: scale(0.96); opacity: 0.7; }
+    100% { transform: scale(1.04); opacity: 1; }
+}
+
+.roulette-wheel-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, #2b2b3a 0%, #101018 100%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 243, 255, 0.4);
+    box-sizing: border-box;
+}
+
+body.hot .roulette-wheel-wrapper {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 0, 85, 0.55);
 }
 
 .roulette-wheel {
@@ -607,11 +660,12 @@ h2.neon-text {
     box-shadow: 0 0 0 4px var(--primary-neon), 0 0 45px rgba(255, 0, 85, 0.65), inset 0 0 35px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    transition: transform 4s cubic-bezier(0.15, 0.85, 0.35, 1);
+    transition: transform 4.2s cubic-bezier(0.12, 0.88, 0.32, 1);
+    box-sizing: border-box;
 }
 
-.roulette-wheel::after {
-    content: '';
+/* Center Hub with Neon GIJO Emblem */
+.roulette-center-hub {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -631,12 +685,37 @@ h2.neon-text {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background: var(--bg-color);
+    width: clamp(48px, 13vw, 62px);
+    height: clamp(48px, 13vw, 62px);
+    background: radial-gradient(circle at 35% 35%, #2a2a3e 0%, #0c0c16 100%);
     border-radius: 50%;
     border: 3px solid var(--secondary-neon);
-    z-index: 5;
+    box-shadow: 0 0 18px rgba(0, 243, 255, 0.6), inset 0 2px 6px rgba(255, 255, 255, 0.4);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+body.hot .roulette-center-hub {
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.7), inset 0 2px 6px rgba(255, 255, 255, 0.4);
+}
+
+.roulette-center-hub-icon {
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    line-height: 1;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+.roulette-center-hub-text {
+    font-size: clamp(0.48rem, 1.5vw, 0.58rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #fff;
 }
 
 .roulette-slice-label {
@@ -649,27 +728,286 @@ h2.neon-text {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 15px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    color: #fff;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 5px rgba(0, 0, 0, 0.8);
+    padding-top: clamp(14px, 3.5vw, 22px);
+    font-weight: 900;
+    font-size: clamp(0.78rem, 2.4vw, 0.95rem);
+    color: #ffffff;
+    text-shadow: 0 2px 4px #000, 0 0 8px rgba(0, 0, 0, 0.95);
     pointer-events: none;
     box-sizing: border-box;
+    letter-spacing: -0.01em;
 }
 
+/* 3D Pointer with Physics Twitch */
 .roulette-pointer {
     position: absolute;
-    top: -15px;
+    top: -16px;
     left: 50%;
     transform: translateX(-50%);
     width: 0; 
     height: 0; 
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 35px solid #fff;
-    filter: drop-shadow(0 0 5px #fff);
-    z-index: 10;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 36px solid #ff0055;
+    filter: drop-shadow(0 0 10px #ff0055) drop-shadow(0 4px 6px rgba(0,0,0,0.8));
+    z-index: 20;
+    transform-origin: 50% 0%;
+    transition: transform 0.05s ease;
+}
+
+.roulette-pointer::after {
+    content: '';
+    position: absolute;
+    top: -36px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+}
+
+.roulette-pointer.twitch {
+    animation: pointer-twitch 0.08s ease-in-out;
+}
+
+@keyframes pointer-twitch {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(-16deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* Quick Presets on Input Screen */
+.roulette-presets-container {
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.roulette-presets-title {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--secondary-neon);
+    text-shadow: 0 0 8px var(--secondary-neon);
+}
+
+.roulette-preset-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.roulette-chip-btn {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: clamp(0.72rem, 2.4vw, 0.82rem);
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.roulette-chip-btn:hover {
+    border-color: var(--secondary-neon);
+    background: rgba(0, 243, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+}
+
+.roulette-chip-btn.active {
+    border-color: var(--primary-neon);
+    background: rgba(255, 0, 85, 0.25);
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+    color: #fff;
+}
+
+/* Roulette Result Banner (Screen) */
+.roulette-result-card {
+    margin-top: 12px;
+    width: 90%;
+    max-width: 380px;
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.roulette-result-card.has-result {
+    border-color: var(--secondary-neon);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.35);
+    animation: result-card-pop 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@keyframes result-card-pop {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Roulette Winner Modal (대형 당첨 결과 팝업) */
+.roulette-winner-modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.roulette-winner-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.roulette-winner-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.roulette-winner-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transform: scale(0.7) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.roulette-winner-modal.active .roulette-winner-content {
+    transform: scale(1) translateY(0);
+}
+
+.roulette-winner-card {
+    width: 100%;
+    border-radius: 24px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    background: radial-gradient(circle at center, #260f38 0%, #0c0414 100%);
+    border: 3px solid var(--secondary-neon);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 243, 255, 0.5);
+    box-sizing: border-box;
+}
+
+body.hot .roulette-winner-card {
+    background: radial-gradient(circle at center, #45001c 0%, #150007 100%);
+    border-color: var(--primary-neon);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 0, 85, 0.65);
+}
+
+.roulette-winner-badge {
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    padding: 4px 18px;
+    border-radius: 20px;
+    background: rgba(0, 243, 255, 0.2);
+    border: 2px solid var(--secondary-neon);
+    color: var(--secondary-neon);
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+body.hot .roulette-winner-badge {
+    background: rgba(255, 0, 85, 0.25);
+    border-color: var(--primary-neon);
+    color: #ff5588;
+    box-shadow: 0 0 15px var(--primary-neon);
+}
+
+.roulette-winner-icon {
+    font-size: 4.2rem;
+    line-height: 1;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.8));
+    animation: winner-icon-pop 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes winner-icon-pop {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.15) rotate(6deg); }
+}
+
+.roulette-winner-title {
+    font-size: clamp(1.45rem, 6.5vw, 2.1rem);
+    font-weight: 900;
+    line-height: 1.25;
+    word-break: keep-all;
+    color: #ffffff;
+    text-shadow: 0 0 20px var(--secondary-neon), 0 4px 10px #000;
+}
+
+body.hot .roulette-winner-title {
+    text-shadow: 0 0 20px var(--primary-neon), 0 4px 10px #000;
+}
+
+.roulette-winner-sub {
+    font-size: clamp(0.9rem, 3.8vw, 1.05rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.35;
+    word-break: keep-all;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 90%;
+}
+
+.roulette-winner-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.roulette-spin-again-btn {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 10px 16px;
+}
+
+.roulette-winner-close-btn {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.roulette-winner-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .result-text {
@@ -806,7 +1144,102 @@ h2.neon-text {
     display: none;
 }
 
-/* Cards */
+/* Cards Screen & Elements */
+.cards-screen {
+    background:
+        radial-gradient(ellipse at center, rgba(30, 8, 45, 0.75) 0%, rgba(10, 5, 18, 0.95) 80%),
+        url('assets/slot_double_gamble_cards_1787296496813.jpg') center/cover;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    padding-top: clamp(14px, 3vh, 24px);
+    padding-bottom: clamp(14px, 3vh, 24px);
+}
+
+body.hot .cards-screen {
+    background:
+        radial-gradient(ellipse at center, rgba(55, 0, 20, 0.82) 0%, rgba(15, 0, 5, 0.98) 80%),
+        url('assets/drink_spicy_main_banner_1787296777970.jpg') center/cover;
+}
+
+.cards-header {
+    text-align: center;
+    margin-bottom: clamp(8px, 1.5vh, 16px);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.cards-suit-deco {
+    font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+    letter-spacing: 0.35em;
+    color: var(--secondary-neon);
+    text-shadow: 0 0 10px var(--secondary-neon);
+    animation: suit-glow 3s infinite alternate ease-in-out;
+}
+
+body.hot .cards-suit-deco {
+    color: var(--primary-neon);
+    text-shadow: 0 0 12px var(--primary-neon);
+}
+
+@keyframes suit-glow {
+    0% { opacity: 0.6; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-2px); }
+}
+
+.cards-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.cards-badge-counter {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 243, 255, 0.5);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: clamp(0.75rem, 2.4vw, 0.85rem);
+    font-weight: 800;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.25);
+}
+
+body.hot .cards-badge-counter {
+    border-color: rgba(255, 0, 85, 0.6);
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.35);
+}
+
+.cards-hint {
+    font-size: clamp(0.72rem, 2.2vw, 0.82rem);
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    animation: hint-pulse 2s infinite alternate;
+}
+
+@keyframes hint-pulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.cards-grid-wrapper {
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+    padding: 6px 0;
+    z-index: 2;
+}
+
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -819,7 +1252,7 @@ h2.neon-text {
 
 .card {
     aspect-ratio: 2/3;
-    perspective: 1000px;
+    perspective: 1200px;
     cursor: pointer;
     border-radius: 14px;
     transition: transform 0.2s ease;
@@ -849,6 +1282,7 @@ h2.neon-text {
     backface-visibility: hidden;
     border-radius: 14px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -1011,8 +1445,8 @@ textarea:focus {
     padding: 0 !important;
     justify-content: flex-start !important;
     overflow: hidden;
-    background: radial-gradient(ellipse at center, #0f3d22 0%, #06140d 75%, #030806 100%);
-    position: relative;
+    /* 배경을 더 늪지대/악어 느낌이 나는 깊은 네온 초록빛으로 업그레이드 */
+    background: radial-gradient(ellipse at center, #185934 0%, #082114 60%, #030a06 100%);
 }
 
 .croc-back-btn {
@@ -1272,8 +1706,16 @@ textarea:focus {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,255,140,0) 0%, rgba(0,255,140,0) 100%);
+    /* 투명했던 이빨에 은은한 형광 초록빛을 추가하여 클릭 가능 영역을 직관적으로 표시 */
+    background: radial-gradient(circle, rgba(0,255,140,0.2) 0%, rgba(0,255,140,0) 80%);
+    box-shadow: inset 0 0 10px rgba(0,255,140,0.3);
     transition: background 0.15s ease, box-shadow 0.15s ease;
+    animation: tooth-idle-pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes tooth-idle-pulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
 }
 
 .croc-tooth::before {
@@ -1338,6 +1780,7 @@ textarea:focus {
 .croc-tooth.pressed::after {
     background: radial-gradient(circle at 35% 30%, #5a0e10 0%, #2a0405 65%, #1a0202 100%);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 0 6px rgba(0,0,0,0.5);
+    animation: none !important;
 }
 
 .croc-tooth.bomb {
@@ -1569,17 +2012,20 @@ textarea:focus {
 
 /* Bridge Screen Elements */
 .bridge-screen {
-    background: radial-gradient(ellipse at center, #1b002a 0%, #090010 85%);
+    /* 배경을 조금 더 화려한 보라색 그라데이션으로 변경 */
+    background: radial-gradient(ellipse at center, #2d0046 0%, #090010 85%);
 }
 
 .bridge-instructions {
     text-align: center;
-    font-size: clamp(1rem, 4vw, 1.25rem);
-    font-weight: bold;
-    color: var(--tertiary-neon);
-    text-shadow: 0 0 10px var(--tertiary-neon);
-    margin-bottom: 12px;
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    font-weight: 900;
+    color: #fff;
+    /* 텍스트 글로우 효과 강화 */
+    text-shadow: 0 0 10px var(--tertiary-neon), 0 0 20px var(--tertiary-neon), 0 0 30px var(--tertiary-neon);
+    margin-bottom: 16px;
     word-break: keep-all;
+    letter-spacing: 0.5px;
 }
 
 /* 참가 모집 카운트다운 숫자 — 손가락을 더 올릴 시간이 남았다는 걸 크게 보여준다. */
@@ -1597,10 +2043,35 @@ textarea:focus {
     width: 100%;
     flex: 1;
     position: relative;
-    border: 2px dashed rgba(162, 0, 255, 0.2);
+    /* 테두리와 배경에 네온 느낌 추가 및 애니메이션 적용 */
+    border: 3px dashed rgba(162, 0, 255, 0.5);
     border-radius: 20px;
-    background: rgba(162, 0, 255, 0.02);
+    background: radial-gradient(circle at center, rgba(162, 0, 255, 0.15) 0%, rgba(162, 0, 255, 0.03) 100%);
+    box-shadow: inset 0 0 50px rgba(162, 0, 255, 0.2), 0 0 30px rgba(162, 0, 255, 0.1);
     overflow: hidden;
+    animation: bridge-pulse 2s infinite alternate ease-in-out;
+    /* 다중 터치 시 화면 확대나 스크롤이 발생하지 않도록 차단 */
+    touch-action: none;
+}
+
+/* 터치 영역이 비어있을 때 중앙에 안내 아이콘 표시 */
+.bridge-area:empty::before {
+    content: '💖 터치 대기중...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(162, 0, 255, 0.8);
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(162, 0, 255, 0.8);
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes bridge-pulse {
+    0% { border-color: rgba(162, 0, 255, 0.4); box-shadow: inset 0 0 40px rgba(162, 0, 255, 0.15), 0 0 20px rgba(162, 0, 255, 0.1); }
+    100% { border-color: rgba(162, 0, 255, 0.8); box-shadow: inset 0 0 80px rgba(162, 0, 255, 0.35), 0 0 40px rgba(162, 0, 255, 0.25); }
 }
 
 /* 러브 드링크 노드 — 원 대신 하트 모양(SVG). 색은 div 의 border/background 가
@@ -2200,8 +2671,19 @@ body.hot .hot-toggle-btn {
         <section id="screen-roulette-input" class="screen hidden roulette-screen">
             <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
             <h2 class="neon-text">GIJO Penalty List<br><span class="title-kr">벌칙 입력</span></h2>
-            <p class="subtitle">쉼표로 구분해서 벌칙을 입력하세요<span class="i18n-sub">Enter penalties, separated by commas</span></p>
-            <textarea id="roulette-input-text" rows="6" placeholder="원샷, 양옆 마시기, 다같이 건배, 지목해서 마시기"></textarea>
+            <p class="subtitle">쉼표로 구분해서 벌칙을 입력하거나 프리셋을 선택하세요<span class="i18n-sub">Enter penalties or choose a quick preset</span></p>
+
+            <div class="roulette-presets-container">
+                <div class="roulette-presets-title">⚡ 빠른 프리셋 선택 · Quick Presets</div>
+                <div class="roulette-preset-chips">
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('classic')">🍹 기본 파티</button>
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('spicy')">🔥 19+ 스파이시</button>
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('king')">👑 왕게임 벌칙</button>
+                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('players')">👥 참가자 지목</button>
+                </div>
+            </div>
+
+            <textarea id="roulette-input-text" rows="5" placeholder="원샷!, 양옆 마시기, 다같이 건배!, 지목해서 마시기"></textarea>
             <button class="btn neon-btn" style="margin-top:16px;" onclick="app.confirmRouletteMissions()">룰렛 시작! · Start</button>
         </section>
 
@@ -2219,8 +2701,6 @@ body.hot .hot-toggle-btn {
                 <div class="roulette-wheel" id="roulette-wheel"></div>
                 <div class="roulette-pointer" id="roulette-pointer"></div>
             </div>
-            <button class="btn neon-btn" onclick="app.spinRoulette()">돌리기! · Spin!</button>
-            <div id="roulette-result" class="result-text"></div>
         </section>
 
         <!-- Bomb Screen -->
@@ -2434,6 +2914,9 @@ const soundFX = {
         filter.connect(gain);
         gain.connect(this.ctx.destination);
         noise.start();
+    },
+    playCardFlip() {
+        this.playFlip();
     },
     playFlip() {
         this.init();
@@ -2966,11 +3449,12 @@ const app = {
         const oldLabels = wheel.querySelectorAll('.roulette-slice-label');
         oldLabels.forEach(el => el.remove());
 
-        const colors = ['#ff0055', '#a200ff', '#00f3ff', '#ffaa00', '#00ffaa', '#ff00aa', '#5500ff'];
+        const colors = ['#ff0055', '#a200ff', '#00f3ff', '#ffaa00', '#00ffaa', '#ff00aa', '#5500ff', '#ff7700'];
         let gradient = [];
-        const angle = 360 / options.length;
+        const count = options.length;
+        const angle = 360 / count;
         
-        for(let i=0; i<options.length; i++) {
+        for(let i=0; i<count; i++) {
             const color = colors[i % colors.length];
             gradient.push(`${color} ${i * angle}deg ${(i + 1) * angle}deg`);
 
@@ -2995,7 +3479,11 @@ const app = {
         const wheel = document.getElementById('roulette-wheel');
         const pointer = document.getElementById('roulette-pointer');
         const resultText = document.getElementById('roulette-result');
-        resultText.innerText = '';
+        const resultCard = document.getElementById('roulette-result-card');
+        const spinBtn = document.getElementById('roulette-spin-btn');
+        if (resultText) resultText.innerText = '돌아가는 중... 🎯';
+        if (resultCard) resultCard.classList.remove('has-result');
+        if (spinBtn) spinBtn.disabled = true;
 
         const optionsToUse = this.currentMissionRouletteOptions;
         soundFX.init();
@@ -3019,8 +3507,6 @@ const app = {
         }, 130);
         
         setTimeout(() => {
-            clearInterval(spinTicks);
-            soundFX.playTada();
             this.isSpinning = false;
             
             const normalizedDegrees = this.rouletteRotation % 360;
