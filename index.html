@@ -2773,6 +2773,534 @@ body.hot .hot-toggle-btn {
     border: 2px solid #ffaa00;
     box-shadow: 0 0 25px rgba(255, 170, 0, 0.8);
 }
+
+/* ===== Traveler Liar Game (.liar-*) ===== */
+.liar-menu-btn {
+    grid-column: 1 / 3;
+    grid-row: 6;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 2px;
+    min-height: 64px;
+    padding: 12px 16px;
+    border-color: rgba(0, 243, 255, 0.45);
+}
+.liar-menu-btn::before {
+    clip-path: none;
+    background: linear-gradient(120deg, var(--secondary-neon), var(--tertiary-neon));
+    opacity: 0.3;
+}
+.liar-menu-btn .quad-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    font-size: clamp(1.75rem, 6vw, 2.2rem);
+}
+.liar-menu-btn .quad-label-en {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: clamp(0.92rem, 3.6vw, 1.12rem);
+}
+.liar-menu-btn .quad-label-kr {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: clamp(0.7rem, 2.7vw, 0.84rem);
+}
+.liar-menu-btn .quad-badge {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    margin-bottom: 0;
+    align-self: center;
+}
+
+.liar-screen {
+    justify-content: flex-start !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 58px 16px 48px 16px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(0, 243, 255, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(162, 0, 255, 0.14) 0%, transparent 50%),
+        var(--bg-color);
+}
+.liar-title {
+    margin-bottom: 12px !important;
+    text-shadow: 0 0 16px var(--secondary-neon), 0 0 28px rgba(162, 0, 255, 0.45);
+}
+.liar-body {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+}
+.liar-stage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+.liar-hidden {
+    display: none !important;
+}
+.liar-player-pill {
+    align-self: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(0, 243, 255, 0.12);
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    color: var(--secondary-neon);
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-align: center;
+}
+.liar-rules-card {
+    background: rgba(26, 29, 36, 0.85);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.liar-rule-line {
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--text-color);
+    word-break: keep-all;
+}
+.liar-rule-en {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 1px;
+}
+.liar-section-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+.liar-topic-chips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+.liar-topic-chip {
+    min-height: 48px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-align: center;
+    line-height: 1.2;
+    transition: all 0.16s ease;
+}
+.liar-topic-chip:active {
+    transform: scale(0.97);
+}
+.liar-topic-chip-en {
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.liar-topic-chip.liar-chip-random {
+    grid-column: 1 / -1;
+}
+.liar-topic-chip.liar-chip-active {
+    background: linear-gradient(120deg, rgba(0, 243, 255, 0.22), rgba(162, 0, 255, 0.28));
+    border-color: var(--secondary-neon);
+    box-shadow: 0 0 16px rgba(0, 243, 255, 0.28);
+}
+.liar-topic-chip.liar-chip-active .liar-topic-chip-en {
+    color: rgba(255, 255, 255, 0.86);
+}
+.liar-primary-btn {
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    white-space: normal;
+    line-height: 1.25;
+    padding: 10px 16px;
+}
+.liar-btn-sub {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.liar-secondary-btn {
+    min-height: 50px;
+    background: rgba(162, 0, 255, 0.2);
+    border: 1px solid rgba(162, 0, 255, 0.55);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    white-space: normal;
+    line-height: 1.25;
+}
+.liar-secondary-btn:active {
+    transform: scale(0.97);
+}
+.liar-ghost-btn {
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-strong);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    white-space: normal;
+    line-height: 1.25;
+}
+.liar-ghost-btn:active {
+    transform: scale(0.97);
+}
+.liar-progress {
+    align-self: center;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-strong);
+    color: var(--secondary-neon);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+.liar-cover-card {
+    width: 100%;
+    min-height: 240px;
+    flex: 1;
+    max-height: 360px;
+    border-radius: 22px;
+    border: 2px dashed rgba(0, 243, 255, 0.55);
+    background:
+        radial-gradient(circle at 50% 35%, rgba(0, 243, 255, 0.14), rgba(26, 29, 36, 0.94) 70%);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 243, 255, 0.18);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    padding: 24px 18px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    transition: transform 0.16s ease, box-shadow 0.2s ease;
+}
+.liar-cover-card:active {
+    transform: scale(0.98);
+}
+.liar-cover-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+}
+.liar-cover-turn {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 14px var(--secondary-neon);
+}
+.liar-cover-sub {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+.liar-sub-en {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+.liar-cover-hint {
+    margin-top: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.35);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+.liar-secret-card {
+    width: 100%;
+    min-height: 230px;
+    border-radius: 22px;
+    border: 2px solid var(--secondary-neon);
+    background: linear-gradient(155deg, rgba(16, 28, 42, 0.96), rgba(14, 16, 24, 0.98));
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 28px rgba(0, 243, 255, 0.24);
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+.liar-secret-card.liar-is-liar {
+    border-color: var(--primary-neon);
+    background: linear-gradient(155deg, rgba(44, 12, 30, 0.96), rgba(18, 10, 20, 0.98));
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 28px rgba(255, 0, 85, 0.32);
+}
+.liar-secret-badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(0, 243, 255, 0.14);
+    border: 1px solid rgba(0, 243, 255, 0.45);
+    color: var(--secondary-neon);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+.liar-secret-card.liar-is-liar .liar-secret-badge {
+    background: rgba(255, 0, 85, 0.18);
+    border-color: rgba(255, 0, 85, 0.6);
+    color: #ff6b9d;
+}
+.liar-secret-topic {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.liar-secret-divider {
+    width: 68%;
+    height: 1px;
+    background: var(--border-strong);
+    margin: 4px 0;
+}
+.liar-secret-word {
+    font-size: clamp(1.55rem, 7vw, 2.1rem);
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 16px var(--secondary-neon);
+    word-break: keep-all;
+}
+.liar-secret-card.liar-is-liar .liar-secret-word {
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+    text-shadow: 0 0 16px var(--primary-neon);
+}
+.liar-secret-word-en {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+.liar-secret-note {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    word-break: keep-all;
+}
+.liar-talk-card {
+    background: rgba(26, 29, 36, 0.9);
+    border: 1px solid rgba(0, 243, 255, 0.35);
+    border-radius: 18px;
+    padding: 18px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.liar-talk-topic-label {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--secondary-neon);
+    letter-spacing: 0.04em;
+}
+.liar-talk-topic {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #fff;
+}
+.liar-talk-guide {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.45;
+    margin-top: 4px;
+    word-break: keep-all;
+}
+.liar-timer-box {
+    background: rgba(18, 20, 28, 0.92);
+    border: 1px solid var(--border-strong);
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.liar-timer-display {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--secondary-neon);
+    text-shadow: 0 0 18px rgba(0, 243, 255, 0.45);
+    font-variant-numeric: tabular-nums;
+}
+.liar-timer-display.liar-timer-urgent {
+    color: var(--primary-neon);
+    text-shadow: 0 0 18px rgba(255, 0, 85, 0.55);
+}
+.liar-timer-status {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+.liar-timer-controls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 8px;
+}
+.liar-vote-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.liar-vote-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #fff;
+}
+.liar-vote-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+.liar-vote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.liar-vote-grid.liar-vote-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.liar-vote-btn {
+    min-height: 56px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    background: var(--surface-color);
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    transition: all 0.15s ease;
+}
+.liar-vote-btn:active {
+    transform: scale(0.95);
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 16px rgba(255, 0, 85, 0.4);
+}
+.liar-vote-btn-en {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.liar-result-card {
+    background: rgba(26, 29, 36, 0.94);
+    border: 2px solid var(--secondary-neon);
+    border-radius: 20px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 243, 255, 0.24);
+}
+.liar-result-card.liar-miss {
+    border-color: var(--primary-neon);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 0, 85, 0.28);
+}
+.liar-result-icon {
+    font-size: 2.6rem;
+    line-height: 1;
+}
+.liar-result-headline {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.35;
+    word-break: keep-all;
+}
+.liar-result-facts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.liar-fact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.84rem;
+}
+.liar-fact-label {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: left;
+}
+.liar-fact-val {
+    color: #fff;
+    font-weight: 800;
+    text-align: right;
+}
+.liar-fact-word .liar-fact-val {
+    color: var(--secondary-neon);
+    font-size: 0.98rem;
+}
+.liar-comeback-note {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(162, 0, 255, 0.2);
+    border: 1px solid rgba(162, 0, 255, 0.55);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.4;
+    word-break: keep-all;
+}
+.liar-result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 </style>
 </head>
 <body>
@@ -2841,6 +3369,12 @@ body.hot .hot-toggle-btn {
                     <span class="quad-icon">&#127183;</span>
                     <span class="quad-label-en">Card Flip</span>
                     <span class="quad-label-kr">카드 뒤집기</span>
+                </button>
+                <button class="quad-btn liar-menu-btn" onclick="app.navigate('liar')">
+                    <span class="quad-badge">3~12인 · Talk</span>
+                    <span class="quad-icon">&#128373;&#65039;</span>
+                    <span class="quad-label-en">Traveler Liar</span>
+                    <span class="quad-label-kr">여행자 라이어 게임</span>
                 </button>
             </div>
         </section>
@@ -3030,6 +3564,125 @@ body.hot .hot-toggle-btn {
                     <div class="love-mission-title">💘 커플 돌발 미션 · Couple Mission</div>
                     <div class="love-mission-content" id="love-mission-text">...</div>
                     <button class="btn neon-btn" onclick="app.closeLoveMission()">확인 · OK</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Traveler Liar Screen -->
+        <section id="screen-liar" class="screen hidden liar-screen">
+            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
+            <h2 class="neon-text liar-title">Traveler Liar<br><span class="title-kr">여행자 라이어 게임</span></h2>
+
+            <div class="liar-body">
+                <!-- 1. Start Stage -->
+                <div id="liar-stage-start" class="liar-stage">
+                    <div class="liar-player-pill" id="liar-player-info">참여 인원 · Players: 4명</div>
+                    <div class="liar-rules-card">
+                        <div class="liar-rule-line">1. 순서대로 폰을 돌리며 주제와 단어를 확인해요.<span class="liar-rule-en">Pass the phone to check the topic and secret word.</span></div>
+                        <div class="liar-rule-line">2. 한 명의 라이어에게는 주제만 보이고 단어는 숨겨져요.<span class="liar-rule-en">One Liar sees only the topic, not the word.</span></div>
+                        <div class="liar-rule-line">3. 한마디씩 설명하고 대화해서 라이어를 찾아보세요.<span class="liar-rule-en">Give a one-phrase clue each, discuss, and spot the Liar.</span></div>
+                    </div>
+                    <div class="liar-section-label">주제 고르기 · Choose Topic</div>
+                    <div class="liar-topic-chips" id="liar-topic-chips"></div>
+                    <button type="button" class="btn neon-btn liar-primary-btn" onclick="app.liarStart()">
+                        <span>&#128373;&#65039; 게임 시작 · Start Game</span>
+                    </button>
+                </div>
+
+                <!-- 2a. Cover Stage (Word is NEVER in DOM here) -->
+                <div id="liar-stage-cover" class="liar-stage liar-hidden">
+                    <div class="liar-progress" id="liar-cover-progress">1 / 4</div>
+                    <button type="button" class="liar-cover-card" id="liar-cover-btn" onclick="app.liarReveal()">
+                        <span class="liar-cover-icon">&#128373;&#65039;</span>
+                        <span class="liar-cover-turn" id="liar-cover-turn">1번 차례</span>
+                        <span class="liar-cover-sub" id="liar-cover-sub">폰을 받으면 눌러서 확인<span class="liar-sub-en">Player 1 — Tap to reveal your card</span></span>
+                        <span class="liar-cover-hint">옆 사람에게 보이지 않게 확인하세요 · Keep hidden from others</span>
+                    </button>
+                </div>
+
+                <!-- 2b. Reveal Stage -->
+                <div id="liar-stage-reveal" class="liar-stage liar-hidden">
+                    <div class="liar-progress" id="liar-reveal-progress">1 / 4</div>
+                    <div class="liar-secret-card" id="liar-secret-card">
+                        <div class="liar-secret-badge" id="liar-reveal-badge"></div>
+                        <div class="liar-secret-topic" id="liar-reveal-topic"></div>
+                        <div class="liar-secret-divider"></div>
+                        <div class="liar-secret-word" id="liar-reveal-word"></div>
+                        <div class="liar-secret-word-en" id="liar-reveal-word-en"></div>
+                        <div class="liar-secret-note" id="liar-reveal-note"></div>
+                    </div>
+                    <button type="button" class="btn neon-btn liar-primary-btn" id="liar-next-btn" onclick="app.liarNext()">
+                        <span id="liar-next-btn-kr">확인했어요 · 다음 사람에게</span>
+                        <span class="liar-btn-sub" id="liar-next-btn-en">Got it · Pass to Next</span>
+                    </button>
+                </div>
+
+                <!-- 3. Discussion Stage -->
+                <div id="liar-stage-talk" class="liar-stage liar-hidden">
+                    <div class="liar-talk-card">
+                        <div class="liar-talk-topic-label">이야기 시간 · Discussion Time</div>
+                        <div class="liar-talk-topic" id="liar-talk-topic"></div>
+                        <div class="liar-talk-guide">한 사람씩 단어를 한마디로 설명하세요<span class="liar-sub-en">Take turns describing the word in one phrase</span></div>
+                    </div>
+                    <div class="liar-timer-box">
+                        <div class="liar-section-label">선택 타이머 (2분) · Optional Timer (2 min)</div>
+                        <div class="liar-timer-display" id="liar-timer-display">02:00</div>
+                        <div class="liar-timer-status" id="liar-timer-status">필요할 때 눌러서 사용하세요 · Tap Start if you want a timer</div>
+                        <div class="liar-timer-controls">
+                            <button type="button" class="btn liar-secondary-btn" id="liar-timer-toggle-btn" onclick="app.liarToggleTimer()">&#9654; 시작 · Start</button>
+                            <button type="button" class="btn liar-ghost-btn" onclick="app.liarResetTimer()">&#8634; 초기화 · Reset</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn neon-btn liar-primary-btn" onclick="app.liarGoVote()">
+                        <span>&#128070; 라이어 지목하기</span>
+                        <span class="liar-btn-sub">Vote for the Liar</span>
+                    </button>
+                </div>
+
+                <!-- 4a. Vote Stage -->
+                <div id="liar-stage-vote" class="liar-stage liar-hidden">
+                    <div class="liar-vote-header">
+                        <div class="liar-vote-title">라이어 지목하기 · Pick the Liar</div>
+                        <div class="liar-vote-sub">의심되는 사람 번호를 눌러 주세요 · Tap the suspected player number</div>
+                    </div>
+                    <div class="liar-vote-grid" id="liar-vote-grid"></div>
+                    <button type="button" class="btn liar-ghost-btn" onclick="app.liarBackToTalk()">&larr; 이야기 시간으로 · Back to Talk</button>
+                </div>
+
+                <!-- 4b. Result Stage -->
+                <div id="liar-stage-result" class="liar-stage liar-hidden">
+                    <div class="liar-result-card" id="liar-result-card">
+                        <div class="liar-result-icon" id="liar-result-icon"></div>
+                        <div class="liar-result-headline" id="liar-result-headline"></div>
+                        <div class="liar-result-facts">
+                            <div class="liar-fact-row">
+                                <span class="liar-fact-label">지목한 번호 · Voted</span>
+                                <span class="liar-fact-val" id="liar-result-voted"></span>
+                            </div>
+                            <div class="liar-fact-row">
+                                <span class="liar-fact-label">진짜 라이어 · Actual Liar</span>
+                                <span class="liar-fact-val" id="liar-result-liar"></span>
+                            </div>
+                            <div class="liar-fact-row">
+                                <span class="liar-fact-label">주제 · Topic</span>
+                                <span class="liar-fact-val" id="liar-result-topic"></span>
+                            </div>
+                            <div class="liar-fact-row liar-fact-word">
+                                <span class="liar-fact-label">정답 단어 · Secret Word</span>
+                                <span class="liar-fact-val" id="liar-result-word"></span>
+                            </div>
+                        </div>
+                        <div class="liar-comeback-note liar-hidden" id="liar-comeback-note"></div>
+                    </div>
+                    <div class="liar-result-actions">
+                        <button type="button" class="btn neon-btn liar-primary-btn" onclick="app.liarPlayAgain()">
+                            <span>&#128260; 한 판 더 · Play Again</span>
+                            <span class="liar-btn-sub">새 단어 · 새 라이어 / New Word &amp; Liar</span>
+                        </button>
+                        <button type="button" class="btn liar-secondary-btn" onclick="app.liarBackToStart()">
+                            <span>&#127968; 처음으로 · Back to Start</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3419,6 +4072,139 @@ function bridgeHeartHTML(labelText) {
     return `<svg class="heart-svg" viewBox="0 0 24 24"><path d="${BRIDGE_HEART_PATH}"/></svg>${label}`;
 }
 
+const LIAR_RECENT_LIMIT = 12;
+const LIAR_TIMER_DEFAULT = 120;
+const LIAR_TOPICS = [
+    {
+        id: 'places',
+        icon: '🗺️',
+        kr: '나라·도시',
+        en: 'Places',
+        words: [
+            { kr: '서울', en: 'Seoul' }, { kr: '제주도', en: 'Jeju Island' }, { kr: '부산', en: 'Busan' },
+            { kr: '도쿄', en: 'Tokyo' }, { kr: '오사카', en: 'Osaka' }, { kr: '교토', en: 'Kyoto' },
+            { kr: '방콕', en: 'Bangkok' }, { kr: '싱가포르', en: 'Singapore' }, { kr: '타이베이', en: 'Taipei' },
+            { kr: '다낭', en: 'Da Nang' }, { kr: '파리', en: 'Paris' }, { kr: '런던', en: 'London' },
+            { kr: '로마', en: 'Rome' }, { kr: '바르셀로나', en: 'Barcelona' }, { kr: '스위스', en: 'Switzerland' },
+            { kr: '뉴욕', en: 'New York' }, { kr: '하와이', en: 'Hawaii' }, { kr: '시드니', en: 'Sydney' },
+            { kr: '발리', en: 'Bali' }, { kr: '프라하', en: 'Prague' }, { kr: '이스탄불', en: 'Istanbul' },
+            { kr: '카이로', en: 'Cairo' }, { kr: '밴쿠버', en: 'Vancouver' }, { kr: '아이슬란드', en: 'Iceland' }
+        ]
+    },
+    {
+        id: 'packing',
+        icon: '🎒',
+        kr: '여행 준비물',
+        en: 'Packing',
+        words: [
+            { kr: '여권', en: 'Passport' }, { kr: '캐리어', en: 'Suitcase' }, { kr: '보조배터리', en: 'Power Bank' },
+            { kr: '멀티어댑터', en: 'Travel Adapter' }, { kr: '선글라스', en: 'Sunglasses' }, { kr: '선크림', en: 'Sunscreen' },
+            { kr: '목베개', en: 'Neck Pillow' }, { kr: '칫솔', en: 'Toothbrush' }, { kr: '슬리퍼', en: 'Slippers' },
+            { kr: '우산', en: 'Umbrella' }, { kr: '카메라', en: 'Camera' }, { kr: '이어폰', en: 'Earphones' },
+            { kr: '백팩', en: 'Backpack' }, { kr: '모자', en: 'Hat' }, { kr: '수영복', en: 'Swimsuit' },
+            { kr: '손수건', en: 'Handkerchief' }, { kr: '물티슈', en: 'Wet Wipes' }, { kr: '비상약', en: 'First Aid Kit' },
+            { kr: '여권지갑', en: 'Passport Wallet' }, { kr: '세면도구', en: 'Toiletries' }, { kr: '충전기', en: 'Charger' },
+            { kr: '우비', en: 'Raincoat' }, { kr: '셀카봉', en: 'Selfie Stick' }, { kr: '손선풍기', en: 'Mini Fan' }
+        ]
+    },
+    {
+        id: 'airport',
+        icon: '✈️',
+        kr: '공항·비행기',
+        en: 'Airport & Flight',
+        words: [
+            { kr: '탑승권', en: 'Boarding Pass' }, { kr: '수하물', en: 'Baggage' }, { kr: '보안검색', en: 'Security Check' },
+            { kr: '출국심사', en: 'Immigration' }, { kr: '면세점', en: 'Duty-Free Shop' }, { kr: '탑승구', en: 'Boarding Gate' },
+            { kr: '활주로', en: 'Runway' }, { kr: '기내식', en: 'In-Flight Meal' }, { kr: '비상구', en: 'Emergency Exit' },
+            { kr: '안전벨트', en: 'Seat Belt' }, { kr: '창가석', en: 'Window Seat' }, { kr: '복도석', en: 'Aisle Seat' },
+            { kr: '승무원', en: 'Flight Attendant' }, { kr: '기장', en: 'Pilot' }, { kr: '라운지', en: 'Airport Lounge' },
+            { kr: '환승', en: 'Transfer' }, { kr: '연착', en: 'Flight Delay' }, { kr: '시차', en: 'Jet Lag' },
+            { kr: '기내담요', en: 'Cabin Blanket' }, { kr: '구명조끼', en: 'Life Vest' }, { kr: '관제탑', en: 'Control Tower' },
+            { kr: '수하물카트', en: 'Luggage Cart' }, { kr: '안내방송', en: 'Announcement' }, { kr: '이륙', en: 'Takeoff' }
+        ]
+    },
+    {
+        id: 'food',
+        icon: '🍜',
+        kr: '음식',
+        en: 'Food',
+        words: [
+            { kr: '피자', en: 'Pizza' }, { kr: '파스타', en: 'Pasta' }, { kr: '초밥', en: 'Sushi' },
+            { kr: '라멘', en: 'Ramen' }, { kr: '팟타이', en: 'Pad Thai' }, { kr: '쌀국수', en: 'Pho' },
+            { kr: '타코', en: 'Taco' }, { kr: '햄버거', en: 'Hamburger' }, { kr: '크루아상', en: 'Croissant' },
+            { kr: '젤라토', en: 'Gelato' }, { kr: '딤섬', en: 'Dim Sum' }, { kr: '카레', en: 'Curry' },
+            { kr: '비빔밥', en: 'Bibimbap' }, { kr: '떡볶이', en: 'Tteokbokki' }, { kr: '붕어빵', en: 'Bungeoppang' },
+            { kr: '와플', en: 'Waffle' }, { kr: '스테이크', en: 'Steak' }, { kr: '샌드위치', en: 'Sandwich' },
+            { kr: '볶음밥', en: 'Fried Rice' }, { kr: '만두', en: 'Dumplings' }, { kr: '망고빙수', en: 'Mango Shaved Ice' },
+            { kr: '버블티', en: 'Bubble Tea' }, { kr: '츄러스', en: 'Churros' }, { kr: '김밥', en: 'Gimbap' }
+        ]
+    },
+    {
+        id: 'transport',
+        icon: '🚆',
+        kr: '탈것',
+        en: 'Transport',
+        words: [
+            { kr: '비행기', en: 'Airplane' }, { kr: '기차', en: 'Train' }, { kr: '고속열차', en: 'Bullet Train' },
+            { kr: '지하철', en: 'Subway' }, { kr: '시내버스', en: 'City Bus' }, { kr: '투어버스', en: 'Tour Bus' },
+            { kr: '택시', en: 'Taxi' }, { kr: '렌터카', en: 'Rental Car' }, { kr: '자전거', en: 'Bicycle' },
+            { kr: '크루즈', en: 'Cruise Ship' }, { kr: '페리', en: 'Ferry' }, { kr: '케이블카', en: 'Cable Car' },
+            { kr: '트램', en: 'Tram' }, { kr: '모노레일', en: 'Monorail' }, { kr: '곤돌라', en: 'Gondola' },
+            { kr: '툭툭', en: 'Tuk-Tuk' }, { kr: '오토바이', en: 'Motorcycle' }, { kr: '열기구', en: 'Air Balloon' },
+            { kr: '요트', en: 'Yacht' }, { kr: '헬리콥터', en: 'Helicopter' }, { kr: '셔틀버스', en: 'Shuttle Bus' },
+            { kr: '전동킥보드', en: 'E-Scooter' }, { kr: '카약', en: 'Kayak' }, { kr: '마차', en: 'Horse Carriage' }
+        ]
+    },
+    {
+        id: 'stay',
+        icon: '🏨',
+        kr: '숙소',
+        en: 'Stay',
+        words: [
+            { kr: '호텔', en: 'Hotel' }, { kr: '리조트', en: 'Resort' }, { kr: '펜션', en: 'Pension' },
+            { kr: '게스트하우스', en: 'Guesthouse' }, { kr: '캠핑장', en: 'Campsite' }, { kr: '한옥스테이', en: 'Hanok Stay' },
+            { kr: '료칸', en: 'Ryokan' }, { kr: '글램핑', en: 'Glamping' }, { kr: '풀빌라', en: 'Pool Villa' },
+            { kr: '체크인', en: 'Check-In' }, { kr: '체크아웃', en: 'Check-Out' }, { kr: '프런트', en: 'Front Desk' },
+            { kr: '카드키', en: 'Key Card' }, { kr: '로비', en: 'Lobby' }, { kr: '조식', en: 'Breakfast Buffet' },
+            { kr: '룸서비스', en: 'Room Service' }, { kr: '수영장', en: 'Swimming Pool' }, { kr: '발코니', en: 'Balcony' },
+            { kr: '엘리베이터', en: 'Elevator' }, { kr: '오션뷰', en: 'Ocean View' }, { kr: '시티뷰', en: 'City View' },
+            { kr: '2층침대', en: 'Bunk Bed' }, { kr: '헤어드라이어', en: 'Hair Dryer' }, { kr: '가운', en: 'Bathrobe' }
+        ]
+    },
+    {
+        id: 'activities',
+        icon: '🎡',
+        kr: '관광·놀거리',
+        en: 'Sightseeing',
+        words: [
+            { kr: '놀이공원', en: 'Theme Park' }, { kr: '박물관', en: 'Museum' }, { kr: '미술관', en: 'Art Gallery' },
+            { kr: '아쿠아리움', en: 'Aquarium' }, { kr: '동물원', en: 'Zoo' }, { kr: '전망대', en: 'Observatory' },
+            { kr: '야시장', en: 'Night Market' }, { kr: '온천', en: 'Thermal Spring' }, { kr: '스노클링', en: 'Snorkeling' },
+            { kr: '서핑', en: 'Surfing' }, { kr: '스키', en: 'Skiing' }, { kr: '등산', en: 'Hiking' },
+            { kr: '기념품샵', en: 'Souvenir Shop' }, { kr: '식물원', en: 'Botanical Garden' }, { kr: '불꽃놀이', en: 'Fireworks' },
+            { kr: '퍼레이드', en: 'Parade' }, { kr: '대관람차', en: 'Ferris Wheel' }, { kr: '시티투어', en: 'City Tour' },
+            { kr: '박람회', en: 'Expo' }, { kr: '해수욕장', en: 'Beach' }, { kr: '유람선', en: 'Sightseeing Boat' },
+            { kr: '전통시장', en: 'Traditional Market' }, { kr: '사진명소', en: 'Photo Spot' }, { kr: '워터파크', en: 'Water Park' }
+        ]
+    },
+    {
+        id: 'nature',
+        icon: '🌅',
+        kr: '여행지 날씨·자연',
+        en: 'Weather & Nature',
+        words: [
+            { kr: '맑음', en: 'Sunny' }, { kr: '소나기', en: 'Rain Shower' }, { kr: '무지개', en: 'Rainbow' },
+            { kr: '일출', en: 'Sunrise' }, { kr: '일몰', en: 'Sunset' }, { kr: '야경', en: 'Night View' },
+            { kr: '오로라', en: 'Aurora' }, { kr: '은하수', en: 'Milky Way' }, { kr: '눈보라', en: 'Snowstorm' },
+            { kr: '안개', en: 'Fog' }, { kr: '바닷바람', en: 'Sea Breeze' }, { kr: '파도', en: 'Ocean Waves' },
+            { kr: '모래사장', en: 'Sandy Beach' }, { kr: '산호초', en: 'Coral Reef' }, { kr: '폭포', en: 'Waterfall' },
+            { kr: '화산', en: 'Volcano' }, { kr: '사막', en: 'Desert' }, { kr: '빙하', en: 'Glacier' },
+            { kr: '야자수', en: 'Palm Tree' }, { kr: '벚꽃', en: 'Cherry Blossoms' }, { kr: '단풍', en: 'Autumn Leaves' },
+            { kr: '초원', en: 'Meadow' }, { kr: '호수', en: 'Lake' }, { kr: '동굴', en: 'Cave' }
+        ]
+    }
+];
+
 /* ===== MAIN APP OBJECT ===== */
 const app = {
     currentScreen: 'main',
@@ -3484,6 +4270,19 @@ const app = {
     // Cards variables
     cardDeck: [],
     cardDeckMode: 'normal',
+
+    // Traveler Liar variables
+    liarPlayerCount: 4,
+    liarSelectedTopic: 'random',
+    liarCurrentTopic: null,
+    liarCurrentWord: null,
+    liarIndex: -1,
+    liarTurnIndex: 0,
+    liarStage: 'start',
+    liarRecentWords: [],
+    liarTimerSeconds: LIAR_TIMER_DEFAULT,
+    liarTimerInterval: null,
+    liarTimerRunning: false,
     
     setCardDeckMode(mode) {
         this.cardDeckMode = mode;
@@ -3803,6 +4602,9 @@ const app = {
         if (this.currentScreen === 'bridge') {
             this.clearBridgeTimers();
         }
+        if (this.currentScreen === 'liar') {
+            this.liarCleanup();
+        }
 
         const activeScreens = document.querySelectorAll('.screen.active');
         activeScreens.forEach(s => {
@@ -3839,6 +4641,7 @@ const app = {
             this.clearRouletteResult();
         }
         if (screenId === 'cards') this.setupCards();
+        if (screenId === 'liar') this.initLiar();
         if (screenId === 'crocodile') this.initCrocodile();
         if (screenId === 'finger') this.setupFingerRoulette();
         if (screenId === 'titanic') this.initTitanic();
@@ -4808,6 +5611,364 @@ const app = {
         setTimeout(() => {
             this.assignCardDeck();
         }, 400);
+    },
+
+    /* ============================================================
+       8. TRAVELER LIAR LOGIC
+       ============================================================ */
+    initLiar() {
+        this.liarCleanup();
+        this.liarPlayerCount = Math.max(3, Math.min(12, this.playerCount));
+        const infoEl = document.getElementById('liar-player-info');
+        if (infoEl) {
+            if (this.playerCount < 3) {
+                infoEl.textContent = `참여 인원 · Players: ${this.liarPlayerCount}명 (최소 3인 적용 · Min 3)`;
+            } else if (this.playerCount > 12) {
+                infoEl.textContent = `참여 인원 · Players: ${this.liarPlayerCount}명 (최대 12인 적용 · Max 12)`;
+            } else {
+                infoEl.textContent = `참여 인원 · Players: ${this.liarPlayerCount}명`;
+            }
+        }
+        this.liarRenderTopics();
+        this.liarShowStage('start');
+    },
+
+    liarCleanup() {
+        this.liarStopTimer();
+        this.liarClearSecretDom();
+    },
+
+    liarClearSecretDom() {
+        const ids = [
+            'liar-reveal-badge',
+            'liar-reveal-topic',
+            'liar-reveal-word',
+            'liar-reveal-word-en',
+            'liar-reveal-note',
+            'liar-result-voted',
+            'liar-result-liar',
+            'liar-result-topic',
+            'liar-result-word',
+            'liar-comeback-note'
+        ];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = '';
+        });
+        const card = document.getElementById('liar-secret-card');
+        if (card) card.classList.remove('liar-is-liar');
+    },
+
+    liarShowStage(stageName) {
+        this.liarStage = stageName;
+        const stages = ['start', 'cover', 'reveal', 'talk', 'vote', 'result'];
+        stages.forEach(name => {
+            const el = document.getElementById(`liar-stage-${name}`);
+            if (el) el.classList.toggle('liar-hidden', name !== stageName);
+        });
+        const screen = document.getElementById('screen-liar');
+        if (screen) screen.scrollTop = 0;
+    },
+
+    liarRenderTopics() {
+        const wrap = document.getElementById('liar-topic-chips');
+        if (!wrap) return;
+        wrap.innerHTML = '';
+
+        const randomBtn = document.createElement('button');
+        randomBtn.type = 'button';
+        randomBtn.className = 'liar-topic-chip liar-chip-random' + (this.liarSelectedTopic === 'random' ? ' liar-chip-active' : '');
+        randomBtn.dataset.topic = 'random';
+        randomBtn.innerHTML = `<span>🎲 무작위 주제</span><span class="liar-topic-chip-en">Random Topic</span>`;
+        randomBtn.onclick = () => this.liarSelectTopic('random');
+        wrap.appendChild(randomBtn);
+
+        LIAR_TOPICS.forEach(topic => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'liar-topic-chip' + (this.liarSelectedTopic === topic.id ? ' liar-chip-active' : '');
+            btn.dataset.topic = topic.id;
+            btn.innerHTML = `<span>${topic.icon} ${topic.kr}</span><span class="liar-topic-chip-en">${topic.en}</span>`;
+            btn.onclick = () => this.liarSelectTopic(topic.id);
+            wrap.appendChild(btn);
+        });
+    },
+
+    liarSelectTopic(topicId) {
+        this.liarSelectedTopic = topicId;
+        document.querySelectorAll('#liar-topic-chips .liar-topic-chip').forEach(btn => {
+            btn.classList.toggle('liar-chip-active', btn.dataset.topic === topicId);
+        });
+        soundFX.playTick();
+        haptics.tick();
+    },
+
+    liarPickRound() {
+        let topic;
+        if (this.liarSelectedTopic === 'random') {
+            topic = LIAR_TOPICS[Math.floor(Math.random() * LIAR_TOPICS.length)];
+        } else {
+            topic = LIAR_TOPICS.find(t => t.id === this.liarSelectedTopic) || LIAR_TOPICS[0];
+        }
+
+        let pool = topic.words.filter(w => !this.liarRecentWords.includes(`${topic.id}:${w.kr}`));
+        if (pool.length === 0) {
+            const lastKey = this.liarRecentWords[this.liarRecentWords.length - 1];
+            pool = topic.words.filter(w => `${topic.id}:${w.kr}` !== lastKey);
+        }
+        if (pool.length === 0) pool = topic.words;
+
+        const word = pool[Math.floor(Math.random() * pool.length)];
+        this.liarRecentWords.push(`${topic.id}:${word.kr}`);
+        while (this.liarRecentWords.length > LIAR_RECENT_LIMIT) {
+            this.liarRecentWords.shift();
+        }
+
+        this.liarCurrentTopic = topic;
+        this.liarCurrentWord = word;
+        this.liarIndex = Math.floor(Math.random() * this.liarPlayerCount);
+        this.liarTurnIndex = 0;
+    },
+
+    liarStart() {
+        this.liarPlayerCount = Math.max(3, Math.min(12, this.playerCount));
+        this.liarCleanup();
+        this.liarPickRound();
+        soundFX.playFlip();
+        haptics.tick();
+        this.liarRenderCover();
+        this.liarShowStage('cover');
+    },
+
+    liarRenderCover() {
+        this.liarClearSecretDom();
+        const turnNum = this.liarTurnIndex + 1;
+        const progressEl = document.getElementById('liar-cover-progress');
+        const turnEl = document.getElementById('liar-cover-turn');
+        const subEl = document.getElementById('liar-cover-sub');
+        if (progressEl) progressEl.textContent = `${turnNum} / ${this.liarPlayerCount}`;
+        if (turnEl) turnEl.textContent = `${turnNum}번 차례`;
+        if (subEl) {
+            subEl.innerHTML = `폰을 받으면 눌러서 확인<span class="liar-sub-en">Player ${turnNum} — Tap to reveal your card</span>`;
+        }
+    },
+
+    liarReveal() {
+        if (this.liarStage !== 'cover' || !this.liarCurrentTopic || !this.liarCurrentWord) return;
+        const turnNum = this.liarTurnIndex + 1;
+        const isLiar = this.liarTurnIndex === this.liarIndex;
+
+        soundFX.playCardFlip();
+        haptics.tick();
+
+        const progressEl = document.getElementById('liar-reveal-progress');
+        const cardEl = document.getElementById('liar-secret-card');
+        const badgeEl = document.getElementById('liar-reveal-badge');
+        const topicEl = document.getElementById('liar-reveal-topic');
+        const wordEl = document.getElementById('liar-reveal-word');
+        const wordEnEl = document.getElementById('liar-reveal-word-en');
+        const noteEl = document.getElementById('liar-reveal-note');
+        const nextKrEl = document.getElementById('liar-next-btn-kr');
+        const nextEnEl = document.getElementById('liar-next-btn-en');
+
+        if (progressEl) progressEl.textContent = `${turnNum} / ${this.liarPlayerCount}`;
+        if (topicEl) topicEl.textContent = `주제 · ${this.liarCurrentTopic.icon} ${this.liarCurrentTopic.kr} · ${this.liarCurrentTopic.en}`;
+        if (cardEl) cardEl.classList.toggle('liar-is-liar', isLiar);
+
+        if (isLiar) {
+            if (badgeEl) badgeEl.textContent = '🕵️ 라이어 · LIAR';
+            if (wordEl) wordEl.textContent = '당신은 라이어입니다';
+            if (wordEnEl) wordEnEl.textContent = 'You are the Liar';
+            if (noteEl) noteEl.textContent = '주제에 어울리게 자연스럽게 설명해 보세요 · Blend in using the topic.';
+        } else {
+            if (badgeEl) badgeEl.textContent = '여행자 · Traveler';
+            if (wordEl) wordEl.textContent = this.liarCurrentWord.kr;
+            if (wordEnEl) wordEnEl.textContent = this.liarCurrentWord.en;
+            if (noteEl) noteEl.textContent = '단어가 들키지 않게 한마디로 설명해 보세요 · Give a subtle one-phrase clue.';
+        }
+
+        const isLast = this.liarTurnIndex >= this.liarPlayerCount - 1;
+        if (nextKrEl) nextKrEl.textContent = isLast ? '확인했어요 · 이야기 시간으로' : '확인했어요 · 다음 사람에게';
+        if (nextEnEl) nextEnEl.textContent = isLast ? 'Got it · Start Discussion' : 'Got it · Pass to Next';
+
+        this.liarShowStage('reveal');
+    },
+
+    liarNext() {
+        if (this.liarStage !== 'reveal') return;
+        this.liarClearSecretDom();
+        soundFX.playTick();
+        haptics.tick();
+
+        this.liarTurnIndex += 1;
+        if (this.liarTurnIndex < this.liarPlayerCount) {
+            this.liarRenderCover();
+            this.liarShowStage('cover');
+        } else {
+            this.liarEnterTalk();
+        }
+    },
+
+    liarEnterTalk() {
+        this.liarClearSecretDom();
+        const topicEl = document.getElementById('liar-talk-topic');
+        if (topicEl && this.liarCurrentTopic) {
+            topicEl.textContent = `${this.liarCurrentTopic.icon} ${this.liarCurrentTopic.kr} · ${this.liarCurrentTopic.en}`;
+        }
+        this.liarResetTimer(true);
+        this.liarShowStage('talk');
+    },
+
+    liarRenderTimer() {
+        const displayEl = document.getElementById('liar-timer-display');
+        const toggleBtn = document.getElementById('liar-timer-toggle-btn');
+        const mins = Math.floor(Math.max(0, this.liarTimerSeconds) / 60);
+        const secs = Math.max(0, this.liarTimerSeconds) % 60;
+        if (displayEl) {
+            displayEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            displayEl.classList.toggle('liar-timer-urgent', this.liarTimerSeconds <= 15);
+        }
+        if (toggleBtn) {
+            toggleBtn.textContent = this.liarTimerRunning ? '⏸ 멈춤 · Pause' : '▶ 시작 · Start';
+        }
+    },
+
+    liarToggleTimer() {
+        const statusEl = document.getElementById('liar-timer-status');
+        if (this.liarTimerRunning) {
+            this.liarStopTimer();
+            if (statusEl) statusEl.textContent = '잠시 멈춤 · Paused';
+            soundFX.playTick();
+            haptics.tick();
+            return;
+        }
+        if (this.liarTimerSeconds <= 0) {
+            this.liarTimerSeconds = LIAR_TIMER_DEFAULT;
+        }
+        this.liarTimerRunning = true;
+        if (statusEl) statusEl.textContent = '이야기 진행 중 · Discussion in progress';
+        this.liarRenderTimer();
+        soundFX.playTick(true);
+        haptics.tick();
+
+        this.liarTimerInterval = setInterval(() => {
+            this.liarTimerSeconds -= 1;
+            this.liarRenderTimer();
+            if (this.liarTimerSeconds > 0 && this.liarTimerSeconds <= 3) {
+                soundFX.playTick(true);
+            } else if (this.liarTimerSeconds <= 0) {
+                this.liarStopTimer();
+                if (statusEl) statusEl.textContent = '⏰ 시간 종료! 이제 라이어를 지목하세요 · Time\'s up!';
+                soundFX.playHeartbeat();
+                haptics.buildUp();
+            }
+        }, 1000);
+    },
+
+    liarResetTimer(silent = false) {
+        this.liarStopTimer();
+        this.liarTimerSeconds = LIAR_TIMER_DEFAULT;
+        this.liarRenderTimer();
+        const statusEl = document.getElementById('liar-timer-status');
+        if (statusEl) statusEl.textContent = '필요할 때 눌러서 사용하세요 · Tap Start if you want a timer';
+        if (!silent) {
+            soundFX.playTick();
+            haptics.tick();
+        }
+    },
+
+    liarStopTimer() {
+        if (this.liarTimerInterval) {
+            clearInterval(this.liarTimerInterval);
+            this.liarTimerInterval = null;
+        }
+        this.liarTimerRunning = false;
+        this.liarRenderTimer();
+    },
+
+    liarGoVote() {
+        this.liarStopTimer();
+        soundFX.playTick();
+        haptics.tick();
+
+        const grid = document.getElementById('liar-vote-grid');
+        if (grid) {
+            grid.innerHTML = '';
+            grid.classList.toggle('liar-vote-cols-2', this.liarPlayerCount <= 4);
+            for (let i = 0; i < this.liarPlayerCount; i++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'liar-vote-btn';
+                btn.innerHTML = `<span>${i + 1}번</span><span class="liar-vote-btn-en">Player ${i + 1}</span>`;
+                btn.onclick = () => this.liarVote(i);
+                grid.appendChild(btn);
+            }
+        }
+        this.liarShowStage('vote');
+    },
+
+    liarBackToTalk() {
+        soundFX.playTick();
+        haptics.tick();
+        this.liarShowStage('talk');
+    },
+
+    liarVote(votedIdx) {
+        if (this.liarStage !== 'vote' || !this.liarCurrentTopic || !this.liarCurrentWord) return;
+        const isCaught = votedIdx === this.liarIndex;
+
+        const cardEl = document.getElementById('liar-result-card');
+        const iconEl = document.getElementById('liar-result-icon');
+        const headlineEl = document.getElementById('liar-result-headline');
+        const votedEl = document.getElementById('liar-result-voted');
+        const liarEl = document.getElementById('liar-result-liar');
+        const topicEl = document.getElementById('liar-result-topic');
+        const wordEl = document.getElementById('liar-result-word');
+        const comebackEl = document.getElementById('liar-comeback-note');
+
+        if (cardEl) cardEl.classList.toggle('liar-miss', !isCaught);
+        if (iconEl) iconEl.textContent = isCaught ? '🎉' : '🕵️';
+        if (headlineEl) {
+            headlineEl.textContent = isCaught
+                ? '정답! 라이어를 찾았어요 · Caught the Liar!'
+                : '아쉬워요! 라이어가 숨었어요 · The Liar Escaped!';
+        }
+        if (votedEl) votedEl.textContent = `${votedIdx + 1}번 · Player ${votedIdx + 1}`;
+        if (liarEl) liarEl.textContent = `${this.liarIndex + 1}번 · Player ${this.liarIndex + 1}`;
+        if (topicEl) topicEl.textContent = `${this.liarCurrentTopic.icon} ${this.liarCurrentTopic.kr} · ${this.liarCurrentTopic.en}`;
+        if (wordEl) wordEl.textContent = `${this.liarCurrentWord.kr} · ${this.liarCurrentWord.en}`;
+
+        if (comebackEl) {
+            if (isCaught) {
+                comebackEl.textContent = '⚡ 라이어가 단어를 맞히면 역전! · If the Liar guesses the word, it\'s a comeback!';
+                comebackEl.classList.remove('liar-hidden');
+            } else {
+                comebackEl.textContent = '';
+                comebackEl.classList.add('liar-hidden');
+            }
+        }
+
+        if (isCaught) {
+            soundFX.playTada();
+            haptics.buildUp();
+            fxEngine.confetti(window.innerWidth / 2, window.innerHeight / 2, 70);
+        } else {
+            soundFX.playFail();
+            haptics.loser();
+            fxEngine.sparks(window.innerWidth / 2, window.innerHeight / 2, 30, '#ff0055');
+        }
+
+        this.liarShowStage('result');
+    },
+
+    liarPlayAgain() {
+        this.liarStart();
+    },
+
+    liarBackToStart() {
+        soundFX.playTick();
+        haptics.tick();
+        this.initLiar();
     },
 
     /* ============================================================
