@@ -420,7 +420,7 @@ h2.neon-text {
 .quad-9 .quad-label-kr { font-size: clamp(0.72rem, 2.8vw, 0.86rem); }
 
 /* HOT 모드에서 내용이 바뀌는 3개(미션 룰렛·시간 폭탄·카드 뒤집기)만 같은
-   색(HOT 배지와 동일한 그라디언트)으로 통일해 "이 셋은 19+ 에서 달라진다"는
+   색(HOT 배지와 동일한 그라디언트)으로 통일해 "이 셋은 한 묶음"이라는
    걸 색으로도 표시합니다. 나머지는 원래 색 그대로 둡니다. */
 .quad-1::before, .quad-3::before, .quad-9::before {
     background: linear-gradient(120deg, var(--primary-neon), #ff6b9d);
@@ -2251,7 +2251,7 @@ textarea:focus {
     to { transform: scale(1.12); }
 }
 
-/* ===== HOT 모드 (19금 벌칙 세트) ===== */
+/* ===== (옛 HOT 모드 스타일 — 기능은 없앴다. 쓰이지 않는다) ===== */
 .hot-row {
     display: flex;
     align-items: center;
@@ -2679,7 +2679,6 @@ body.hot .hot-toggle-btn {
                 <div class="roulette-presets-title">⚡ 빠른 프리셋 선택 · Quick Presets</div>
                 <div class="roulette-preset-chips">
                     <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('classic')">🍹 기본 파티</button>
-                    <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('spicy')">🔥 19+ 스파이시</button>
                     <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('king')">👑 왕게임 벌칙</button>
                     <button class="roulette-chip-btn" onclick="app.loadRoulettePreset('players')">👥 참가자 지목</button>
                 </div>
@@ -2695,7 +2694,6 @@ body.hot .hot-toggle-btn {
             <h2 class="neon-text">GIJO Mission Roulette<br><span class="title-kr">미션 룰렛</span></h2>
             <div class="mode-selector-bar">
                 <button class="mode-tab-btn active" id="roulette-tab-classic" onclick="app.setRoulettePreset('classic')">🍺 기본 · Classic</button>
-                <button class="mode-tab-btn" id="roulette-tab-hot" onclick="app.setRoulettePreset('hot')">🔥 19+ HOT · Adult</button>
                 <button class="mode-tab-btn" id="roulette-tab-truth" onclick="app.setRoulettePreset('truth')">🤫 진실 · Truth</button>
                 <button class="mode-tab-btn" id="roulette-tab-balance" onclick="app.setRoulettePreset('balance')">⚖️ 밸런스 · Balance</button>
             </div>
@@ -2728,7 +2726,6 @@ body.hot .hot-toggle-btn {
             <h2 class="neon-text">GIJO Card Flip<br><span class="title-kr">카드 뒤집기</span></h2>
             <div class="mode-selector-bar">
                 <button class="mode-tab-btn active" id="card-tab-normal" onclick="app.setCardDeckMode('normal')">🍹 일반 파티 · Party</button>
-                <button class="mode-tab-btn" id="card-tab-hot" onclick="app.setCardDeckMode('hot')">🔥 19+ 스파이시 · Spicy 19+</button>
             </div>
             <div class="cards-grid" id="cards-grid"></div>
             <button class="btn neon-btn" onclick="app.resetCards()">카드 섞기 · Shuffle Cards</button>
@@ -2827,15 +2824,6 @@ body.hot .hot-toggle-btn {
             <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
             <h2 class="neon-text">GIJO Settings<br><span class="title-kr">설정</span></h2>
             <div class="settings-container">
-                <div class="hot-row">
-                    <div class="hot-text">
-                        <span class="hot-name">🔥 HOT 모드 <span class="hot-19">19+</span></span>
-                        <span class="hot-desc">성인 술자리용 19금 벌칙으로 교체<br>Swap in adult (18+) party penalties</span>
-                    </div>
-                    <button id="hot-switch" class="hot-switch" role="switch" aria-checked="false"
-                            aria-label="HOT 모드" onclick="app.toggleHotMode()"><span></span></button>
-                </div>
-
                 <div class="setting-group">
                     <label>룰렛 벌칙 · Roulette Missions (comma separated)</label>
                     <textarea id="setting-roulette" rows="4"></textarea>
@@ -3139,16 +3127,6 @@ const ROULETTE_PRESETS = {
         '나 빼고 다 마셔 😎 (All But Me)',
         '물 한잔 마시기 💧 (Drink Water)'
     ],
-    hot: [
-        '💋 러브샷 or 2잔 (Love Shot)',
-        '👀 10초 아이콘택트 (Eye Contact)',
-        '🔥 밀착 러브샷 (Intimate Shot)',
-        '💬 귓속말 19금 칭찬 (Whisper)',
-        '📖 아찔했던 썰 45초 (Spicy Story)',
-        '🔞 매력 부위 고백 (Confess Body)',
-        '🫂 5초 백허그 or 2잔 (Back Hug)',
-        '🤫 귓속말 19금 진실 (Secret Truth)'
-    ],
     truth: [
         '📱 최근 검색어 1개 (Search History)',
         '💘 이상형 지목 (Ideal Type)',
@@ -3166,17 +3144,6 @@ const ROULETTE_PRESETS = {
         '원수와 24시간 vs 무인도 1주일'
     ]
 };
-
-const HOT_PASS_MISSIONS = [
-    { kr: '눈 5초 맞추고 손깍지 끼며 패스! 👀🔥', en: 'Hold 5s eye contact & hold hands, then pass!' },
-    { kr: '귓속말로 야릇한 심쿵 칭찬하고 패스! 💬💋', en: 'Whisper a spicy compliment, then pass!' },
-    { kr: '손등에 뽀뽀 3초 하고 패스! or 1잔 💋', en: 'Kiss their hand 3s and pass — or take a shot!' },
-    { kr: '가장 섹시한 포즈로 패스하기! 🔥💃', en: 'Pass it as seductively as you can!' },
-    { kr: '작업 멘트 날리며 눈맞추고 패스! 😏💘', en: 'Drop a seductive pickup line, then pass!' },
-    { kr: '백허그 5초 후 패스! or 2잔 🫂🔥', en: '5-second back hug, then pass — or take 2 shots!' },
-    { kr: '윙크하면서 섹시하게 패스하기! 😉✨', en: 'Pass while winking seductively!' },
-    { kr: '러브샷 제안하면서 밀착 패스! 🥂💋', en: 'Propose a love shot and pass!' }
-];
 
 const NORMAL_PASS_MISSIONS = [
     { kr: '오른쪽 사람 이름 부르며 넘기기! 🗣️', en: "Call out the name of the person on your right!" },
@@ -3205,11 +3172,6 @@ const CARD_TIERS_DATA = {
         { title: '🛡️ 무적 방어막 · Shield', desc: '다음 1회 벌칙 면제 / Immune to next penalty!' },
         { title: '🎯 지목 원샷권 · Point Shot', desc: '지목한 사람 원샷 / Choose 1 person to drink!' }
     ],
-    hotJoker: [
-        { title: '🔥 19+ 러브샷 · Love Shot', desc: '밀착 러브샷 / Intimate love shot with someone!' },
-        { title: '💋 귓속말 진실 · Secret Whisper', desc: '비밀 질문 답변 / Whisper secret truth!' },
-        { title: '🫂 5초 백허그 · 5s Back Hug', desc: '5초 백허그 or 2잔 / 5s back hug or 2 shots!' }
-    ],
     goldBomb: [
         { title: '💣 황금 폭탄 · Double Shot!', desc: '더블 벌칙! 혼자 2잔 / Drink 2 shots alone!' },
         { title: '💥 전체 폭탄 · All Drink!', desc: '나 빼고 전원 1잔씩 / Everyone except you drinks 1 shot!' }
@@ -3235,7 +3197,6 @@ function bridgeHeartHTML(labelText) {
 const app = {
     currentScreen: 'main',
     playerCount: 4,
-    hotMode: false,
     
     // Roulette variables
     currentRoulettePreset: 'classic',
@@ -3283,23 +3244,13 @@ const app = {
     // Cards variables
     cardDeck: [],
     cardDeckMode: 'normal',
-    bombSpicyMode: false,
     
     setCardDeckMode(mode) {
         this.cardDeckMode = mode;
         const btnNorm = document.getElementById('card-tab-normal');
-        const btnHot = document.getElementById('card-tab-hot');
         if (btnNorm) btnNorm.classList.toggle('active', mode === 'normal');
-        if (btnHot) btnHot.classList.toggle('active', mode === 'hot');
         soundFX.playTick();
         this.resetCards();
-    },
-
-    toggleBombSpicyMode() {
-        this.bombSpicyMode = !this.bombSpicyMode;
-        const btn = document.getElementById('bomb-tab-spicy');
-        if (btn) btn.classList.toggle('active', this.bombSpicyMode);
-        soundFX.playTick();
     },
 
     init() {
@@ -3321,41 +3272,11 @@ const app = {
     },
 
     loadSettings() {
-        this.hotMode = localStorage.getItem('neonDrinks_hot') === '1';
-        this.applyHotModeVisuals();
+        // HOT 모드는 없앴다. 예전에 켜 둔 기기에 남은 값을 지운다.
+        localStorage.removeItem('neonDrinks_hot');
         const savedCount = localStorage.getItem('neonDrinks_players');
         if (savedCount) this.playerCount = Math.max(2, parseInt(savedCount, 10));
         this.updatePlayerDisplay();
-    },
-
-    applyHotModeVisuals() {
-        if (this.hotMode) {
-            document.body.classList.add('hot');
-            const badge = document.getElementById('hot-badge');
-            if (badge) badge.classList.remove('hidden');
-            const sw = document.getElementById('hot-switch');
-            if (sw) sw.setAttribute('aria-checked', 'true');
-        } else {
-            document.body.classList.remove('hot');
-            const badge = document.getElementById('hot-badge');
-            if (badge) badge.classList.add('hidden');
-            const sw = document.getElementById('hot-switch');
-            if (sw) sw.setAttribute('aria-checked', 'false');
-        }
-    },
-
-    toggleHotMode() {
-        this.hotMode = !this.hotMode;
-        localStorage.setItem('neonDrinks_hot', this.hotMode ? '1' : '0');
-        this.applyHotModeVisuals();
-        soundFX.init();
-        soundFX.playTada();
-        fxEngine.confetti(window.innerWidth / 2, window.innerHeight / 2, 40);
-        if (this.hotMode) {
-            this.setRoulettePreset('hot');
-        } else {
-            this.setRoulettePreset('classic');
-        }
     },
 
     changePlayerCount(delta) {
@@ -3421,7 +3342,7 @@ const app = {
 
         // Screen Lifecycle Hooks
         if (screenId === 'roulette') {
-            this.setRoulettePreset(this.hotMode ? 'hot' : this.currentRoulettePreset);
+            this.setRoulettePreset(this.currentRoulettePreset);
         }
         if (screenId === 'cards') this.setupCards();
         if (screenId === 'crocodile') this.initCrocodile();
@@ -3615,7 +3536,7 @@ const app = {
         soundFX.playTick(true);
         haptics.tick();
 
-        const passMissions = this.bombSpicyMode ? HOT_PASS_MISSIONS : NORMAL_PASS_MISSIONS;
+        const passMissions = NORMAL_PASS_MISSIONS;
 
         if (Math.random() < 0.4 && this.bombTimeLeft > 4) {
             const mission = passMissions[Math.floor(Math.random() * passMissions.length)];
@@ -4280,11 +4201,7 @@ const app = {
             let cardData;
             let tierClass = 'card-normal';
 
-            const isHotDeck = this.cardDeckMode === 'hot';
-            if (isHotDeck && rand < 0.65) {
-                cardData = CARD_TIERS_DATA.hotJoker[Math.floor(Math.random() * CARD_TIERS_DATA.hotJoker.length)];
-                tierClass = 'card-rare-hot';
-            } else if (rand < 0.2) {
+            if (rand < 0.2) {
                 cardData = CARD_TIERS_DATA.goldRare[Math.floor(Math.random() * CARD_TIERS_DATA.goldRare.length)];
                 tierClass = 'card-rare-gold';
             } else if (rand < 0.35) {

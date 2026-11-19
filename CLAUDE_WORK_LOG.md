@@ -24,7 +24,7 @@ graph TD
 
 ### GitHub 원격 저장소 목록
 - 🌐 **GIJO Talk (메인 PWA)**: [https://github.com/gijotour/gijotalk](https://github.com/gijotour/gijotalk)
-- 🍹 **GIJO Drink (술게임 9종 & 19+ HOT)**: [https://github.com/gijotour/gijodrink](https://github.com/gijotour/gijodrink)
+- 🍹 **GIJO Drink (술게임 9종)**: [https://github.com/gijotour/gijodrink](https://github.com/gijotour/gijodrink)
 - 🎰 **GIJO Arcade (아케이드 5종 & 777 슬롯)**: [https://github.com/gijotour/gijoarcade](https://github.com/gijotour/gijoarcade)
 
 ---
@@ -38,19 +38,6 @@ graph TD
 4. **`Double 2x Gamble` 미니게임**: 당첨 시 🔴 RED vs ⚫ BLACK 카지노 미니게임으로 당첨금 2배 뻥튀기 도전.
 5. **`MAX BET` 1-클릭 베팅**: 1초 만에 최고 금액(200 크레딧) 설정 및 즉시 스핀.
 6. **`Gold Coin Shower` FX**: Big Win & 잭팟 시 화면 가득 쏟아지는 동전/보석 캔버스 파티클 연출.
-
-### B. 🔞 19+ HOT (선정적/스파이시) 모드 강화
-- **메인 화면 1-클릭 `[🔥 19+ HOT 모드]` 불꽃 스위치**: 메인 메뉴 헤더 상단에 직관적 붉은 불꽃 토글 버튼 노출.
-- **19+ 과감한 벌칙 라인업 12종 확장**:
-  - `💋 러브샷 or 2잔`
-  - `👀 10초 아이콘택트 & 손깍지`
-  - `🔥 가장 섹시한 사람 지목 & 밀착 러브샷`
-  - `💬 귓속말 심쿵 19금 칭찬`
-  - `📖 첫 키스 / 가장 아찔했던 썰 45초`
-  - `🔞 가장 매력적인 신체 부위 솔직 고백`
-  - `🫂 백허그 5초 or 2잔`
-  - `🤫 비밀 19금 진실 귓속말 응답` 등
-- **Crimson Passion Red 오로라 앰비언트**: `body.hot` 전면 크림슨 레드(`#ff0040`) 및 핫 핑크 네온 오로라 파티클 적용.
 
 ### C. 🏷️ 전체 14개 게임 GIJO 브랜드 통일
 - 모든 술게임(`GIJO Mission Roulette`, `GIJO Neon Titanic`, `GIJO Touch Roulette`, `GIJO Time Bomb` 등)과 아케이드 게임(`GIJO Slots`, `GIJO Block Drop`, `GIJO Space Shooter`, `GIJO Neon Snake`, `GIJO Brick Breaker`)의 화면 제목에 **`GIJO` 브랜딩 타이틀** 일괄 적용.
