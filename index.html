@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIJO Drink - Party Game</title>
+    <!-- 홈 화면에 추가(설치)와 오프라인 실행 -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-180.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GIJO Drink">
+    <meta name="theme-color" content="#0a0a0c">
     <!-- 웹폰트를 렌더링 차단 없이 불러옵니다.
          원래 <link rel="stylesheet"> 그대로 두면, 이 문서 뒤쪽의 <script>가 폰트 요청이
          끝날 때까지 파싱을 멈춥니다. 평소엔 안 보이는 문제지만 현지 데이터가 느리거나
@@ -8993,6 +9002,12 @@ const app = {
 window.addEventListener('DOMContentLoaded', () => {
     app.init();
 });
+</script>
+<script>
+// 서비스 워커 등록 — 한 번 열어 두면 인터넷 없이도 실행된다(sw.js 참고).
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+}
 </script>
 </body>
 </html>
