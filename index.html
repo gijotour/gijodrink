@@ -4992,6 +4992,586 @@ body.hot .hot-toggle-btn {
     line-height: 1;
     padding-left: 1px;
 }
+
+/* ===== 게임 화면 정리 ===== */
+.screen.game-tidy {
+    justify-content: flex-start !important;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    padding-top: calc(12px + env(safe-area-inset-top, 0px)) !important;
+    padding-right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+    padding-bottom: calc(44px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-left: calc(16px + env(safe-area-inset-left, 0px)) !important;
+}
+
+#screen-finger.game-tidy,
+#screen-bridge.game-tidy,
+#screen-react.game-tidy.react-playing {
+    overflow: hidden !important;
+    touch-action: none;
+}
+
+#screen-forehead.game-tidy.forehead-playing {
+    overflow: hidden !important;
+}
+
+#screen-roulette.game-tidy.roulette-play-screen {
+    justify-content: flex-start !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 10px;
+}
+
+#screen-crocodile.game-tidy {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* 통일 머리말 */
+.game-tidy .game-header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    margin: 0 auto 12px;
+}
+
+.game-tidy .game-header .btn-back {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(26, 29, 36, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #f8fafc;
+    font-family: var(--font-main);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: none;
+    transition: transform 0.14s ease, background-color 0.14s ease, border-color 0.14s ease;
+}
+
+.game-tidy .game-header .btn-back:hover {
+    background: rgba(46, 52, 66, 0.92);
+    border-color: var(--border-strong);
+    text-shadow: none;
+}
+
+.game-tidy .game-header .btn-back:active {
+    transform: scale(0.96);
+}
+
+.game-tidy .game-header .btn-back:focus-visible {
+    outline: 2px solid var(--secondary-neon);
+    outline-offset: 2px;
+}
+
+.game-tidy .game-header h2.neon-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0 !important;
+    text-align: left;
+    font-size: 1.35rem !important;
+    font-weight: 800;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.28) !important;
+    word-break: keep-all;
+}
+
+#screen-roulette-input.game-tidy .game-header h2.neon-text,
+#screen-roulette.game-tidy .game-header h2.neon-text {
+    text-shadow: 0 0 8px rgba(255, 0, 85, 0.3) !important;
+}
+
+#screen-bomb.game-tidy .game-header h2.neon-text {
+    text-shadow: 0 0 8px rgba(255, 123, 0, 0.32) !important;
+}
+
+#screen-crocodile.game-tidy .game-header h2.neon-text {
+    text-shadow: 0 0 8px rgba(62, 217, 115, 0.3) !important;
+}
+
+#screen-titanic.game-tidy .game-header h2.neon-text {
+    text-shadow: 0 0 8px rgba(255, 170, 0, 0.3) !important;
+}
+
+#screen-bridge.game-tidy .game-header h2.neon-text,
+#screen-forehead.game-tidy .game-header h2.neon-text {
+    text-shadow: 0 0 8px rgba(162, 0, 255, 0.32) !important;
+}
+
+#screen-react.game-tidy .game-header h2.neon-text {
+    text-shadow: 0 0 8px rgba(255, 170, 0, 0.3) !important;
+}
+
+.game-tidy .game-header .title-en {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: #b8c4d6;
+    text-shadow: none;
+}
+
+#screen-finger.game-tidy .game-header {
+    pointer-events: none;
+}
+
+#screen-finger.game-tidy .game-header .btn-back {
+    pointer-events: auto;
+}
+
+#screen-forehead.game-tidy.forehead-playing .game-header,
+#screen-react.game-tidy.react-playing .game-header {
+    max-width: 520px;
+    margin-bottom: 8px;
+}
+
+/* 통일 주 단추 · 보조 단추 */
+.game-tidy .neon-btn,
+.game-tidy .tensec-stop-btn {
+    width: 100%;
+    max-width: 420px;
+    min-height: 52px;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.3;
+    white-space: normal;
+    word-break: keep-all;
+    text-wrap: balance;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(120deg, #0284c7, #4f46e5);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+#screen-roulette-input.game-tidy .neon-btn,
+#screen-roulette.game-tidy .neon-btn {
+    background: linear-gradient(120deg, #e11d48, #db2777);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.36);
+}
+
+#screen-bomb.game-tidy .neon-btn {
+    background: linear-gradient(135deg, #ea580c, #e11d48);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.36);
+}
+
+#screen-crocodile.game-tidy .neon-btn {
+    background: linear-gradient(120deg, #3ed973, #a3e635);
+    color: #0a0a0c;
+    text-shadow: none;
+    box-shadow: 0 4px 14px rgba(62, 217, 115, 0.32);
+}
+
+#screen-titanic.game-tidy .neon-btn {
+    background: linear-gradient(120deg, #f59e0b, #facc15);
+    color: #0a0a0c;
+    text-shadow: none;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.32);
+}
+
+.game-tidy .tensec-stop-btn {
+    min-height: 60px;
+}
+
+.game-tidy .liar-btn-sub,
+.game-tidy .tensec-btn-sub,
+.game-tidy .forehead-btn-sub,
+.game-tidy .react-btn-sub {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(248, 250, 252, 0.86);
+    opacity: 1;
+    word-break: keep-all;
+}
+
+.game-tidy .btn-save-only,
+.game-tidy .btn-edit-missions,
+.game-tidy .btn-winner-remove,
+.game-tidy .liar-secondary-btn,
+.game-tidy .liar-ghost-btn,
+.game-tidy .tensec-secondary-btn,
+.game-tidy .forehead-secondary-btn,
+.game-tidy .react-secondary-btn {
+    width: 100%;
+    max-width: 420px;
+    min-height: 48px;
+    border-radius: 14px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.3;
+    white-space: normal;
+    word-break: keep-all;
+    text-wrap: balance;
+    margin-left: auto;
+    margin-right: auto;
+    color: #f1f5f9;
+    background: rgba(26, 29, 36, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.game-tidy .btn-edit-missions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-color: rgba(255, 77, 109, 0.5);
+    background: rgba(255, 77, 109, 0.14);
+    color: #ffffff;
+}
+
+.game-tidy .mission-add-bar input {
+    min-height: 48px;
+    border-radius: 12px;
+    font-size: 0.94rem;
+}
+
+.game-tidy .mission-add-btn,
+.game-tidy .btn-shuffle,
+.game-tidy .btn-clear-all {
+    min-height: 48px;
+    border-radius: 12px;
+    padding: 0 14px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.game-tidy .btn-clear-all {
+    color: #cbd5e1;
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* 모드 탭 바 */
+.game-tidy .mode-selector-bar {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 12px !important;
+    padding: 4px;
+    gap: 6px;
+    border-radius: 14px;
+    background: rgba(26, 29, 36, 0.86);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    overflow-x: visible;
+    flex-shrink: 0;
+}
+
+.game-tidy .mode-tab-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 48px;
+    padding: 6px 8px;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #cbd5e1;
+    white-space: normal;
+    word-break: keep-all;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-tidy .mode-tab-btn.active {
+    color: #ffffff;
+}
+
+/* 본문 폭·여백 및 개별 화면 정리 */
+.game-tidy .roulette-toolbar,
+.game-tidy .roulette-editor-card,
+.game-tidy .editor-save-actions,
+.game-tidy .roulette-bottom-bar,
+.game-tidy .cards-grid,
+.game-tidy .titanic-controls,
+.game-tidy .titanic-btn-row,
+.game-tidy .settings-container,
+.game-tidy .liar-body,
+.game-tidy .tensec-body,
+.game-tidy .forehead-body,
+.game-tidy .react-body {
+    width: 100%;
+    max-width: 420px;
+}
+
+.game-tidy .roulette-toolbar {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.game-tidy .roulette-stage {
+    flex: 1 0 auto;
+    min-height: 220px;
+    padding: 4px 0;
+}
+
+.game-tidy .roulette-container {
+    width: min(78vw, 340px, 42dvh);
+    height: min(78vw, 340px, 42dvh);
+}
+
+.game-tidy .roulette-editor-card {
+    flex: 1 1 auto;
+    min-height: 210px;
+    background: rgba(26, 29, 36, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.game-tidy .editor-header {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.game-tidy .bomb-container {
+    width: min(62vw, 240px, 34dvh);
+    height: min(62vw, 240px, 34dvh);
+    margin: 8px auto 18px;
+    flex-shrink: 0;
+}
+
+.game-tidy .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0 auto 18px;
+}
+
+.game-tidy .croc-header {
+    width: 100%;
+    max-width: 420px;
+    padding: 0;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.game-tidy .croc-wrapper {
+    width: 100%;
+    max-width: 420px;
+    flex: 1 0 auto;
+    min-height: 300px;
+}
+
+.game-tidy .croc-shuffle-btn {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    margin: 10px auto 0 !important;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.game-tidy .titanic-game-area {
+    margin: 8px 0;
+    flex: 1 1 auto;
+    min-height: 200px;
+}
+
+.game-tidy .beer-glass {
+    width: clamp(148px, 38vw, 200px);
+    height: clamp(200px, 34dvh, 320px);
+}
+
+.game-tidy .titanic-controls {
+    margin: 0 auto;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.game-tidy .titanic-btn-row {
+    gap: 10px;
+    margin-top: 0;
+}
+
+.game-tidy .titanic-btn-row .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 52px;
+    padding: 10px 8px;
+    font-size: 0.96rem;
+}
+
+.game-tidy .bridge-area {
+    width: 100%;
+    max-width: 420px;
+    min-height: 0;
+}
+
+.game-tidy .liar-timer-controls {
+    gap: 10px;
+}
+
+#screen-forehead.game-tidy.forehead-playing .forehead-body,
+#screen-react.game-tidy.react-playing .react-body {
+    max-width: 520px;
+}
+
+#screen-forehead.game-tidy.forehead-playing .forehead-play-board {
+    min-height: 0;
+}
+
+#screen-forehead.game-tidy.forehead-playing,
+#screen-react.game-tidy.react-playing {
+    padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+/* 안내 글 · 가독성 · 대비 (0.9rem+, 4.5:1+) */
+.game-tidy .subtitle,
+.game-tidy .finger-instructions,
+.game-tidy .bridge-instructions {
+    width: 100%;
+    max-width: 420px;
+    font-size: 0.96rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: #f1f5f9;
+    text-align: center;
+    text-shadow: none;
+    word-break: keep-all;
+    margin: 0 auto 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(10, 12, 18, 0.66);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    flex-shrink: 0;
+}
+
+.game-tidy .i18n-sub {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #b8c4d6;
+    margin-top: 3px;
+    text-shadow: none;
+}
+
+.game-tidy .roulette-count-hint,
+.game-tidy .roulette-slice-info,
+.game-tidy .roulette-winner-sub,
+.game-tidy .editor-empty-state,
+.game-tidy .croc-bite-hint,
+.game-tidy .liar-section-label,
+.game-tidy .liar-cover-hint,
+.game-tidy .liar-secret-note,
+.game-tidy .liar-timer-status,
+.game-tidy .liar-vote-sub,
+.game-tidy .tensec-section-label,
+.game-tidy .tensec-clock-hint,
+.game-tidy .forehead-section-label,
+.game-tidy .forehead-empty-note,
+.game-tidy .react-section-label,
+.game-tidy .react-hub-sub,
+.game-tidy .setting-group label,
+.game-tidy .msg-text {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: #cbd5e1;
+    text-shadow: none;
+    word-break: keep-all;
+}
+
+.game-tidy .msg-text {
+    color: #6ee7b7;
+}
+
+.game-tidy .editor-title,
+.game-tidy .liar-player-pill,
+.game-tidy .tensec-player-pill,
+.game-tidy .forehead-meta-pill {
+    font-size: 0.92rem;
+}
+
+.game-tidy .liar-rule-line,
+.game-tidy .tensec-rule-line,
+.game-tidy .forehead-rule-line,
+.game-tidy .react-rule-line {
+    font-size: 0.92rem;
+    line-height: 1.48;
+    color: #f1f5f9;
+    font-weight: 600;
+    word-break: keep-all;
+}
+
+.game-tidy .liar-rule-en,
+.game-tidy .tensec-rule-en,
+.game-tidy .forehead-rule-en,
+.game-tidy .react-rule-en,
+.game-tidy .liar-sub-en,
+.game-tidy .tensec-turn-sub,
+.game-tidy .forehead-countdown-guide-en {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.38;
+    color: #b8c4d6;
+    margin-top: 2px;
+}
+
+.game-tidy .liar-fact-row,
+.game-tidy .tensec-fact-row,
+.game-tidy .liar-comeback-note {
+    font-size: 0.9rem;
+}
+
+.game-tidy .liar-fact-label,
+.game-tidy .tensec-fact-label {
+    color: #cbd5e1;
+}
+
+.game-tidy .titanic-indicator {
+    font-size: 1rem;
+    color: #e0f9ff;
+    text-shadow: 0 0 6px rgba(0, 243, 255, 0.3);
+}
+
+.game-tidy .result-text {
+    margin-top: 14px;
+    font-size: 1.2rem;
+    color: #f8fafc;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.32);
+}
+
+.game-tidy .liar-rules-card,
+.game-tidy .tensec-rules-card,
+.game-tidy .forehead-rules-card,
+.game-tidy .react-rules-card {
+    background: rgba(26, 29, 36, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+}
 </style>
 </head>
 <body>
@@ -5143,12 +5723,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Roulette Direct Penalty Input Screen -->
-        <section id="screen-roulette-input" class="screen hidden roulette-screen">
-            <div class="roulette-top-nav" style="margin-bottom: 10px;">
-                <button class="btn-back" style="position: static;" onclick="app.navigate('roulette')">&larr; 룰렛으로</button>
-                <span style="font-size: 0.92rem; color: var(--text-color); font-weight: 800;">벌칙 직접 입력 · 저장</span>
-                <span style="width: 64px;"></span>
-            </div>
+        <section id="screen-roulette-input" class="screen hidden roulette-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="app.navigate('roulette')">&larr; 뒤로</button>
+                <h2 class="neon-text">미션 룰렛<span class="title-en">Mission Roulette · 벌칙 입력</span></h2>
+            </header>
 
             <div class="roulette-editor-card">
                 <div class="mission-add-bar">
@@ -5175,11 +5754,13 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Roulette Play Screen (Max Viewport) -->
-        <section id="screen-roulette" class="screen hidden roulette-screen roulette-play-screen">
-            <div class="roulette-top-nav">
-                <button class="btn-back" onclick="app.navigate('main')" style="position: static;">&larr; 메뉴</button>
-                <span class="roulette-header-title">🎯 벌칙 룰렛</span>
-                <button type="button" class="btn-edit-missions" onclick="app.editFromWheel()">✏️ 벌칙 입력·저장</button>
+        <section id="screen-roulette" class="screen hidden roulette-screen roulette-play-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="app.navigate('main')">&larr; 뒤로</button>
+                <h2 class="neon-text">미션 룰렛<span class="title-en">Mission Roulette</span></h2>
+            </header>
+            <div class="roulette-toolbar">
+                <button type="button" class="btn btn-edit-missions" onclick="app.editFromWheel()">✏️ 벌칙 입력·저장</button>
             </div>
 
             <div class="roulette-stage">
@@ -5216,9 +5797,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Bomb Screen -->
-        <section id="screen-bomb" class="screen hidden bomb-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text">GIJO Time Bomb<br><span class="title-kr">시간 폭탄</span></h2>
+        <section id="screen-bomb" class="screen hidden bomb-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text">시간 폭탄<span class="title-en">Time Bomb</span></h2>
+            </header>
             <div class="mode-selector-bar">
                 <button class="mode-tab-btn active" id="bomb-tab-timer" onclick="app.setBombBlindMode(false)">👀 타이머 · Timer</button>
                 <button class="mode-tab-btn" id="bomb-tab-blind" onclick="app.setBombBlindMode(true)">🙈 블라인드 · Blind</button>
@@ -5233,9 +5816,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Cards Screen -->
-        <section id="screen-cards" class="screen hidden">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text">GIJO Card Flip<br><span class="title-kr">카드 뒤집기</span></h2>
+        <section id="screen-cards" class="screen hidden game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text">카드 뒤집기<span class="title-en">Card Flip</span></h2>
+            </header>
             <div class="mode-selector-bar">
                 <button class="mode-tab-btn active" id="card-tab-normal" onclick="app.setCardDeckMode('normal')">🍹 일반 파티 · Party</button>
             </div>
@@ -5244,10 +5829,12 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Crocodile Screen -->
-        <section id="screen-crocodile" class="screen hidden croc-screen">
-            <button class="btn-back croc-back-btn" onclick="history.back()">&larr; 뒤로 · Back</button>
+        <section id="screen-crocodile" class="screen hidden croc-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back croc-back-btn" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text croc-title">크로커다일 룰렛<span class="title-en">Crocodile Roulette</span></h2>
+            </header>
             <div class="croc-header">
-                <h2 class="neon-text croc-title">GIJO Crocodile Roulette<br><span class="title-kr">크로커다일 룰렛</span></h2>
                 <div class="mode-selector-bar" style="margin: 4px auto 8px auto;">
                     <button class="mode-tab-btn active" id="croc-tab-1" onclick="app.setCrocBombCount(1)">💣 1개 · 1 Bomb</button>
                     <button class="mode-tab-btn" id="croc-tab-2" onclick="app.setCrocBombCount(2)">💣💣 2개 · 2 Bombs</button>
@@ -5277,9 +5864,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Finger Roulette Screen -->
-        <section id="screen-finger" class="screen hidden finger-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text">GIJO Touch Roulette<br><span class="title-kr">터치 룰렛</span></h2>
+        <section id="screen-finger" class="screen hidden finger-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text">터치 룰렛<span class="title-en">Touch Roulette</span></h2>
+            </header>
             <div class="mode-selector-bar">
                 <button class="mode-tab-btn active" id="finger-tab-solo" onclick="app.setFingerMode('solo')">🎯 1명 · Solo</button>
                 <button class="mode-tab-btn" id="finger-tab-duo" onclick="app.setFingerMode('duo')">👥 2명 · Duo</button>
@@ -5290,9 +5879,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Titanic Screen -->
-        <section id="screen-titanic" class="screen hidden titanic-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text">GIJO Neon Titanic<br><span class="title-kr">찰랑찰랑 타이타닉</span></h2>
+        <section id="screen-titanic" class="screen hidden titanic-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text">찰랑찰랑 타이타닉<span class="title-en">Neon Titanic</span></h2>
+            </header>
             <p class="subtitle">터치해서 술을 채우세요. 소주잔이 가라앉으면 벌칙!<span class="i18n-sub">Hold to pour. Whoever sinks the shot glass drinks!</span></p>
             
             <div class="titanic-game-area">
@@ -5315,9 +5906,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Bridge Screen -->
-        <section id="screen-bridge" class="screen hidden bridge-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text">GIJO Love Drink<br><span class="title-kr">러브 드링크</span></h2>
+        <section id="screen-bridge" class="screen hidden bridge-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text">러브 드링크<span class="title-en">Love Drink</span></h2>
+            </header>
             <div class="bridge-instructions" id="bridge-msg">화면에 손가락을 모두 올려주세요!<span class="i18n-sub">Everyone place a finger on the screen!</span></div>
             <div id="bridge-area" class="bridge-area"></div>
             
@@ -5332,9 +5925,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Traveler Liar Screen -->
-        <section id="screen-liar" class="screen hidden liar-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text liar-title">Traveler Liar<br><span class="title-kr">여행자 라이어 게임</span></h2>
+        <section id="screen-liar" class="screen hidden liar-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text liar-title">여행자 라이어 게임<span class="title-en">Traveler Liar</span></h2>
+            </header>
 
             <div class="liar-body">
                 <!-- 1. Start Stage -->
@@ -5451,9 +6046,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Blind 10 Seconds Screen -->
-        <section id="screen-tensec" class="screen hidden tensec-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text tensec-title">Blind 10 Seconds<br><span class="title-kr">10초 맞추기</span></h2>
+        <section id="screen-tensec" class="screen hidden tensec-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text tensec-title">10초 맞추기<span class="title-en">Blind 10 Seconds</span></h2>
+            </header>
 
             <div class="tensec-body">
                 <!-- 1. Start Stage -->
@@ -5554,9 +6151,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Forehead Quiz Screen -->
-        <section id="screen-forehead" class="screen hidden forehead-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text forehead-title">Forehead Quiz<br><span class="title-kr">이마 단어 퀴즈</span></h2>
+        <section id="screen-forehead" class="screen hidden forehead-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text forehead-title">이마 단어 퀴즈<span class="title-en">Forehead Quiz</span></h2>
+            </header>
 
             <div class="forehead-body">
                 <!-- 1. Start Stage -->
@@ -5666,9 +6265,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Lightning Reflex Screen -->
-        <section id="screen-react" class="screen hidden react-screen">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text react-title">Lightning Reflex<br><span class="title-kr">번개 반응 대결</span></h2>
+        <section id="screen-react" class="screen hidden react-screen game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text react-title">번개 반응 대결<span class="title-en">Lightning Reflex</span></h2>
+            </header>
 
             <div class="react-body">
                 <!-- 1. Start Stage -->
@@ -5739,9 +6340,11 @@ body.hot .hot-toggle-btn {
         </section>
 
         <!-- Settings Screen -->
-        <section id="screen-settings" class="screen hidden">
-            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
-            <h2 class="neon-text">GIJO Settings<br><span class="title-kr">설정</span></h2>
+        <section id="screen-settings" class="screen hidden game-tidy">
+            <header class="game-header">
+                <button type="button" class="btn-back" aria-label="뒤로 · Back" onclick="history.back()">&larr; 뒤로</button>
+                <h2 class="neon-text">설정<span class="title-en">Settings</span></h2>
+            </header>
             <div class="settings-container">
                 <div class="setting-group">
                     <label>룰렛 벌칙 · Roulette Missions (comma separated)</label>
