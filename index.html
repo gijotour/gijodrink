@@ -3301,6 +3301,1463 @@ body.hot .hot-toggle-btn {
     flex-direction: column;
     gap: 10px;
 }
+
+/* ===== Blind 10 Seconds (.tensec-*) ===== */
+.tensec-menu-btn {
+    grid-column: 1 / 3;
+    grid-row: 7;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 2px;
+    min-height: 64px;
+    padding: 12px 16px;
+    border-color: rgba(255, 0, 85, 0.45);
+}
+.tensec-menu-btn::before {
+    clip-path: none;
+    background: linear-gradient(120deg, var(--primary-neon), var(--secondary-neon));
+    opacity: 0.3;
+}
+.tensec-menu-btn .quad-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    font-size: clamp(1.75rem, 6vw, 2.2rem);
+}
+.tensec-menu-btn .quad-label-en {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: clamp(0.92rem, 3.6vw, 1.12rem);
+}
+.tensec-menu-btn .quad-label-kr {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: clamp(0.7rem, 2.7vw, 0.84rem);
+}
+.tensec-menu-btn .quad-badge {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    margin-bottom: 0;
+    align-self: center;
+}
+
+.tensec-screen {
+    justify-content: flex-start !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 58px 16px 48px 16px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 0, 85, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(0, 243, 255, 0.14) 0%, transparent 50%),
+        var(--bg-color);
+}
+.tensec-title {
+    margin-bottom: 12px !important;
+    text-shadow: 0 0 16px var(--primary-neon), 0 0 28px rgba(0, 243, 255, 0.4);
+}
+.tensec-body {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+}
+.tensec-stage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+.tensec-hidden {
+    display: none !important;
+}
+.tensec-player-pill {
+    align-self: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(0, 243, 255, 0.12);
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    color: var(--secondary-neon);
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-align: center;
+}
+.tensec-rules-card {
+    background: rgba(26, 29, 36, 0.85);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.tensec-rule-line {
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--text-color);
+    word-break: keep-all;
+}
+.tensec-rule-en {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 1px;
+}
+.tensec-section-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+.tensec-target-chips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.tensec-target-chip {
+    min-height: 54px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.96rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-align: center;
+    line-height: 1.2;
+    transition: all 0.16s ease;
+}
+.tensec-target-chip:active {
+    transform: scale(0.96);
+}
+.tensec-target-chip-en {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.tensec-target-chip.tensec-chip-active {
+    background: linear-gradient(120deg, rgba(255, 0, 85, 0.24), rgba(0, 243, 255, 0.24));
+    border-color: var(--secondary-neon);
+    box-shadow: 0 0 16px rgba(0, 243, 255, 0.28);
+}
+.tensec-target-chip.tensec-chip-active .tensec-target-chip-en {
+    color: rgba(255, 255, 255, 0.88);
+}
+.tensec-primary-btn {
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    white-space: normal;
+    line-height: 1.25;
+    padding: 10px 16px;
+}
+.tensec-btn-sub {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.tensec-secondary-btn {
+    min-height: 50px;
+    background: rgba(162, 0, 255, 0.2);
+    border: 1px solid rgba(162, 0, 255, 0.55);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    white-space: normal;
+    line-height: 1.25;
+}
+.tensec-secondary-btn:active {
+    transform: scale(0.97);
+}
+.tensec-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.tensec-progress,
+.tensec-target-pill {
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-strong);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+.tensec-progress {
+    color: var(--secondary-neon);
+}
+.tensec-target-pill {
+    color: #fff;
+    border-color: rgba(255, 0, 85, 0.45);
+}
+.tensec-turn-title {
+    text-align: center;
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 14px var(--secondary-neon);
+    line-height: 1.25;
+}
+.tensec-turn-sub {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-shadow: none;
+    margin-top: 2px;
+}
+.tensec-clock-box {
+    width: 100%;
+    border-radius: 22px;
+    border: 2px solid rgba(0, 243, 255, 0.45);
+    background: linear-gradient(155deg, rgba(16, 26, 38, 0.96), rgba(12, 14, 22, 0.98));
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 243, 255, 0.18);
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tensec-clock-box.tensec-clock-blind {
+    border-color: var(--tertiary-neon);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 28px rgba(162, 0, 255, 0.35);
+}
+.tensec-clock-box.tensec-clock-stopped {
+    border-color: var(--primary-neon);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 26px rgba(255, 0, 85, 0.28);
+}
+.tensec-clock-status {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(0, 243, 255, 0.14);
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    color: var(--secondary-neon);
+    font-size: 0.76rem;
+    font-weight: 800;
+    word-break: keep-all;
+}
+.tensec-clock-box.tensec-clock-blind .tensec-clock-status {
+    background: rgba(162, 0, 255, 0.22);
+    border-color: rgba(162, 0, 255, 0.6);
+    color: #e0aaff;
+}
+.tensec-clock-box.tensec-clock-stopped .tensec-clock-status {
+    background: rgba(255, 0, 85, 0.18);
+    border-color: rgba(255, 0, 85, 0.55);
+    color: #ff85ad;
+}
+.tensec-clock-display {
+    font-size: clamp(3.1rem, 15vw, 4.4rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-shadow: 0 0 20px var(--secondary-neon);
+    font-variant-numeric: tabular-nums;
+}
+.tensec-clock-box.tensec-clock-blind .tensec-clock-display {
+    color: #f3d6ff;
+    text-shadow: 0 0 22px var(--tertiary-neon), 0 0 36px rgba(162, 0, 255, 0.55);
+    animation: tensec-pulse 1s ease-in-out infinite;
+}
+@keyframes tensec-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.92; }
+    50% { transform: scale(1.06); opacity: 1; }
+}
+.tensec-clock-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    word-break: keep-all;
+}
+.tensec-turn-result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+}
+.tensec-fact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.84rem;
+}
+.tensec-fact-label {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: left;
+}
+.tensec-fact-val {
+    color: #fff;
+    font-weight: 800;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+.tensec-fact-diff .tensec-fact-val {
+    color: var(--secondary-neon);
+    font-size: 0.98rem;
+}
+.tensec-action-btn {
+    width: 100%;
+    min-height: 64px;
+    border-radius: 18px;
+    font-size: 1.12rem;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 12px 16px;
+    white-space: normal;
+    line-height: 1.25;
+}
+.tensec-stop-btn {
+    background: linear-gradient(135deg, var(--primary-neon), #ff4d79) !important;
+    border: 2px solid rgba(255, 255, 255, 0.45) !important;
+    box-shadow: 0 0 26px rgba(255, 0, 85, 0.55) !important;
+    color: #fff !important;
+}
+.tensec-stop-btn:active {
+    transform: scale(0.96);
+}
+.tensec-rank-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.tensec-spotlight-card {
+    border-radius: 16px;
+    padding: 12px 10px;
+    background: rgba(26, 29, 36, 0.92);
+    border: 1px solid var(--border-strong);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+.tensec-spotlight-first {
+    border-color: var(--secondary-neon);
+    background: linear-gradient(155deg, rgba(0, 243, 255, 0.16), rgba(20, 24, 34, 0.95));
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.22);
+}
+.tensec-spotlight-last {
+    border-color: var(--primary-neon);
+    background: linear-gradient(155deg, rgba(255, 0, 85, 0.16), rgba(24, 16, 26, 0.95));
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.22);
+}
+.tensec-spotlight-tag {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+.tensec-spotlight-first .tensec-spotlight-tag {
+    color: var(--secondary-neon);
+}
+.tensec-spotlight-last .tensec-spotlight-tag {
+    color: #ff7aa8;
+}
+.tensec-spotlight-player {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #fff;
+}
+.tensec-spotlight-diff {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+.tensec-rank-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.tensec-rank-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(26, 29, 36, 0.88);
+    border: 1px solid var(--border-strong);
+}
+.tensec-rank-row.tensec-rank-first {
+    border-color: var(--secondary-neon);
+    background: linear-gradient(120deg, rgba(0, 243, 255, 0.18), rgba(20, 24, 34, 0.94));
+    box-shadow: 0 0 18px rgba(0, 243, 255, 0.22);
+}
+.tensec-rank-row.tensec-rank-last {
+    border-color: var(--primary-neon);
+    background: linear-gradient(120deg, rgba(255, 0, 85, 0.18), rgba(26, 16, 24, 0.94));
+    box-shadow: 0 0 18px rgba(255, 0, 85, 0.22);
+}
+.tensec-rank-badge {
+    min-width: 58px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-color);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-align: center;
+}
+.tensec-rank-row.tensec-rank-first .tensec-rank-badge {
+    background: rgba(0, 243, 255, 0.22);
+    color: var(--secondary-neon);
+}
+.tensec-rank-row.tensec-rank-last .tensec-rank-badge {
+    background: rgba(255, 0, 85, 0.24);
+    color: #ff85ad;
+}
+.tensec-rank-player {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+}
+.tensec-rank-player-en {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.tensec-rank-metrics {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+.tensec-rank-time {
+    font-size: 0.96rem;
+    font-weight: 900;
+    color: #fff;
+}
+.tensec-rank-diff {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--secondary-neon);
+}
+.tensec-rank-row.tensec-rank-last .tensec-rank-diff {
+    color: #ff85ad;
+}
+.tensec-rank-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ===== Forehead Quiz (.forehead-*) ===== */
+.forehead-menu-btn {
+    grid-column: 1 / 3;
+    grid-row: 8;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 2px;
+    min-height: 64px;
+    padding: 12px 16px;
+    border-color: rgba(162, 0, 255, 0.5);
+}
+.forehead-menu-btn::before {
+    clip-path: none;
+    background: linear-gradient(120deg, var(--tertiary-neon), var(--secondary-neon));
+    opacity: 0.3;
+}
+.forehead-menu-btn .quad-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    font-size: clamp(1.75rem, 6vw, 2.2rem);
+}
+.forehead-menu-btn .quad-label-en {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: clamp(0.92rem, 3.6vw, 1.12rem);
+}
+.forehead-menu-btn .quad-label-kr {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: clamp(0.7rem, 2.7vw, 0.84rem);
+}
+.forehead-menu-btn .quad-badge {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    margin-bottom: 0;
+    align-self: center;
+}
+
+.forehead-screen {
+    justify-content: flex-start !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 58px 16px 48px 16px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(162, 0, 255, 0.16) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(0, 243, 255, 0.14) 0%, transparent 50%),
+        var(--bg-color);
+    transition: background 0.18s ease;
+}
+.forehead-screen.forehead-playing {
+    overflow: hidden;
+    padding: 58px 10px 30px 10px;
+}
+.forehead-screen.forehead-playing .forehead-title {
+    display: none;
+}
+.forehead-screen.forehead-flash-correct {
+    background:
+        radial-gradient(ellipse at 50% 45%, rgba(0, 255, 170, 0.42) 0%, rgba(0, 243, 255, 0.24) 48%, rgba(8, 28, 28, 0.96) 100%);
+}
+.forehead-screen.forehead-flash-pass {
+    background:
+        radial-gradient(ellipse at 50% 45%, rgba(255, 170, 0, 0.4) 0%, rgba(255, 0, 85, 0.26) 48%, rgba(30, 14, 16, 0.96) 100%);
+}
+.forehead-title {
+    margin-bottom: 12px !important;
+    text-shadow: 0 0 16px var(--tertiary-neon), 0 0 28px rgba(0, 243, 255, 0.45);
+}
+.forehead-body {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+    min-height: 0;
+}
+.forehead-screen.forehead-playing .forehead-body {
+    max-width: 560px;
+}
+.forehead-stage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    min-height: 0;
+}
+.forehead-hidden {
+    display: none !important;
+}
+.forehead-rules-card {
+    background: rgba(26, 29, 36, 0.85);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.forehead-rule-line {
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--text-color);
+    word-break: keep-all;
+}
+.forehead-rule-en {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 1px;
+}
+.forehead-section-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+.forehead-topic-chips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+.forehead-topic-chip {
+    min-height: 48px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-align: center;
+    line-height: 1.2;
+    transition: all 0.16s ease;
+}
+.forehead-topic-chip:active {
+    transform: scale(0.97);
+}
+.forehead-topic-chip-en {
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.forehead-topic-chip.forehead-chip-random {
+    grid-column: 1 / -1;
+}
+.forehead-topic-chip.forehead-chip-active {
+    background: linear-gradient(120deg, rgba(162, 0, 255, 0.28), rgba(0, 243, 255, 0.22));
+    border-color: var(--secondary-neon);
+    box-shadow: 0 0 16px rgba(0, 243, 255, 0.28);
+}
+.forehead-topic-chip.forehead-chip-active .forehead-topic-chip-en {
+    color: rgba(255, 255, 255, 0.86);
+}
+.forehead-time-chips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.forehead-time-chip {
+    min-height: 50px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.94rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-align: center;
+    line-height: 1.2;
+    transition: all 0.16s ease;
+}
+.forehead-time-chip:active {
+    transform: scale(0.96);
+}
+.forehead-time-chip-en {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.forehead-time-chip.forehead-chip-active {
+    background: linear-gradient(120deg, rgba(162, 0, 255, 0.26), rgba(0, 243, 255, 0.24));
+    border-color: var(--secondary-neon);
+    box-shadow: 0 0 16px rgba(0, 243, 255, 0.28);
+}
+.forehead-time-chip.forehead-chip-active .forehead-time-chip-en {
+    color: rgba(255, 255, 255, 0.88);
+}
+.forehead-primary-btn {
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    white-space: normal;
+    line-height: 1.25;
+    padding: 10px 16px;
+}
+.forehead-btn-sub {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.forehead-secondary-btn {
+    min-height: 50px;
+    background: rgba(162, 0, 255, 0.2);
+    border: 1px solid rgba(162, 0, 255, 0.55);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    white-space: normal;
+    line-height: 1.25;
+}
+.forehead-secondary-btn:active {
+    transform: scale(0.97);
+}
+.forehead-meta-pill {
+    align-self: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(0, 243, 255, 0.12);
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    color: var(--secondary-neon);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-align: center;
+}
+.forehead-countdown-card {
+    flex: 1;
+    min-height: 280px;
+    border-radius: 22px;
+    border: 2px solid rgba(162, 0, 255, 0.55);
+    background:
+        radial-gradient(circle at 50% 40%, rgba(162, 0, 255, 0.2), rgba(16, 18, 28, 0.96) 72%);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 28px rgba(162, 0, 255, 0.24);
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+}
+.forehead-countdown-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+.forehead-countdown-num {
+    font-size: clamp(4.6rem, 24vw, 6.8rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 24px var(--secondary-neon), 0 0 42px rgba(162, 0, 255, 0.6);
+    font-variant-numeric: tabular-nums;
+}
+.forehead-countdown-guide {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.45;
+    word-break: keep-all;
+}
+.forehead-countdown-guide-en {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.forehead-play-board {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 360px;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 243, 255, 0.35);
+    background: rgba(14, 16, 24, 0.92);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    touch-action: manipulation;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+.forehead-screen.forehead-flash-correct .forehead-play-board {
+    border-color: #00ffaa;
+    background: rgba(0, 120, 90, 0.42);
+    box-shadow: 0 0 36px rgba(0, 255, 170, 0.55);
+}
+.forehead-screen.forehead-flash-pass .forehead-play-board {
+    border-color: #ffaa00;
+    background: rgba(140, 62, 16, 0.42);
+    box-shadow: 0 0 36px rgba(255, 170, 0, 0.52);
+}
+.forehead-tap-zones {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 2;
+}
+.forehead-zone-btn {
+    width: 100%;
+    height: 100%;
+    min-height: 48px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 18px 8px;
+    gap: 2px;
+    font-family: var(--font-main);
+    transition: background 0.14s ease;
+}
+.forehead-zone-pass {
+    background: linear-gradient(180deg, rgba(255, 170, 0, 0.04) 0%, rgba(255, 0, 85, 0.12) 100%);
+    border-right: 1px dashed rgba(255, 255, 255, 0.18);
+    color: #ffd180;
+}
+.forehead-zone-pass:active {
+    background: rgba(255, 170, 0, 0.28);
+}
+.forehead-zone-correct {
+    background: linear-gradient(180deg, rgba(0, 243, 255, 0.04) 0%, rgba(0, 255, 170, 0.14) 100%);
+    color: #80ffd4;
+}
+.forehead-zone-correct:active {
+    background: rgba(0, 255, 170, 0.28);
+}
+.forehead-zone-title {
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+}
+.forehead-zone-sub {
+    font-size: 0.68rem;
+    font-weight: 700;
+    opacity: 0.85;
+}
+.forehead-word-overlay {
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 12px 74px 12px;
+    text-align: center;
+}
+.forehead-hud-top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.forehead-hud-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.forehead-hud-pill {
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: rgba(10, 12, 18, 0.72);
+    border: 1px solid var(--border-strong);
+    color: var(--text-color);
+    font-size: 0.76rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+.forehead-timer-display {
+    font-size: clamp(2.6rem, 12vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--secondary-neon);
+    text-shadow: 0 0 18px rgba(0, 243, 255, 0.55);
+    font-variant-numeric: tabular-nums;
+}
+.forehead-timer-display.forehead-timer-urgent {
+    color: var(--primary-neon);
+    text-shadow: 0 0 20px rgba(255, 0, 85, 0.7);
+}
+.forehead-word-wrap {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 6px;
+    min-width: 0;
+}
+.forehead-feedback-pill {
+    min-height: 28px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 900;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.14s ease, transform 0.14s ease;
+}
+.forehead-feedback-pill.forehead-fb-correct {
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(0, 255, 170, 0.24);
+    border: 1px solid #00ffaa;
+    color: #b8ffe8;
+}
+.forehead-feedback-pill.forehead-fb-pass {
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(255, 170, 0, 0.24);
+    border: 1px solid #ffaa00;
+    color: #ffe2a8;
+}
+.forehead-word-kr {
+    max-width: 100%;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.12;
+    color: #ffffff;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85), 0 0 22px rgba(0, 243, 255, 0.45);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+.forehead-word-en {
+    font-size: clamp(0.98rem, 4.2vw, 1.28rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.78);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+.forehead-result-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.forehead-stat-card {
+    border-radius: 16px;
+    padding: 14px 10px;
+    background: rgba(26, 29, 36, 0.92);
+    border: 1px solid var(--border-strong);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+.forehead-stat-correct {
+    border-color: var(--secondary-neon);
+    background: linear-gradient(155deg, rgba(0, 255, 170, 0.14), rgba(18, 26, 36, 0.95));
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+.forehead-stat-pass {
+    border-color: var(--primary-neon);
+    background: linear-gradient(155deg, rgba(255, 170, 0, 0.14), rgba(28, 18, 24, 0.95));
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.18);
+}
+.forehead-stat-label {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+.forehead-stat-correct .forehead-stat-label {
+    color: #80ffd4;
+}
+.forehead-stat-pass .forehead-stat-label {
+    color: #ffd180;
+}
+.forehead-stat-num {
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+.forehead-list-box {
+    background: rgba(26, 29, 36, 0.88);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.forehead-list-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--secondary-neon);
+}
+.forehead-list-title-pass {
+    color: #ffd180;
+}
+.forehead-word-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.forehead-word-tag {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: rgba(0, 255, 170, 0.14);
+    border: 1px solid rgba(0, 255, 170, 0.4);
+    color: #e6fff6;
+}
+.forehead-word-tag-pass {
+    background: rgba(255, 170, 0, 0.14);
+    border-color: rgba(255, 170, 0, 0.4);
+    color: #fff0d4;
+}
+.forehead-empty-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+.forehead-result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ===== Lightning Reflex (.react-*) ===== */
+.react-menu-btn {
+    grid-column: 1 / 3;
+    grid-row: 9;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 2px;
+    min-height: 64px;
+    padding: 12px 16px;
+    border-color: rgba(255, 188, 40, 0.52);
+}
+.react-menu-btn::before {
+    clip-path: none;
+    background: linear-gradient(120deg, #ffaa00, var(--secondary-neon));
+    opacity: 0.3;
+}
+.react-menu-btn .quad-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    font-size: clamp(1.75rem, 6vw, 2.2rem);
+}
+.react-menu-btn .quad-label-en {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: clamp(0.92rem, 3.6vw, 1.12rem);
+}
+.react-menu-btn .quad-label-kr {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: clamp(0.7rem, 2.7vw, 0.84rem);
+}
+.react-menu-btn .quad-badge {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    margin-bottom: 0;
+    align-self: center;
+}
+
+.react-screen {
+    justify-content: flex-start !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 58px 16px 48px 16px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 185, 0, 0.16) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(0, 243, 255, 0.14) 0%, transparent 50%),
+        var(--bg-color);
+    transition: background 0.08s ease;
+}
+.react-screen.react-playing {
+    overflow: hidden;
+    padding: 58px 10px 32px 10px;
+    touch-action: none;
+}
+.react-screen.react-playing .react-title {
+    display: none;
+}
+.react-screen.react-signal-on {
+    background:
+        radial-gradient(circle at 50% 50%, #ffffff 0%, #fff7ad 38%, #63f7ff 78%, #ffcf33 100%) !important;
+}
+.react-title {
+    margin-bottom: 12px !important;
+    text-shadow: 0 0 16px #ffaa00, 0 0 28px rgba(0, 243, 255, 0.45);
+}
+.react-body {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    gap: 12px;
+}
+.react-screen.react-playing .react-body {
+    max-width: 520px;
+}
+.react-stage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    min-height: 0;
+}
+.react-hidden {
+    display: none !important;
+}
+.react-rules-card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.react-rule-line {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+.react-rule-en {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+.react-section-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+.react-count-chips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.react-count-chip {
+    min-height: 54px;
+    padding: 10px 8px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.94rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    transition: transform 0.12s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.react-count-chip:active {
+    transform: scale(0.96);
+}
+.react-count-chip-en {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.react-count-chip.react-chip-active {
+    border-color: #ffbe2e;
+    background: linear-gradient(135deg, rgba(255, 170, 0, 0.28), rgba(0, 243, 255, 0.18));
+    box-shadow: 0 0 18px rgba(255, 170, 0, 0.34);
+}
+.react-count-chip.react-chip-active .react-count-chip-en {
+    color: #fff3cc;
+}
+.react-primary-btn {
+    width: 100%;
+    min-height: 54px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: 1rem;
+    font-weight: 800;
+}
+.react-btn-sub {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.88;
+}
+.react-secondary-btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.react-secondary-btn:active {
+    transform: scale(0.97);
+}
+
+.react-arena {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+.react-zones {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 8px;
+    touch-action: none;
+}
+.react-zones.react-grid-2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.react-zones.react-grid-3,
+.react-zones.react-grid-4 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.react-zone {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    border: 2px solid var(--react-accent, var(--secondary-neon));
+    background: var(--react-bg, rgba(0, 243, 255, 0.16));
+    color: var(--text-color);
+    font-family: var(--font-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 10px;
+    cursor: pointer;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    overflow: hidden;
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.35), 0 0 14px var(--react-glow, rgba(0, 243, 255, 0.25));
+    transition: background 0.08s ease, border-color 0.08s ease, box-shadow 0.08s ease, opacity 0.15s ease, filter 0.15s ease;
+}
+.react-zone-span2 {
+    grid-column: 1 / 3;
+}
+.react-color-0 {
+    --react-accent: var(--secondary-neon);
+    --react-bg: rgba(0, 243, 255, 0.16);
+    --react-glow: rgba(0, 243, 255, 0.45);
+}
+.react-color-1 {
+    --react-accent: var(--primary-neon);
+    --react-bg: rgba(255, 0, 85, 0.18);
+    --react-glow: rgba(255, 0, 85, 0.45);
+}
+.react-color-2 {
+    --react-accent: #ffaa00;
+    --react-bg: rgba(255, 170, 0, 0.18);
+    --react-glow: rgba(255, 170, 0, 0.45);
+}
+.react-color-3 {
+    --react-accent: #c066ff;
+    --react-bg: rgba(162, 0, 255, 0.2);
+    --react-glow: rgba(162, 0, 255, 0.45);
+}
+.react-zone-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    pointer-events: none;
+    width: 100%;
+}
+.react-zone-rotated .react-zone-inner {
+    transform: rotate(180deg);
+}
+.react-zone-num {
+    font-size: clamp(1.35rem, 6vw, 1.95rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 0 14px var(--react-glow);
+}
+.react-zone-num-en {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+.react-zone-wins {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(10, 12, 18, 0.62);
+    border: 1px solid var(--react-accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+.react-zone-state {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.92);
+    min-height: 1.2em;
+    line-height: 1.25;
+}
+.react-arena.react-signal-on .react-zone:not(.react-zone-foul) {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #ffffff;
+    box-shadow: inset 0 0 38px var(--react-glow), 0 0 30px #ffffff;
+}
+.react-arena.react-signal-on .react-zone:not(.react-zone-foul) .react-zone-num,
+.react-arena.react-signal-on .react-zone:not(.react-zone-foul) .react-zone-num-en,
+.react-arena.react-signal-on .react-zone:not(.react-zone-foul) .react-zone-state {
+    color: #0a0a0c;
+    text-shadow: none;
+}
+.react-zone.react-zone-foul {
+    background: rgba(10, 10, 14, 0.94) !important;
+    border-color: rgba(255, 255, 255, 0.14) !important;
+    opacity: 0.34;
+    filter: grayscale(0.85);
+    box-shadow: none !important;
+}
+.react-zone.react-zone-winner {
+    border-color: #ffe44d;
+    background: linear-gradient(155deg, rgba(255, 228, 77, 0.34), var(--react-bg));
+    box-shadow: inset 0 0 38px rgba(255, 228, 77, 0.45), 0 0 28px var(--react-glow);
+}
+
+.react-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+    padding: 14px;
+}
+.react-hub-card {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 280px;
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(12, 14, 22, 0.95);
+    border: 1.5px solid rgba(255, 200, 60, 0.72);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85), 0 0 26px rgba(255, 170, 0, 0.28);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.react-hub-title {
+    font-size: 1.02rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.3;
+}
+.react-hub-sub {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.35;
+}
+.react-hub-ms {
+    font-size: clamp(1.8rem, 8vw, 2.3rem);
+    font-weight: 900;
+    color: #ffe44d;
+    text-shadow: 0 0 18px rgba(255, 210, 60, 0.75);
+    line-height: 1.1;
+}
+.react-hub-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.react-hub-pill {
+    pointer-events: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: rgba(10, 12, 20, 0.94);
+    border: 2px solid rgba(255, 188, 60, 0.85);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 170, 0, 0.35);
+    text-align: center;
+}
+.react-hub-pill-kr {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+}
+.react-hub-pill-en {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ffd978;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+}
+.react-hub-pill.react-pill-go {
+    background: #ffffff;
+    border-color: #ffaa00;
+    box-shadow: 0 0 40px #ffffff, 0 0 24px #ffaa00;
+}
+.react-hub-pill.react-pill-go .react-hub-pill-kr,
+.react-hub-pill.react-pill-go .react-hub-pill-en {
+    color: #0a0a0c;
+}
 </style>
 </head>
 <body>
@@ -3375,6 +4832,24 @@ body.hot .hot-toggle-btn {
                     <span class="quad-icon">&#128373;&#65039;</span>
                     <span class="quad-label-en">Traveler Liar</span>
                     <span class="quad-label-kr">여행자 라이어 게임</span>
+                </button>
+                <button class="quad-btn tensec-menu-btn" onclick="app.navigate('tensec')">
+                    <span class="quad-badge">2~12인 · Timing</span>
+                    <span class="quad-icon">&#9201;&#65039;</span>
+                    <span class="quad-label-en">Blind 10 Seconds</span>
+                    <span class="quad-label-kr">10초 맞추기</span>
+                </button>
+                <button class="quad-btn forehead-menu-btn" onclick="app.navigate('forehead')">
+                    <span class="quad-badge">2인 이상 · Quiz</span>
+                    <span class="quad-icon">&#128582;</span>
+                    <span class="quad-label-en">Forehead Quiz</span>
+                    <span class="quad-label-kr">이마 단어 퀴즈</span>
+                </button>
+                <button class="quad-btn react-menu-btn" onclick="app.navigate('react')">
+                    <span class="quad-badge">2~4인 · Reflex</span>
+                    <span class="quad-icon">&#9889;</span>
+                    <span class="quad-label-en">Lightning Reflex</span>
+                    <span class="quad-label-kr">번개 반응 대결</span>
                 </button>
             </div>
         </section>
@@ -3682,6 +5157,294 @@ body.hot .hot-toggle-btn {
                         <button type="button" class="btn liar-secondary-btn" onclick="app.liarBackToStart()">
                             <span>&#127968; 처음으로 · Back to Start</span>
                         </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blind 10 Seconds Screen -->
+        <section id="screen-tensec" class="screen hidden tensec-screen">
+            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
+            <h2 class="neon-text tensec-title">Blind 10 Seconds<br><span class="title-kr">10초 맞추기</span></h2>
+
+            <div class="tensec-body">
+                <!-- 1. Start Stage -->
+                <div id="tensec-stage-start" class="tensec-stage">
+                    <div class="tensec-player-pill" id="tensec-player-info">참여 인원 · Players: 4명</div>
+                    <div class="tensec-rules-card">
+                        <div class="tensec-rule-line">1. 순서대로 시작을 누르면 시계가 0.00초부터 올라가요.<span class="tensec-rule-en">Take turns tapping Start as the clock counts up from 0.00s.</span></div>
+                        <div class="tensec-rule-line">2. 3초 뒤 숫자가 ??? 로 가려지면 감으로 목표 시간에 멈추세요.<span class="tensec-rule-en">After 3s the digits hide behind ??? — tap Stop at the target.</span></div>
+                        <div class="tensec-rule-line">3. 목표 시간과 차이가 가장 작은 사람이 1등이에요.<span class="tensec-rule-en">Closest to the target time wins 1st place.</span></div>
+                    </div>
+                    <div class="tensec-section-label">목표 시간 고르기 · Choose Target Time</div>
+                    <div class="tensec-target-chips" id="tensec-target-chips">
+                        <button type="button" class="tensec-target-chip" data-sec="5" onclick="app.tensecSelectTarget(5)">
+                            <span>5초</span>
+                            <span class="tensec-target-chip-en">5.00s</span>
+                        </button>
+                        <button type="button" class="tensec-target-chip tensec-chip-active" data-sec="10" onclick="app.tensecSelectTarget(10)">
+                            <span>10초</span>
+                            <span class="tensec-target-chip-en">10.00s</span>
+                        </button>
+                        <button type="button" class="tensec-target-chip" data-sec="15" onclick="app.tensecSelectTarget(15)">
+                            <span>15초</span>
+                            <span class="tensec-target-chip-en">15.00s</span>
+                        </button>
+                    </div>
+                    <button type="button" class="btn neon-btn tensec-primary-btn" onclick="app.tensecStartGame()">
+                        <span>&#9201;&#65039; 게임 시작 · Start Game</span>
+                    </button>
+                </div>
+
+                <!-- 2. Play Stage (Ready / Running / Stopped) -->
+                <div id="tensec-stage-play" class="tensec-stage tensec-hidden">
+                    <div class="tensec-topbar">
+                        <div class="tensec-progress" id="tensec-progress">1 / 4</div>
+                        <div class="tensec-target-pill" id="tensec-target-pill">목표 · Target: 10.00초</div>
+                    </div>
+                    <div class="tensec-turn-title" id="tensec-turn-title">1번 차례<span class="tensec-turn-sub">Player 1's Turn</span></div>
+                    <div class="tensec-clock-box" id="tensec-clock-box">
+                        <div class="tensec-clock-status" id="tensec-clock-status">준비 완료 · Ready</div>
+                        <div class="tensec-clock-display" id="tensec-clock-display">0.00</div>
+                        <div class="tensec-clock-hint" id="tensec-clock-hint">시작을 누르면 3초 뒤 숫자가 가려져요 · Digits hide after 3s</div>
+                        <div class="tensec-turn-result tensec-hidden" id="tensec-turn-result">
+                            <div class="tensec-fact-row">
+                                <span class="tensec-fact-label">목표 시간 · Target</span>
+                                <span class="tensec-fact-val" id="tensec-res-target">10.00초</span>
+                            </div>
+                            <div class="tensec-fact-row">
+                                <span class="tensec-fact-label">멈춘 시간 · Stopped</span>
+                                <span class="tensec-fact-val" id="tensec-res-time">0.00초</span>
+                            </div>
+                            <div class="tensec-fact-row tensec-fact-diff">
+                                <span class="tensec-fact-label">목표와 차이 · Diff</span>
+                                <span class="tensec-fact-val" id="tensec-res-diff">0.00초</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn neon-btn tensec-action-btn" id="tensec-start-btn" onclick="app.tensecStartClock()">
+                        <span>&#9654; 시작 · Start</span>
+                        <span class="tensec-btn-sub">눌러서 카운트 시작 · Tap to Start</span>
+                    </button>
+                    <button type="button" class="btn tensec-action-btn tensec-stop-btn tensec-hidden" id="tensec-stop-btn" onclick="app.tensecStopClock(false)">
+                        <span>&#9209; 멈춤 · STOP!</span>
+                        <span class="tensec-btn-sub">목표 시간이라 생각될 때 누르세요 · Tap at Target</span>
+                    </button>
+                    <button type="button" class="btn neon-btn tensec-action-btn tensec-hidden" id="tensec-next-btn" onclick="app.tensecNextTurn()">
+                        <span id="tensec-next-btn-kr">다음 사람 · Next Player</span>
+                        <span class="tensec-btn-sub" id="tensec-next-btn-en">Pass to Next Player</span>
+                    </button>
+                </div>
+
+                <!-- 3. Ranking Stage -->
+                <div id="tensec-stage-ranking" class="tensec-stage tensec-hidden">
+                    <div class="tensec-player-pill" id="tensec-rank-target">목표 시간 · Target: 10.00초</div>
+                    <div class="tensec-rank-summary">
+                        <div class="tensec-spotlight-card tensec-spotlight-first">
+                            <span class="tensec-spotlight-tag">&#128081; 1등 · 1st Place</span>
+                            <span class="tensec-spotlight-player" id="tensec-first-player">-</span>
+                            <span class="tensec-spotlight-diff" id="tensec-first-diff">-</span>
+                        </div>
+                        <div class="tensec-spotlight-card tensec-spotlight-last">
+                            <span class="tensec-spotlight-tag">&#128517; 꼴찌 · Last Place</span>
+                            <span class="tensec-spotlight-player" id="tensec-last-player">-</span>
+                            <span class="tensec-spotlight-diff" id="tensec-last-diff">-</span>
+                        </div>
+                    </div>
+                    <div class="tensec-rank-list" id="tensec-rank-list"></div>
+                    <div class="tensec-rank-actions">
+                        <button type="button" class="btn neon-btn tensec-primary-btn" onclick="app.tensecPlayAgain()">
+                            <span>&#128260; 한 판 더 · Play Again</span>
+                            <span class="tensec-btn-sub">같은 목표로 다시 도전 · Retry Same Target</span>
+                        </button>
+                        <button type="button" class="btn tensec-secondary-btn" onclick="app.tensecBackToStart()">
+                            <span>&#127968; 처음으로 · Back to Start</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forehead Quiz Screen -->
+        <section id="screen-forehead" class="screen hidden forehead-screen">
+            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
+            <h2 class="neon-text forehead-title">Forehead Quiz<br><span class="title-kr">이마 단어 퀴즈</span></h2>
+
+            <div class="forehead-body">
+                <!-- 1. Start Stage -->
+                <div id="forehead-stage-start" class="forehead-stage">
+                    <div class="forehead-rules-card">
+                        <div class="forehead-rule-line">1. 한 명이 폰을 이마에 대고 화면을 일행에게 보여 주세요.<span class="forehead-rule-en">Hold the phone to your forehead facing your friends.</span></div>
+                        <div class="forehead-rule-line">2. 일행이 말과 몸짓으로 설명하면 단어를 맞혀 보세요.<span class="forehead-rule-en">Friends describe or act out clues while you guess.</span></div>
+                        <div class="forehead-rule-line">3. 맞히면 화면 오른쪽(정답), 모르면 왼쪽(패스)을 탭하세요.<span class="forehead-rule-en">Tap the right half for Correct, or the left half to Pass.</span></div>
+                    </div>
+                    <div class="forehead-section-label">주제 고르기 · Choose Topic</div>
+                    <div class="forehead-topic-chips" id="forehead-topic-chips"></div>
+                    <div class="forehead-section-label">제한 시간 · Time Limit</div>
+                    <div class="forehead-time-chips" id="forehead-time-chips">
+                        <button type="button" class="forehead-time-chip" data-sec="45" onclick="app.foreheadSelectTime(45)">
+                            <span>45초</span>
+                            <span class="forehead-time-chip-en">45s</span>
+                        </button>
+                        <button type="button" class="forehead-time-chip forehead-chip-active" data-sec="60" onclick="app.foreheadSelectTime(60)">
+                            <span>60초</span>
+                            <span class="forehead-time-chip-en">60s</span>
+                        </button>
+                        <button type="button" class="forehead-time-chip" data-sec="90" onclick="app.foreheadSelectTime(90)">
+                            <span>90초</span>
+                            <span class="forehead-time-chip-en">90s</span>
+                        </button>
+                    </div>
+                    <button type="button" class="btn neon-btn forehead-primary-btn" onclick="app.foreheadStart()">
+                        <span>&#128582; 게임 시작 · Start Game</span>
+                    </button>
+                </div>
+
+                <!-- 2. Countdown Stage -->
+                <div id="forehead-stage-countdown" class="forehead-stage forehead-hidden">
+                    <div class="forehead-meta-pill" id="forehead-countdown-meta">🎲 무작위 · 60초</div>
+                    <div class="forehead-countdown-card">
+                        <div class="forehead-countdown-icon">&#128582;</div>
+                        <div class="forehead-countdown-num" id="forehead-countdown-num">3</div>
+                        <div class="forehead-countdown-guide">
+                            폰을 이마에 대고 일행에게 보여 주세요
+                            <span class="forehead-countdown-guide-en">Place phone on your forehead facing your friends</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Play Stage -->
+                <div id="forehead-stage-play" class="forehead-stage forehead-hidden">
+                    <div class="forehead-play-board" id="forehead-play-board">
+                        <div class="forehead-tap-zones">
+                            <button type="button" class="forehead-zone-btn forehead-zone-pass" id="forehead-btn-pass" onclick="app.foreheadHandleTap('pass')">
+                                <span class="forehead-zone-title">&larr; 패스</span>
+                                <span class="forehead-zone-sub">LEFT · PASS</span>
+                            </button>
+                            <button type="button" class="forehead-zone-btn forehead-zone-correct" id="forehead-btn-correct" onclick="app.foreheadHandleTap('correct')">
+                                <span class="forehead-zone-title">정답 &rarr;</span>
+                                <span class="forehead-zone-sub">RIGHT · CORRECT</span>
+                            </button>
+                        </div>
+                        <div class="forehead-word-overlay">
+                            <div class="forehead-hud-top">
+                                <div class="forehead-hud-row">
+                                    <span class="forehead-hud-pill" id="forehead-play-topic">🎲 무작위</span>
+                                    <span class="forehead-hud-pill" id="forehead-live-score">정답 0 · 패스 0</span>
+                                </div>
+                                <div class="forehead-timer-display" id="forehead-timer-display">60</div>
+                            </div>
+                            <div class="forehead-word-wrap" id="forehead-word-wrap">
+                                <div class="forehead-feedback-pill" id="forehead-feedback-pill"></div>
+                                <div class="forehead-word-kr" id="forehead-word-kr"></div>
+                                <div class="forehead-word-en" id="forehead-word-en"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Result Stage -->
+                <div id="forehead-stage-result" class="forehead-stage forehead-hidden">
+                    <div class="forehead-meta-pill" id="forehead-result-meta">⏰ 시간 종료! · Time's Up!</div>
+                    <div class="forehead-result-summary">
+                        <div class="forehead-stat-card forehead-stat-correct">
+                            <span class="forehead-stat-label">⭕ 맞힌 수 · Correct</span>
+                            <span class="forehead-stat-num" id="forehead-result-correct-count">0</span>
+                        </div>
+                        <div class="forehead-stat-card forehead-stat-pass">
+                            <span class="forehead-stat-label">⏭️ 패스 수 · Passed</span>
+                            <span class="forehead-stat-num" id="forehead-result-pass-count">0</span>
+                        </div>
+                    </div>
+                    <div class="forehead-list-box">
+                        <div class="forehead-list-title">⭕ 맞힌 단어 · Correct Words</div>
+                        <div class="forehead-word-tags" id="forehead-result-correct-list"></div>
+                    </div>
+                    <div class="forehead-list-box">
+                        <div class="forehead-list-title forehead-list-title-pass">⏭️ 패스한 단어 · Passed Words</div>
+                        <div class="forehead-word-tags" id="forehead-result-pass-list"></div>
+                    </div>
+                    <div class="forehead-result-actions">
+                        <button type="button" class="btn neon-btn forehead-primary-btn" onclick="app.foreheadPlayAgain()">
+                            <span>&#128260; 한 판 더 · Play Again</span>
+                            <span class="forehead-btn-sub">같은 설정으로 다시 시작 · Retry Same Setup</span>
+                        </button>
+                        <button type="button" class="btn forehead-secondary-btn" onclick="app.foreheadBackToStart()">
+                            <span>&#127968; 처음으로 · Back to Start</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightning Reflex Screen -->
+        <section id="screen-react" class="screen hidden react-screen">
+            <button class="btn-back" onclick="history.back()">&larr; 뒤로 · Back</button>
+            <h2 class="neon-text react-title">Lightning Reflex<br><span class="title-kr">번개 반응 대결</span></h2>
+
+            <div class="react-body">
+                <!-- 1. Start Stage -->
+                <div id="react-stage-start" class="react-stage">
+                    <div class="react-rules-card">
+                        <div class="react-rule-line">1. 인원수(2~4명)를 고르고 폰을 가운데 두고 마주 앉으세요.<span class="react-rule-en">Pick 2–4 players and place the phone in the center.</span></div>
+                        <div class="react-rule-line">2. 준비를 누르고 기다리다 번개 신호가 뜨면 가장 먼저 자기 영역을 누르세요.<span class="react-rule-en">Tap Ready, wait for the flash + sound, and tap your zone first.</span></div>
+                        <div class="react-rule-line">3. 신호 전에 누르면 반칙 탈락! 마지막에 한 명만 남으면 바로 승리해요.<span class="react-rule-en">Early taps are a foul! Last remaining player wins instantly.</span></div>
+                    </div>
+                    <div class="react-section-label">참여 인원 · Choose Players (2~4)</div>
+                    <div class="react-count-chips" id="react-count-chips">
+                        <button type="button" class="react-count-chip" data-count="2" onclick="app.reactSelectCount(2)">
+                            <span>2명</span>
+                            <span class="react-count-chip-en">2 Players</span>
+                        </button>
+                        <button type="button" class="react-count-chip" data-count="3" onclick="app.reactSelectCount(3)">
+                            <span>3명</span>
+                            <span class="react-count-chip-en">3 Players</span>
+                        </button>
+                        <button type="button" class="react-count-chip" data-count="4" onclick="app.reactSelectCount(4)">
+                            <span>4명</span>
+                            <span class="react-count-chip-en">4 Players</span>
+                        </button>
+                    </div>
+                    <button type="button" class="btn neon-btn react-primary-btn" onclick="app.reactStartMatch()">
+                        <span>&#9889; 대결 시작 · Start Match</span>
+                    </button>
+                </div>
+
+                <!-- 2. Play Stage -->
+                <div id="react-stage-play" class="react-stage react-hidden">
+                    <div class="react-arena" id="react-arena">
+                        <div class="react-zones" id="react-zones"></div>
+                        <div class="react-center" id="react-center">
+                            <div class="react-hub-card" id="react-hub-ready">
+                                <div class="react-hub-title">&#9889; 자리 잡기 완료 · Get Set</div>
+                                <div class="react-hub-sub">각자 자기 색 영역에 손을 가까이 두세요 · Place hands near your zone</div>
+                                <div class="react-hub-actions">
+                                    <button type="button" class="btn neon-btn react-primary-btn" id="react-ready-btn" onclick="app.reactArmRound()">
+                                        <span>&#9889; 준비 · Ready</span>
+                                    </button>
+                                    <button type="button" class="btn react-secondary-btn" onclick="app.reactBackToStart()">
+                                        <span>&#127968; 처음으로 · Back to Start</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="react-hub-pill react-hidden" id="react-hub-status">
+                                <span class="react-hub-pill-kr" id="react-status-kr">기다리세요</span>
+                                <span class="react-hub-pill-en" id="react-status-en">WAIT...</span>
+                            </div>
+                            <div class="react-hub-card react-hidden" id="react-hub-result">
+                                <div class="react-hub-title" id="react-result-title"></div>
+                                <div class="react-hub-ms" id="react-result-ms"></div>
+                                <div class="react-hub-sub" id="react-result-sub"></div>
+                                <div class="react-hub-actions">
+                                    <button type="button" class="btn neon-btn react-primary-btn" onclick="app.reactPlayAgain()">
+                                        <span>&#128260; 다시 · Play Again</span>
+                                    </button>
+                                    <button type="button" class="btn react-secondary-btn" onclick="app.reactBackToStart()">
+                                        <span>&#127968; 처음으로 · Back to Start</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4205,6 +5968,162 @@ const LIAR_TOPICS = [
     }
 ];
 
+const FOREHEAD_COOLDOWN_MS = 400;
+const FOREHEAD_TOPICS = [
+    {
+        id: 'food',
+        icon: '🍜',
+        kr: '음식',
+        en: 'Food',
+        words: [
+            { kr: '피자', en: 'Pizza' }, { kr: '햄버거', en: 'Hamburger' }, { kr: '떡볶이', en: 'Tteokbokki' },
+            { kr: '김밥', en: 'Gimbap' }, { kr: '비빔밥', en: 'Bibimbap' }, { kr: '라면', en: 'Ramen' },
+            { kr: '초밥', en: 'Sushi' }, { kr: '파스타', en: 'Pasta' }, { kr: '카레', en: 'Curry' },
+            { kr: '만두', en: 'Dumplings' }, { kr: '치킨', en: 'Fried Chicken' }, { kr: '삼겹살', en: 'Pork Belly' },
+            { kr: '김치찌개', en: 'Kimchi Stew' }, { kr: '된장찌개', en: 'Soybean Stew' }, { kr: '불고기', en: 'Bulgogi' },
+            { kr: '냉면', en: 'Cold Noodles' }, { kr: '칼국수', en: 'Knife Noodles' }, { kr: '잔치국수', en: 'Banquet Noodles' },
+            { kr: '볶음밥', en: 'Fried Rice' }, { kr: '오므라이스', en: 'Omurice' }, { kr: '돈가스', en: 'Pork Cutlet' },
+            { kr: '스테이크', en: 'Steak' }, { kr: '샌드위치', en: 'Sandwich' }, { kr: '핫도그', en: 'Corn Dog' },
+            { kr: '와플', en: 'Waffle' }, { kr: '팬케이크', en: 'Pancake' }, { kr: '아이스크림', en: 'Ice Cream' },
+            { kr: '빙수', en: 'Shaved Ice' }, { kr: '붕어빵', en: 'Bungeoppang' }, { kr: '호떡', en: 'Hotteok' },
+            { kr: '츄러스', en: 'Churros' }, { kr: '타코', en: 'Taco' }
+        ]
+    },
+    {
+        id: 'animals',
+        icon: '🐾',
+        kr: '동물',
+        en: 'Animals',
+        words: [
+            { kr: '강아지', en: 'Puppy' }, { kr: '고양이', en: 'Cat' }, { kr: '토끼', en: 'Rabbit' },
+            { kr: '햄스터', en: 'Hamster' }, { kr: '사자', en: 'Lion' }, { kr: '호랑이', en: 'Tiger' },
+            { kr: '코끼리', en: 'Elephant' }, { kr: '기린', en: 'Giraffe' }, { kr: '얼룩말', en: 'Zebra' },
+            { kr: '원숭이', en: 'Monkey' }, { kr: '판다', en: 'Panda' }, { kr: '코알라', en: 'Koala' },
+            { kr: '캥거루', en: 'Kangaroo' }, { kr: '펭귄', en: 'Penguin' }, { kr: '북극곰', en: 'Polar Bear' },
+            { kr: '여우', en: 'Fox' }, { kr: '늑대', en: 'Wolf' }, { kr: '사슴', en: 'Deer' },
+            { kr: '다람쥐', en: 'Squirrel' }, { kr: '고슴도치', en: 'Hedgehog' }, { kr: '돌고래', en: 'Dolphin' },
+            { kr: '고래', en: 'Whale' }, { kr: '상어', en: 'Shark' }, { kr: '거북이', en: 'Turtle' },
+            { kr: '문어', en: 'Octopus' }, { kr: '개구리', en: 'Frog' }, { kr: '악어', en: 'Crocodile' },
+            { kr: '독수리', en: 'Eagle' }, { kr: '부엉이', en: 'Owl' }, { kr: '앵무새', en: 'Parrot' },
+            { kr: '공작새', en: 'Peacock' }, { kr: '플라밍고', en: 'Flamingo' }
+        ]
+    },
+    {
+        id: 'jobs',
+        icon: '💼',
+        kr: '직업',
+        en: 'Jobs',
+        words: [
+            { kr: '의사', en: 'Doctor' }, { kr: '간호사', en: 'Nurse' }, { kr: '약사', en: 'Pharmacist' },
+            { kr: '치과의사', en: 'Dentist' }, { kr: '수의사', en: 'Veterinarian' }, { kr: '선생님', en: 'Teacher' },
+            { kr: '교수', en: 'Professor' }, { kr: '경찰관', en: 'Police Officer' }, { kr: '소방관', en: 'Firefighter' },
+            { kr: '구급대원', en: 'Paramedic' }, { kr: '조종사', en: 'Pilot' }, { kr: '승무원', en: 'Flight Attendant' },
+            { kr: '요리사', en: 'Chef' }, { kr: '제빵사', en: 'Baker' }, { kr: '바리스타', en: 'Barista' },
+            { kr: '농부', en: 'Farmer' }, { kr: '어부', en: 'Fisherman' }, { kr: '목수', en: 'Carpenter' },
+            { kr: '건축가', en: 'Architect' }, { kr: '디자이너', en: 'Designer' }, { kr: '화가', en: 'Painter' },
+            { kr: '사진작가', en: 'Photographer' }, { kr: '가수', en: 'Singer' }, { kr: '배우', en: 'Actor' },
+            { kr: '댄서', en: 'Dancer' }, { kr: '지휘자', en: 'Conductor' }, { kr: '아나운서', en: 'Announcer' },
+            { kr: '기자', en: 'Reporter' }, { kr: '작가', en: 'Writer' }, { kr: '개발자', en: 'Developer' },
+            { kr: '우주비행사', en: 'Astronaut' }, { kr: '프로게이머', en: 'Pro Gamer' }
+        ]
+    },
+    {
+        id: 'places',
+        icon: '🗺️',
+        kr: '나라·도시',
+        en: 'Places',
+        words: [
+            { kr: '대한민국', en: 'South Korea' }, { kr: '서울', en: 'Seoul' }, { kr: '부산', en: 'Busan' },
+            { kr: '제주도', en: 'Jeju Island' }, { kr: '경주', en: 'Gyeongju' }, { kr: '일본', en: 'Japan' },
+            { kr: '도쿄', en: 'Tokyo' }, { kr: '오사카', en: 'Osaka' }, { kr: '교토', en: 'Kyoto' },
+            { kr: '태국', en: 'Thailand' }, { kr: '방콕', en: 'Bangkok' }, { kr: '베트남', en: 'Vietnam' },
+            { kr: '다낭', en: 'Da Nang' }, { kr: '싱가포르', en: 'Singapore' }, { kr: '대만', en: 'Taiwan' },
+            { kr: '타이베이', en: 'Taipei' }, { kr: '프랑스', en: 'France' }, { kr: '파리', en: 'Paris' },
+            { kr: '영국', en: 'United Kingdom' }, { kr: '런던', en: 'London' }, { kr: '이탈리아', en: 'Italy' },
+            { kr: '로마', en: 'Rome' }, { kr: '스페인', en: 'Spain' }, { kr: '바르셀로나', en: 'Barcelona' },
+            { kr: '스위스', en: 'Switzerland' }, { kr: '독일', en: 'Germany' }, { kr: '미국', en: 'USA' },
+            { kr: '뉴욕', en: 'New York' }, { kr: '하와이', en: 'Hawaii' }, { kr: '캐나다', en: 'Canada' },
+            { kr: '호주', en: 'Australia' }, { kr: '시드니', en: 'Sydney' }
+        ]
+    },
+    {
+        id: 'transport',
+        icon: '🚆',
+        kr: '탈것',
+        en: 'Transport',
+        words: [
+            { kr: '자동차', en: 'Car' }, { kr: '택시', en: 'Taxi' }, { kr: '시내버스', en: 'City Bus' },
+            { kr: '고속버스', en: 'Express Bus' }, { kr: '지하철', en: 'Subway' }, { kr: '기차', en: 'Train' },
+            { kr: '고속열차', en: 'Bullet Train' }, { kr: '자전거', en: 'Bicycle' }, { kr: '세발자전거', en: 'Tricycle' },
+            { kr: '오토바이', en: 'Motorcycle' }, { kr: '전동킥보드', en: 'E-Scooter' }, { kr: '트럭', en: 'Truck' },
+            { kr: '소방차', en: 'Fire Truck' }, { kr: '구급차', en: 'Ambulance' }, { kr: '경찰차', en: 'Police Car' },
+            { kr: '굴착기', en: 'Excavator' }, { kr: '비행기', en: 'Airplane' }, { kr: '헬리콥터', en: 'Helicopter' },
+            { kr: '열기구', en: 'Air Balloon' }, { kr: '우주선', en: 'Spaceship' }, { kr: '유람선', en: 'Cruise Boat' },
+            { kr: '여객선', en: 'Ferry' }, { kr: '잠수함', en: 'Submarine' }, { kr: '요트', en: 'Yacht' },
+            { kr: '보트', en: 'Boat' }, { kr: '카약', en: 'Kayak' }, { kr: '케이블카', en: 'Cable Car' },
+            { kr: '트램', en: 'Tram' }, { kr: '모노레일', en: 'Monorail' }, { kr: '곤돌라', en: 'Gondola' },
+            { kr: '썰매', en: 'Sled' }, { kr: '마차', en: 'Horse Carriage' }
+        ]
+    },
+    {
+        id: 'sports',
+        icon: '⚽',
+        kr: '운동',
+        en: 'Sports',
+        words: [
+            { kr: '축구', en: 'Soccer' }, { kr: '농구', en: 'Basketball' }, { kr: '야구', en: 'Baseball' },
+            { kr: '배구', en: 'Volleyball' }, { kr: '테니스', en: 'Tennis' }, { kr: '배드민턴', en: 'Badminton' },
+            { kr: '탁구', en: 'Table Tennis' }, { kr: '골프', en: 'Golf' }, { kr: '볼링', en: 'Bowling' },
+            { kr: '수영', en: 'Swimming' }, { kr: '다이빙', en: 'Diving' }, { kr: '서핑', en: 'Surfing' },
+            { kr: '스키', en: 'Skiing' }, { kr: '스노보드', en: 'Snowboard' }, { kr: '스케이트', en: 'Ice Skating' },
+            { kr: '달리기', en: 'Running' }, { kr: '마라톤', en: 'Marathon' }, { kr: '줄넘기', en: 'Jump Rope' },
+            { kr: '태권도', en: 'Taekwondo' }, { kr: '유도', en: 'Judo' }, { kr: '검도', en: 'Kendo' },
+            { kr: '복싱', en: 'Boxing' }, { kr: '양궁', en: 'Archery' }, { kr: '펜싱', en: 'Fencing' },
+            { kr: '체조', en: 'Gymnastics' }, { kr: '요가', en: 'Yoga' }, { kr: '필라테스', en: 'Pilates' },
+            { kr: '등산', en: 'Hiking' }, { kr: '암벽등반', en: 'Rock Climbing' }, { kr: '사이클', en: 'Cycling' },
+            { kr: '스케이트보드', en: 'Skateboarding' }, { kr: '승마', en: 'Horse Riding' }
+        ]
+    },
+    {
+        id: 'objects',
+        icon: '📦',
+        kr: '물건',
+        en: 'Objects',
+        words: [
+            { kr: '스마트폰', en: 'Smartphone' }, { kr: '노트북', en: 'Laptop' }, { kr: '이어폰', en: 'Earphones' },
+            { kr: '헤드폰', en: 'Headphones' }, { kr: '충전기', en: 'Charger' }, { kr: '리모컨', en: 'Remote Control' },
+            { kr: '텔레비전', en: 'Television' }, { kr: '냉장고', en: 'Refrigerator' }, { kr: '세탁기', en: 'Washing Machine' },
+            { kr: '청소기', en: 'Vacuum Cleaner' }, { kr: '선풍기', en: 'Electric Fan' }, { kr: '에어컨', en: 'Air Conditioner' },
+            { kr: '전자레인지', en: 'Microwave' }, { kr: '헤어드라이어', en: 'Hair Dryer' }, { kr: '칫솔', en: 'Toothbrush' },
+            { kr: '수건', en: 'Towel' }, { kr: '거울', en: 'Mirror' }, { kr: '빗', en: 'Comb' },
+            { kr: '우산', en: 'Umbrella' }, { kr: '안경', en: 'Glasses' }, { kr: '선글라스', en: 'Sunglasses' },
+            { kr: '손목시계', en: 'Wristwatch' }, { kr: '지갑', en: 'Wallet' }, { kr: '열쇠', en: 'Key' },
+            { kr: '가방', en: 'Bag' }, { kr: '가위', en: 'Scissors' }, { kr: '연필', en: 'Pencil' },
+            { kr: '지우개', en: 'Eraser' }, { kr: '공책', en: 'Notebook' }, { kr: '텀블러', en: 'Tumbler' },
+            { kr: '베개', en: 'Pillow' }, { kr: '이불', en: 'Blanket' }
+        ]
+    },
+    {
+        id: 'travel',
+        icon: '✈️',
+        kr: '여행',
+        en: 'Travel',
+        words: [
+            { kr: '여권', en: 'Passport' }, { kr: '탑승권', en: 'Boarding Pass' }, { kr: '캐리어', en: 'Suitcase' },
+            { kr: '공항', en: 'Airport' }, { kr: '면세점', en: 'Duty-Free Shop' }, { kr: '출국장', en: 'Departure Hall' },
+            { kr: '수하물', en: 'Baggage' }, { kr: '기내식', en: 'In-Flight Meal' }, { kr: '안전벨트', en: 'Seat Belt' },
+            { kr: '창가석', en: 'Window Seat' }, { kr: '환전', en: 'Currency Exchange' }, { kr: '호텔', en: 'Hotel' },
+            { kr: '리조트', en: 'Resort' }, { kr: '체크인', en: 'Check-In' }, { kr: '조식', en: 'Breakfast Buffet' },
+            { kr: '수영장', en: 'Swimming Pool' }, { kr: '캠핑장', en: 'Campsite' }, { kr: '해수욕장', en: 'Beach' },
+            { kr: '전망대', en: 'Observatory' }, { kr: '야시장', en: 'Night Market' }, { kr: '기념품', en: 'Souvenir' },
+            { kr: '지도', en: 'Map' }, { kr: '나침반', en: 'Compass' }, { kr: '카메라', en: 'Camera' },
+            { kr: '셀카봉', en: 'Selfie Stick' }, { kr: '목베개', en: 'Neck Pillow' }, { kr: '멀티어댑터', en: 'Travel Adapter' },
+            { kr: '보조배터리', en: 'Power Bank' }, { kr: '선크림', en: 'Sunscreen' }, { kr: '스노클링', en: 'Snorkeling' },
+            { kr: '불꽃놀이', en: 'Fireworks' }, { kr: '일출', en: 'Sunrise' }
+        ]
+    }
+];
+
 /* ===== MAIN APP OBJECT ===== */
 const app = {
     currentScreen: 'main',
@@ -4283,6 +6202,47 @@ const app = {
     liarTimerSeconds: LIAR_TIMER_DEFAULT,
     liarTimerInterval: null,
     liarTimerRunning: false,
+
+    // Blind 10 Seconds variables
+    tensecPlayerCount: 4,
+    tensecTarget: 10,
+    tensecTurnIndex: 0,
+    tensecStage: 'start',
+    tensecPhase: 'ready',
+    tensecRunning: false,
+    tensecStartTime: 0,
+    tensecBlindTriggered: false,
+    tensecRafId: null,
+    tensecRecords: [],
+
+    // Forehead Quiz variables
+    foreheadSelectedTopic: 'random',
+    foreheadDuration: 60,
+    foreheadStage: 'start',
+    foreheadDeck: [],
+    foreheadDeckIndex: 0,
+    foreheadCurrentWord: null,
+    foreheadCorrectWords: [],
+    foreheadPassWords: [],
+    foreheadTimeLeft: 60,
+    foreheadEndTime: 0,
+    foreheadCountdownTimer: null,
+    foreheadGameTimer: null,
+    foreheadFlashTimer: null,
+    foreheadFitRafId: null,
+    foreheadLockUntil: 0,
+
+    // Lightning Reflex variables
+    reactPlayerCount: 4,
+    reactStage: 'start',
+    reactPhase: 'idle',
+    reactSignalTimer: null,
+    reactSignalTime: 0,
+    reactWins: [],
+    reactFouled: new Set(),
+    reactWinnerIdx: -1,
+    reactLastMs: null,
+    reactWinReason: 'speed',
     
     setCardDeckMode(mode) {
         this.cardDeckMode = mode;
@@ -4605,6 +6565,15 @@ const app = {
         if (this.currentScreen === 'liar') {
             this.liarCleanup();
         }
+        if (this.currentScreen === 'tensec') {
+            this.tensecCleanup();
+        }
+        if (this.currentScreen === 'forehead') {
+            this.foreheadCleanup();
+        }
+        if (this.currentScreen === 'react') {
+            this.reactCleanup();
+        }
 
         const activeScreens = document.querySelectorAll('.screen.active');
         activeScreens.forEach(s => {
@@ -4642,6 +6611,9 @@ const app = {
         }
         if (screenId === 'cards') this.setupCards();
         if (screenId === 'liar') this.initLiar();
+        if (screenId === 'tensec') this.initTensec();
+        if (screenId === 'forehead') this.initForehead();
+        if (screenId === 'react') this.initReact();
         if (screenId === 'crocodile') this.initCrocodile();
         if (screenId === 'finger') this.setupFingerRoulette();
         if (screenId === 'titanic') this.initTitanic();
@@ -5969,6 +7941,1039 @@ const app = {
         soundFX.playTick();
         haptics.tick();
         this.initLiar();
+    },
+
+    /* ============================================================
+       9. BLIND 10 SECONDS LOGIC
+       ============================================================ */
+    initTensec() {
+        this.tensecCleanup();
+        this.tensecPlayerCount = Math.max(2, Math.min(12, this.playerCount));
+        const infoEl = document.getElementById('tensec-player-info');
+        if (infoEl) {
+            if (this.playerCount < 2) {
+                infoEl.textContent = `참여 인원 · Players: ${this.tensecPlayerCount}명 (최소 2인 적용 · Min 2)`;
+            } else if (this.playerCount > 12) {
+                infoEl.textContent = `참여 인원 · Players: ${this.tensecPlayerCount}명 (최대 12인 적용 · Max 12)`;
+            } else {
+                infoEl.textContent = `참여 인원 · Players: ${this.tensecPlayerCount}명`;
+            }
+        }
+        this.tensecRenderTargets();
+        this.tensecShowStage('start');
+    },
+
+    tensecCleanup() {
+        if (this.tensecRafId !== null) {
+            cancelAnimationFrame(this.tensecRafId);
+            this.tensecRafId = null;
+        }
+        this.tensecRunning = false;
+        this.tensecBlindTriggered = false;
+    },
+
+    tensecShowStage(stageName) {
+        this.tensecStage = stageName;
+        const stages = ['start', 'play', 'ranking'];
+        stages.forEach(name => {
+            const el = document.getElementById(`tensec-stage-${name}`);
+            if (el) el.classList.toggle('tensec-hidden', name !== stageName);
+        });
+        const screen = document.getElementById('screen-tensec');
+        if (screen) screen.scrollTop = 0;
+    },
+
+    tensecRenderTargets() {
+        document.querySelectorAll('#tensec-target-chips .tensec-target-chip').forEach(btn => {
+            const sec = Number(btn.dataset.sec);
+            btn.classList.toggle('tensec-chip-active', sec === this.tensecTarget);
+        });
+    },
+
+    tensecSelectTarget(sec) {
+        if (sec !== 5 && sec !== 10 && sec !== 15) return;
+        this.tensecTarget = sec;
+        this.tensecRenderTargets();
+        soundFX.playTick();
+        haptics.tick();
+    },
+
+    tensecStartGame() {
+        this.tensecCleanup();
+        this.tensecPlayerCount = Math.max(2, Math.min(12, this.playerCount));
+        this.tensecTurnIndex = 0;
+        this.tensecRecords = [];
+        soundFX.playFlip();
+        haptics.tick();
+        this.tensecPrepareTurn();
+        this.tensecShowStage('play');
+    },
+
+    tensecPrepareTurn() {
+        this.tensecCleanup();
+        this.tensecPhase = 'ready';
+        const turnNum = this.tensecTurnIndex + 1;
+        const progressEl = document.getElementById('tensec-progress');
+        const targetPillEl = document.getElementById('tensec-target-pill');
+        const turnTitleEl = document.getElementById('tensec-turn-title');
+        const clockBox = document.getElementById('tensec-clock-box');
+        const statusEl = document.getElementById('tensec-clock-status');
+        const displayEl = document.getElementById('tensec-clock-display');
+        const hintEl = document.getElementById('tensec-clock-hint');
+        const turnResultEl = document.getElementById('tensec-turn-result');
+        const startBtn = document.getElementById('tensec-start-btn');
+        const stopBtn = document.getElementById('tensec-stop-btn');
+        const nextBtn = document.getElementById('tensec-next-btn');
+
+        if (progressEl) progressEl.textContent = `${turnNum} / ${this.tensecPlayerCount}`;
+        if (targetPillEl) targetPillEl.textContent = `목표 · Target: ${this.tensecTarget.toFixed(2)}초`;
+        if (turnTitleEl) {
+            turnTitleEl.innerHTML = `${turnNum}번 차례<span class="tensec-turn-sub">Player ${turnNum}'s Turn</span>`;
+        }
+        if (clockBox) {
+            clockBox.classList.remove('tensec-clock-blind', 'tensec-clock-stopped');
+        }
+        if (statusEl) statusEl.textContent = '준비 완료 · Ready';
+        if (displayEl) displayEl.textContent = '0.00';
+        if (hintEl) hintEl.textContent = '시작을 누르면 3초 뒤 숫자가 가려져요 · Digits hide after 3s';
+        if (turnResultEl) turnResultEl.classList.add('tensec-hidden');
+        if (startBtn) startBtn.classList.remove('tensec-hidden');
+        if (stopBtn) stopBtn.classList.add('tensec-hidden');
+        if (nextBtn) nextBtn.classList.add('tensec-hidden');
+    },
+
+    tensecStartClock() {
+        if (this.tensecStage !== 'play' || this.tensecPhase !== 'ready') return;
+        this.tensecCleanup();
+        this.tensecPhase = 'running';
+        this.tensecRunning = true;
+        this.tensecBlindTriggered = false;
+        this.tensecStartTime = performance.now();
+
+        const clockBox = document.getElementById('tensec-clock-box');
+        const statusEl = document.getElementById('tensec-clock-status');
+        const displayEl = document.getElementById('tensec-clock-display');
+        const hintEl = document.getElementById('tensec-clock-hint');
+        const startBtn = document.getElementById('tensec-start-btn');
+        const stopBtn = document.getElementById('tensec-stop-btn');
+
+        if (clockBox) clockBox.classList.remove('tensec-clock-blind', 'tensec-clock-stopped');
+        if (statusEl) statusEl.textContent = '측정 중 · Counting...';
+        if (displayEl) displayEl.textContent = '0.00';
+        if (hintEl) hintEl.textContent = `3초 뒤 숫자가 가려져요 · Hides at 3.00s (목표 ${this.tensecTarget}.00초)`;
+        if (startBtn) startBtn.classList.add('tensec-hidden');
+        if (stopBtn) stopBtn.classList.remove('tensec-hidden');
+
+        soundFX.playTick(true);
+        haptics.tick();
+
+        this.tensecRafId = requestAnimationFrame(() => this.tensecTick());
+    },
+
+    tensecTick() {
+        if (!this.tensecRunning) return;
+        const elapsed = (performance.now() - this.tensecStartTime) / 1000;
+        if (elapsed >= 30) {
+            this.tensecStopClock(true);
+            return;
+        }
+        const clockBox = document.getElementById('tensec-clock-box');
+        const statusEl = document.getElementById('tensec-clock-status');
+        const displayEl = document.getElementById('tensec-clock-display');
+        const hintEl = document.getElementById('tensec-clock-hint');
+
+        if (elapsed >= 3) {
+            if (!this.tensecBlindTriggered) {
+                this.tensecBlindTriggered = true;
+                if (clockBox) clockBox.classList.add('tensec-clock-blind');
+                if (statusEl) statusEl.textContent = '🙈 숫자 가림 · Blind Mode';
+                if (displayEl) displayEl.textContent = '???';
+                if (hintEl) hintEl.textContent = `감으로 ${this.tensecTarget}.00초에 맞춰 멈춤을 누르세요 · Tap Stop at ${this.tensecTarget}.00s`;
+                soundFX.playFlip();
+                haptics.tick();
+            }
+        } else if (displayEl) {
+            displayEl.textContent = elapsed.toFixed(2);
+        }
+
+        this.tensecRafId = requestAnimationFrame(() => this.tensecTick());
+    },
+
+    tensecStopClock(isAuto = false) {
+        if (!this.tensecRunning || this.tensecStage !== 'play' || this.tensecPhase !== 'running') return;
+        const rawElapsed = isAuto
+            ? 30
+            : Math.min(30, Math.max(0, (performance.now() - this.tensecStartTime) / 1000));
+        this.tensecCleanup();
+        this.tensecPhase = 'stopped';
+
+        const elapsed = Math.round(rawElapsed * 100) / 100;
+        const signed = Math.round((elapsed - this.tensecTarget) * 100) / 100;
+        const diff = Math.abs(signed);
+        const rawDiff = Math.abs(rawElapsed - this.tensecTarget);
+        const turnNum = this.tensecTurnIndex + 1;
+
+        this.tensecRecords.push({
+            player: turnNum,
+            elapsed,
+            signed,
+            diff,
+            rawDiff,
+            autoStopped: isAuto
+        });
+
+        const clockBox = document.getElementById('tensec-clock-box');
+        const statusEl = document.getElementById('tensec-clock-status');
+        const displayEl = document.getElementById('tensec-clock-display');
+        const hintEl = document.getElementById('tensec-clock-hint');
+        const turnResultEl = document.getElementById('tensec-turn-result');
+        const resTargetEl = document.getElementById('tensec-res-target');
+        const resTimeEl = document.getElementById('tensec-res-time');
+        const resDiffEl = document.getElementById('tensec-res-diff');
+        const stopBtn = document.getElementById('tensec-stop-btn');
+        const nextBtn = document.getElementById('tensec-next-btn');
+        const nextKrEl = document.getElementById('tensec-next-btn-kr');
+        const nextEnEl = document.getElementById('tensec-next-btn-en');
+
+        if (clockBox) {
+            clockBox.classList.remove('tensec-clock-blind');
+            clockBox.classList.add('tensec-clock-stopped');
+        }
+        if (statusEl) {
+            statusEl.textContent = isAuto
+                ? '⏰ 30초 초과 자동 멈춤 · Auto Stopped (30s)'
+                : '⏱️ 기록 확정 · Record Locked';
+        }
+        if (displayEl) displayEl.textContent = `${elapsed.toFixed(2)}s`;
+
+        let judgeText;
+        if (isAuto) {
+            judgeText = '30초가 넘어 자동으로 멈췄어요 · Auto-stopped at 30.00s';
+        } else if (diff === 0) {
+            judgeText = '🎯 완벽한 타이밍! · Exact Bullseye!';
+        } else if (diff <= 0.25) {
+            judgeText = '🔥 엄청난 감각! · Incredible Sense!';
+        } else if (signed < 0) {
+            judgeText = `${diff.toFixed(2)}초 빨랐어요 · ${diff.toFixed(2)}s Early`;
+        } else {
+            judgeText = `${diff.toFixed(2)}초 늦었어요 · ${diff.toFixed(2)}s Late`;
+        }
+        if (hintEl) hintEl.textContent = judgeText;
+
+        const signedStr = signed === 0
+            ? '0.00초 (정확 · Exact)'
+            : `${signed > 0 ? '+' : '-'}${diff.toFixed(2)}초 (${signed > 0 ? '늦음 · Late' : '빠름 · Early'})`;
+
+        if (resTargetEl) resTargetEl.textContent = `${this.tensecTarget.toFixed(2)}초`;
+        if (resTimeEl) resTimeEl.textContent = `${elapsed.toFixed(2)}초`;
+        if (resDiffEl) resDiffEl.textContent = signedStr;
+        if (turnResultEl) turnResultEl.classList.remove('tensec-hidden');
+
+        if (stopBtn) stopBtn.classList.add('tensec-hidden');
+        if (nextBtn) nextBtn.classList.remove('tensec-hidden');
+
+        const isLast = this.tensecTurnIndex >= this.tensecPlayerCount - 1;
+        if (nextKrEl) {
+            nextKrEl.textContent = isLast ? '🏆 순위표 보기 · View Ranking' : '다음 사람 · Next Player';
+        }
+        if (nextEnEl) {
+            nextEnEl.textContent = isLast
+                ? '모든 차례 완료 · Check Final Ranking'
+                : `${turnNum + 1}번 차례로 넘기기 · Pass to Player ${turnNum + 1}`;
+        }
+
+        if (isAuto) {
+            soundFX.playFail();
+            haptics.loser();
+        } else if (diff <= 0.25) {
+            soundFX.playTada();
+            haptics.buildUp();
+            fxEngine.sparks(window.innerWidth / 2, window.innerHeight / 2, 24, '#00f3ff');
+        } else {
+            soundFX.playSpark();
+            haptics.tick();
+        }
+    },
+
+    tensecNextTurn() {
+        if (this.tensecStage !== 'play' || this.tensecPhase !== 'stopped') return;
+        soundFX.playTick();
+        haptics.tick();
+        this.tensecTurnIndex += 1;
+        if (this.tensecTurnIndex < this.tensecPlayerCount) {
+            this.tensecPrepareTurn();
+        } else {
+            this.tensecShowRanking();
+        }
+    },
+
+    tensecShowRanking() {
+        this.tensecCleanup();
+        const sorted = [...this.tensecRecords].sort((a, b) => {
+            if (a.diff !== b.diff) return a.diff - b.diff;
+            if (a.rawDiff !== b.rawDiff) return a.rawDiff - b.rawDiff;
+            return a.player - b.player;
+        });
+
+        const targetEl = document.getElementById('tensec-rank-target');
+        const firstPlayerEl = document.getElementById('tensec-first-player');
+        const firstDiffEl = document.getElementById('tensec-first-diff');
+        const lastPlayerEl = document.getElementById('tensec-last-player');
+        const lastDiffEl = document.getElementById('tensec-last-diff');
+        const listEl = document.getElementById('tensec-rank-list');
+
+        if (targetEl) targetEl.textContent = `목표 시간 · Target: ${this.tensecTarget.toFixed(2)}초`;
+
+        const first = sorted[0];
+        const last = sorted[sorted.length - 1];
+        if (first && firstPlayerEl && firstDiffEl) {
+            firstPlayerEl.textContent = `${first.player}번 · P${first.player}`;
+            firstDiffEl.textContent = `${first.elapsed.toFixed(2)}초 (오차 ${first.diff.toFixed(2)}초)`;
+        }
+        if (last && lastPlayerEl && lastDiffEl) {
+            lastPlayerEl.textContent = `${last.player}번 · P${last.player}`;
+            lastDiffEl.textContent = `${last.elapsed.toFixed(2)}초 (오차 ${last.diff.toFixed(2)}초)`;
+        }
+
+        if (listEl) {
+            listEl.innerHTML = '';
+            sorted.forEach((rec, idx) => {
+                const isFirst = idx === 0;
+                const isLast = sorted.length > 1 && idx === sorted.length - 1;
+                const row = document.createElement('div');
+                row.className = 'tensec-rank-row'
+                    + (isFirst ? ' tensec-rank-first' : '')
+                    + (isLast ? ' tensec-rank-last' : '');
+
+                const badge = document.createElement('span');
+                badge.className = 'tensec-rank-badge';
+                if (isFirst) badge.textContent = '👑 1등';
+                else if (isLast) badge.textContent = '😅 꼴찌';
+                else badge.textContent = `${idx + 1}등`;
+
+                const player = document.createElement('div');
+                player.className = 'tensec-rank-player';
+                const autoLabel = rec.autoStopped ? ' · 자동 멈춤' : '';
+                player.innerHTML = `${rec.player}번${autoLabel}<span class="tensec-rank-player-en">Player ${rec.player}${isFirst ? ' · 1st' : isLast ? ' · Last' : ''}</span>`;
+
+                const metrics = document.createElement('div');
+                metrics.className = 'tensec-rank-metrics';
+                const signPrefix = rec.signed === 0 ? '±' : (rec.signed > 0 ? '+' : '-');
+                metrics.innerHTML = `<span class="tensec-rank-time">${rec.elapsed.toFixed(2)}초</span><span class="tensec-rank-diff">${signPrefix}${rec.diff.toFixed(2)}초</span>`;
+
+                row.appendChild(badge);
+                row.appendChild(player);
+                row.appendChild(metrics);
+                listEl.appendChild(row);
+            });
+        }
+
+        soundFX.playTada();
+        haptics.buildUp();
+        fxEngine.confetti(window.innerWidth / 2, window.innerHeight / 2, 70);
+        this.tensecShowStage('ranking');
+    },
+
+    tensecPlayAgain() {
+        this.tensecStartGame();
+    },
+
+    tensecBackToStart() {
+        soundFX.playTick();
+        haptics.tick();
+        this.initTensec();
+    },
+
+    /* ============================================================
+       10. FOREHEAD QUIZ LOGIC
+       ============================================================ */
+    initForehead() {
+        this.foreheadCleanup();
+        this.foreheadRenderTopics();
+        this.foreheadRenderTimes();
+        this.foreheadShowStage('start');
+    },
+
+    foreheadCleanup() {
+        if (this.foreheadCountdownTimer) {
+            clearInterval(this.foreheadCountdownTimer);
+            this.foreheadCountdownTimer = null;
+        }
+        if (this.foreheadGameTimer) {
+            clearInterval(this.foreheadGameTimer);
+            this.foreheadGameTimer = null;
+        }
+        if (this.foreheadFlashTimer) {
+            clearTimeout(this.foreheadFlashTimer);
+            this.foreheadFlashTimer = null;
+        }
+        if (this.foreheadFitRafId !== null) {
+            cancelAnimationFrame(this.foreheadFitRafId);
+            this.foreheadFitRafId = null;
+        }
+        this.foreheadLockUntil = 0;
+        const screen = document.getElementById('screen-forehead');
+        if (screen) {
+            screen.classList.remove('forehead-playing', 'forehead-flash-correct', 'forehead-flash-pass');
+        }
+        const fbEl = document.getElementById('forehead-feedback-pill');
+        if (fbEl) {
+            fbEl.textContent = '';
+            fbEl.classList.remove('forehead-fb-correct', 'forehead-fb-pass');
+        }
+    },
+
+    foreheadShowStage(stageName) {
+        this.foreheadStage = stageName;
+        const stages = ['start', 'countdown', 'play', 'result'];
+        stages.forEach(name => {
+            const el = document.getElementById(`forehead-stage-${name}`);
+            if (el) el.classList.toggle('forehead-hidden', name !== stageName);
+        });
+        const screen = document.getElementById('screen-forehead');
+        if (screen) {
+            screen.classList.toggle('forehead-playing', stageName === 'play');
+            screen.scrollTop = 0;
+        }
+    },
+
+    foreheadGetTopicLabel() {
+        if (this.foreheadSelectedTopic === 'random') {
+            return '🎲 무작위 · Random';
+        }
+        const found = FOREHEAD_TOPICS.find(t => t.id === this.foreheadSelectedTopic);
+        return found ? `${found.icon} ${found.kr} · ${found.en}` : '🎲 무작위 · Random';
+    },
+
+    foreheadRenderTopics() {
+        const wrap = document.getElementById('forehead-topic-chips');
+        if (!wrap) return;
+        wrap.innerHTML = '';
+
+        const randomBtn = document.createElement('button');
+        randomBtn.type = 'button';
+        randomBtn.className = 'forehead-topic-chip forehead-chip-random' + (this.foreheadSelectedTopic === 'random' ? ' forehead-chip-active' : '');
+        randomBtn.dataset.topic = 'random';
+        randomBtn.innerHTML = `<span>🎲 무작위 주제</span><span class="forehead-topic-chip-en">Random Topic</span>`;
+        randomBtn.onclick = () => this.foreheadSelectTopic('random');
+        wrap.appendChild(randomBtn);
+
+        FOREHEAD_TOPICS.forEach(topic => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'forehead-topic-chip' + (this.foreheadSelectedTopic === topic.id ? ' forehead-chip-active' : '');
+            btn.dataset.topic = topic.id;
+            btn.innerHTML = `<span>${topic.icon} ${topic.kr}</span><span class="forehead-topic-chip-en">${topic.en}</span>`;
+            btn.onclick = () => this.foreheadSelectTopic(topic.id);
+            wrap.appendChild(btn);
+        });
+    },
+
+    foreheadSelectTopic(topicId) {
+        this.foreheadSelectedTopic = topicId;
+        document.querySelectorAll('#forehead-topic-chips .forehead-topic-chip').forEach(btn => {
+            btn.classList.toggle('forehead-chip-active', btn.dataset.topic === topicId);
+        });
+        soundFX.playTick();
+        haptics.tick();
+    },
+
+    foreheadRenderTimes() {
+        document.querySelectorAll('#forehead-time-chips .forehead-time-chip').forEach(btn => {
+            const sec = Number(btn.dataset.sec);
+            btn.classList.toggle('forehead-chip-active', sec === this.foreheadDuration);
+        });
+    },
+
+    foreheadSelectTime(sec) {
+        if (sec !== 45 && sec !== 60 && sec !== 90) return;
+        this.foreheadDuration = sec;
+        this.foreheadRenderTimes();
+        soundFX.playTick();
+        haptics.tick();
+    },
+
+    foreheadBuildDeck() {
+        let rawWords = [];
+        if (this.foreheadSelectedTopic === 'random') {
+            FOREHEAD_TOPICS.forEach(topic => {
+                topic.words.forEach(w => rawWords.push(w));
+            });
+        } else {
+            const topic = FOREHEAD_TOPICS.find(t => t.id === this.foreheadSelectedTopic) || FOREHEAD_TOPICS[0];
+            rawWords = [...topic.words];
+        }
+        const seen = new Set();
+        const unique = [];
+        rawWords.forEach(w => {
+            if (!seen.has(w.kr)) {
+                seen.add(w.kr);
+                unique.push(w);
+            }
+        });
+        for (let i = unique.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const tmp = unique[i];
+            unique[i] = unique[j];
+            unique[j] = tmp;
+        }
+        return unique;
+    },
+
+    foreheadStart() {
+        this.foreheadCleanup();
+        this.foreheadDeck = this.foreheadBuildDeck();
+        this.foreheadDeckIndex = 0;
+        this.foreheadCurrentWord = null;
+        this.foreheadCorrectWords = [];
+        this.foreheadPassWords = [];
+        this.foreheadTimeLeft = this.foreheadDuration;
+
+        const metaEl = document.getElementById('forehead-countdown-meta');
+        if (metaEl) metaEl.textContent = `${this.foreheadGetTopicLabel()} · ${this.foreheadDuration}초`;
+
+        let count = 3;
+        const numEl = document.getElementById('forehead-countdown-num');
+        if (numEl) numEl.textContent = String(count);
+
+        this.foreheadShowStage('countdown');
+        soundFX.playTick(false);
+        haptics.tick();
+
+        this.foreheadCountdownTimer = setInterval(() => {
+            count -= 1;
+            if (count > 0) {
+                if (numEl) numEl.textContent = String(count);
+                soundFX.playTick(false);
+                haptics.tick();
+            } else {
+                clearInterval(this.foreheadCountdownTimer);
+                this.foreheadCountdownTimer = null;
+                this.foreheadBeginPlay();
+            }
+        }, 1000);
+    },
+
+    foreheadBeginPlay() {
+        if (this.foreheadStage !== 'countdown') return;
+        this.foreheadLockUntil = 0;
+        this.foreheadTimeLeft = this.foreheadDuration;
+        this.foreheadEndTime = performance.now() + this.foreheadDuration * 1000;
+
+        const topicEl = document.getElementById('forehead-play-topic');
+        if (topicEl) topicEl.textContent = this.foreheadGetTopicLabel();
+
+        this.foreheadUpdateLiveHud();
+        this.foreheadShowStage('play');
+        this.foreheadShowNextWord();
+
+        soundFX.playFlip();
+        haptics.heartbeat();
+
+        this.foreheadGameTimer = setInterval(() => {
+            if (this.foreheadStage !== 'play') return;
+            const remainingMs = this.foreheadEndTime - performance.now();
+            const sec = Math.max(0, Math.ceil(remainingMs / 1000));
+            if (sec !== this.foreheadTimeLeft) {
+                this.foreheadTimeLeft = sec;
+                this.foreheadUpdateLiveHud();
+                if (sec > 0 && sec <= 5) {
+                    soundFX.playTick(true);
+                    haptics.tick();
+                }
+            }
+            if (remainingMs <= 0) {
+                this.foreheadFinish('timeout');
+            }
+        }, 200);
+    },
+
+    foreheadUpdateLiveHud() {
+        const timerEl = document.getElementById('forehead-timer-display');
+        const scoreEl = document.getElementById('forehead-live-score');
+        if (timerEl) {
+            timerEl.textContent = String(Math.max(0, this.foreheadTimeLeft));
+            timerEl.classList.toggle('forehead-timer-urgent', this.foreheadTimeLeft <= 10);
+        }
+        if (scoreEl) {
+            scoreEl.textContent = `정답 ${this.foreheadCorrectWords.length} · 패스 ${this.foreheadPassWords.length}`;
+        }
+    },
+
+    foreheadShowNextWord() {
+        if (this.foreheadDeckIndex >= this.foreheadDeck.length) {
+            this.foreheadFinish('deck');
+            return;
+        }
+        const word = this.foreheadDeck[this.foreheadDeckIndex];
+        this.foreheadDeckIndex += 1;
+        this.foreheadCurrentWord = word;
+
+        const krEl = document.getElementById('forehead-word-kr');
+        const enEl = document.getElementById('forehead-word-en');
+        if (krEl) krEl.textContent = word.kr;
+        if (enEl) enEl.textContent = word.en;
+
+        if (this.foreheadFitRafId !== null) {
+            cancelAnimationFrame(this.foreheadFitRafId);
+        }
+        this.foreheadFitRafId = requestAnimationFrame(() => {
+            this.foreheadFitRafId = null;
+            this.foreheadFitWord();
+        });
+    },
+
+    foreheadFitWord() {
+        const wordEl = document.getElementById('forehead-word-kr');
+        const wrapEl = document.getElementById('forehead-word-wrap');
+        if (!wordEl || !wrapEl) return;
+        const text = wordEl.textContent || '';
+        const len = text.length;
+        const maxWidth = Math.max(200, wrapEl.clientWidth - 16);
+        let size = len <= 2 ? 78 : len === 3 ? 68 : len === 4 ? 58 : len <= 6 ? 48 : 38;
+        wordEl.style.whiteSpace = 'nowrap';
+        wordEl.style.fontSize = `${size}px`;
+        while (wordEl.scrollWidth > maxWidth && size > 24) {
+            size -= 2;
+            wordEl.style.fontSize = `${size}px`;
+        }
+        if (wordEl.scrollWidth > maxWidth) {
+            wordEl.style.whiteSpace = 'normal';
+        }
+    },
+
+    foreheadHandleTap(action) {
+        if (this.foreheadStage !== 'play' || !this.foreheadCurrentWord) return;
+        const now = performance.now();
+        if (now < this.foreheadLockUntil) return;
+        this.foreheadLockUntil = now + FOREHEAD_COOLDOWN_MS;
+
+        const isCorrect = action === 'correct';
+        if (isCorrect) {
+            this.foreheadCorrectWords.push(this.foreheadCurrentWord);
+            soundFX.playTada();
+            haptics.buildUp();
+            fxEngine.sparks(window.innerWidth * 0.75, window.innerHeight * 0.5, 22, '#00ffaa');
+        } else {
+            this.foreheadPassWords.push(this.foreheadCurrentWord);
+            soundFX.playFail();
+            haptics.tick();
+            fxEngine.sparks(window.innerWidth * 0.25, window.innerHeight * 0.5, 16, '#ffaa00');
+        }
+
+        this.foreheadTriggerFlash(isCorrect);
+        this.foreheadUpdateLiveHud();
+        this.foreheadShowNextWord();
+    },
+
+    foreheadTriggerFlash(isCorrect) {
+        const screen = document.getElementById('screen-forehead');
+        const fbEl = document.getElementById('forehead-feedback-pill');
+        if (this.foreheadFlashTimer) {
+            clearTimeout(this.foreheadFlashTimer);
+            this.foreheadFlashTimer = null;
+        }
+        if (screen) {
+            screen.classList.remove('forehead-flash-correct', 'forehead-flash-pass');
+            screen.classList.add(isCorrect ? 'forehead-flash-correct' : 'forehead-flash-pass');
+        }
+        if (fbEl) {
+            fbEl.classList.remove('forehead-fb-correct', 'forehead-fb-pass');
+            fbEl.textContent = isCorrect ? '⭕ 정답! · CORRECT' : '⏭️ 패스 · PASS';
+            fbEl.classList.add(isCorrect ? 'forehead-fb-correct' : 'forehead-fb-pass');
+        }
+        this.foreheadFlashTimer = setTimeout(() => {
+            this.foreheadFlashTimer = null;
+            if (screen) {
+                screen.classList.remove('forehead-flash-correct', 'forehead-flash-pass');
+            }
+            if (fbEl) {
+                fbEl.classList.remove('forehead-fb-correct', 'forehead-fb-pass');
+                fbEl.textContent = '';
+            }
+        }, 360);
+    },
+
+    foreheadFinish(reason = 'timeout') {
+        this.foreheadCleanup();
+        this.foreheadCurrentWord = null;
+
+        const metaEl = document.getElementById('forehead-result-meta');
+        const correctCountEl = document.getElementById('forehead-result-correct-count');
+        const passCountEl = document.getElementById('forehead-result-pass-count');
+        const correctListEl = document.getElementById('forehead-result-correct-list');
+        const passListEl = document.getElementById('forehead-result-pass-list');
+
+        if (metaEl) {
+            const title = reason === 'deck'
+                ? '🎉 모든 단어 완료! · All Words Done!'
+                : "⏰ 시간 종료! · Time's Up!";
+            metaEl.textContent = `${title} (${this.foreheadGetTopicLabel()})`;
+        }
+        if (correctCountEl) correctCountEl.textContent = `${this.foreheadCorrectWords.length}개`;
+        if (passCountEl) passCountEl.textContent = `${this.foreheadPassWords.length}개`;
+
+        this.foreheadRenderResultList(correctListEl, this.foreheadCorrectWords, false);
+        this.foreheadRenderResultList(passListEl, this.foreheadPassWords, true);
+
+        if (this.foreheadCorrectWords.length > 0) {
+            soundFX.playTada();
+            haptics.buildUp();
+            fxEngine.confetti(window.innerWidth / 2, window.innerHeight / 2, 70);
+        } else {
+            soundFX.playHeartbeat();
+            haptics.loser();
+        }
+
+        this.foreheadShowStage('result');
+    },
+
+    foreheadRenderResultList(container, words, isPass) {
+        if (!container) return;
+        container.innerHTML = '';
+        if (!words.length) {
+            const empty = document.createElement('span');
+            empty.className = 'forehead-empty-note';
+            empty.textContent = '없음 · None';
+            container.appendChild(empty);
+            return;
+        }
+        words.forEach(w => {
+            const tag = document.createElement('span');
+            tag.className = 'forehead-word-tag' + (isPass ? ' forehead-word-tag-pass' : '');
+            tag.textContent = `${w.kr} · ${w.en}`;
+            container.appendChild(tag);
+        });
+    },
+
+    foreheadPlayAgain() {
+        this.foreheadStart();
+    },
+
+    foreheadBackToStart() {
+        soundFX.playTick();
+        haptics.tick();
+        this.initForehead();
+    },
+
+    /* ============================================================
+       11. LIGHTNING REFLEX LOGIC
+       ============================================================ */
+    initReact() {
+        this.reactCleanup();
+        this.reactPlayerCount = Math.max(2, Math.min(4, this.playerCount));
+        this.reactWins = Array(this.reactPlayerCount).fill(0);
+        this.reactRenderCountChips();
+        this.reactShowStage('start');
+    },
+
+    reactCleanup() {
+        if (this.reactSignalTimer) {
+            clearTimeout(this.reactSignalTimer);
+            this.reactSignalTimer = null;
+        }
+        this.reactPhase = 'idle';
+        this.reactSignalTime = 0;
+        this.reactFouled = new Set();
+        this.reactWinnerIdx = -1;
+        this.reactLastMs = null;
+        this.reactWinReason = 'speed';
+        const screen = document.getElementById('screen-react');
+        if (screen) {
+            screen.classList.remove('react-playing', 'react-signal-on');
+        }
+        const arena = document.getElementById('react-arena');
+        if (arena) {
+            arena.classList.remove('react-signal-on');
+        }
+    },
+
+    reactShowStage(stageName) {
+        this.reactStage = stageName;
+        const stages = ['start', 'play'];
+        stages.forEach(name => {
+            const el = document.getElementById(`react-stage-${name}`);
+            if (el) el.classList.toggle('react-hidden', name !== stageName);
+        });
+        const screen = document.getElementById('screen-react');
+        if (screen) {
+            screen.classList.toggle('react-playing', stageName === 'play');
+            screen.scrollTop = 0;
+        }
+    },
+
+    reactRenderCountChips() {
+        document.querySelectorAll('#react-count-chips .react-count-chip').forEach(btn => {
+            btn.classList.toggle('react-chip-active', Number(btn.dataset.count) === this.reactPlayerCount);
+        });
+    },
+
+    reactSelectCount(count) {
+        this.reactPlayerCount = Math.max(2, Math.min(4, Number(count) || 2));
+        this.reactRenderCountChips();
+        soundFX.playTick();
+        haptics.tick();
+    },
+
+    reactStartMatch() {
+        soundFX.init();
+        soundFX.playFlip();
+        haptics.tick();
+        this.reactCleanup();
+        this.reactWins = Array(this.reactPlayerCount).fill(0);
+        this.reactPhase = 'ready';
+        this.reactRenderZones();
+        this.reactShowStage('play');
+        this.reactSyncHub();
+        this.reactUpdateZonesUI();
+    },
+
+    reactRenderZones() {
+        const wrap = document.getElementById('react-zones');
+        if (!wrap) return;
+        wrap.innerHTML = '';
+        wrap.className = `react-zones react-grid-${this.reactPlayerCount}`;
+
+        const topCount = this.reactPlayerCount === 2 ? 1 : 2;
+        for (let i = 0; i < this.reactPlayerCount; i++) {
+            const zone = document.createElement('div');
+            zone.className = `react-zone react-color-${i}` +
+                (i < topCount ? ' react-zone-rotated' : '') +
+                (this.reactPlayerCount === 3 && i === 2 ? ' react-zone-span2' : '');
+            zone.dataset.player = String(i);
+            zone.setAttribute('role', 'button');
+            zone.setAttribute('tabindex', '0');
+            zone.innerHTML = `
+                <div class="react-zone-inner">
+                    <div class="react-zone-num">${i + 1}번<span class="react-zone-num-en">Player ${i + 1}</span></div>
+                    <div class="react-zone-wins" id="react-wins-${i}">🏆 0승 · 0W</div>
+                    <div class="react-zone-state" id="react-state-${i}">준비 대기 · Ready</div>
+                </div>
+            `;
+
+            zone.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                for (let t = 0; t < e.changedTouches.length; t++) {
+                    const touch = e.changedTouches[t];
+                    const hit = document.elementFromPoint(touch.clientX, touch.clientY);
+                    const hitZone = hit && hit.closest ? hit.closest('.react-zone') : zone;
+                    const pIdx = hitZone && hitZone.dataset.player !== undefined
+                        ? parseInt(hitZone.dataset.player, 10)
+                        : i;
+                    this.reactHandleZonePress(pIdx, touch.clientX, touch.clientY);
+                }
+            }, { passive: false });
+
+            zone.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+            }, { passive: false });
+
+            zone.addEventListener('pointerdown', (e) => {
+                if (e.pointerType === 'mouse' && e.button !== 0) return;
+                this.reactHandleZonePress(i, e.clientX, e.clientY);
+            });
+
+            wrap.appendChild(zone);
+        }
+    },
+
+    reactSyncHub() {
+        const readyEl = document.getElementById('react-hub-ready');
+        const statusEl = document.getElementById('react-hub-status');
+        const statusKr = document.getElementById('react-status-kr');
+        const statusEn = document.getElementById('react-status-en');
+        const resultEl = document.getElementById('react-hub-result');
+
+        if (readyEl) readyEl.classList.toggle('react-hidden', this.reactPhase !== 'ready');
+        if (statusEl) {
+            const showStatus = this.reactPhase === 'waiting' || this.reactPhase === 'go';
+            statusEl.classList.toggle('react-hidden', !showStatus);
+            statusEl.classList.toggle('react-pill-go', this.reactPhase === 'go');
+            if (statusKr) statusKr.textContent = this.reactPhase === 'go' ? '⚡ 지금!' : '기다리세요';
+            if (statusEn) statusEn.textContent = this.reactPhase === 'go' ? 'TAP NOW!' : 'WAIT...';
+        }
+        if (resultEl) {
+            resultEl.classList.toggle('react-hidden', this.reactPhase !== 'result');
+            if (this.reactPhase === 'result' && this.reactWinnerIdx >= 0) {
+                const winNum = this.reactWinnerIdx + 1;
+                const titleEl = document.getElementById('react-result-title');
+                const msEl = document.getElementById('react-result-ms');
+                const subEl = document.getElementById('react-result-sub');
+                if (titleEl) titleEl.textContent = `⚡ ${winNum}번 승리! · Player ${winNum} Wins!`;
+                if (this.reactWinReason === 'foul') {
+                    if (msEl) msEl.textContent = '반칙승';
+                    if (subEl) subEl.textContent = '다른 참가자 반칙 탈락 · Win by Foul';
+                } else {
+                    if (msEl) msEl.textContent = `${this.reactLastMs} ms`;
+                    if (subEl) subEl.textContent = '반응 시간 · Reaction Time';
+                }
+            }
+        }
+    },
+
+    reactUpdateZonesUI() {
+        const zones = document.querySelectorAll('#react-zones .react-zone');
+        zones.forEach((zone, idx) => {
+            const isFouled = this.reactFouled.has(idx);
+            const isWinner = this.reactPhase === 'result' && this.reactWinnerIdx === idx;
+            zone.classList.toggle('react-zone-foul', isFouled);
+            zone.classList.toggle('react-zone-winner', isWinner);
+
+            const winsEl = document.getElementById(`react-wins-${idx}`);
+            if (winsEl) {
+                const w = this.reactWins[idx] || 0;
+                winsEl.textContent = `🏆 ${w}승 · ${w}W`;
+            }
+
+            const stateEl = document.getElementById(`react-state-${idx}`);
+            if (!stateEl) return;
+            if (isFouled) {
+                stateEl.textContent = '❌ 반칙 탈락 · FOUL';
+            } else if (isWinner) {
+                stateEl.textContent = this.reactWinReason === 'foul'
+                    ? '🏆 반칙승! · WIN BY FOUL'
+                    : `🏆 승리! · ${this.reactLastMs} ms`;
+            } else if (this.reactPhase === 'go') {
+                stateEl.textContent = '⚡ 누르세요! · TAP NOW!';
+            } else if (this.reactPhase === 'waiting') {
+                stateEl.textContent = '기다리세요 · WAIT';
+            } else if (this.reactPhase === 'result') {
+                stateEl.textContent = '다음 판 준비 · Next Round';
+            } else {
+                stateEl.textContent = '준비 대기 · Ready';
+            }
+        });
+    },
+
+    reactArmRound() {
+        if (this.currentScreen !== 'react' || this.reactStage !== 'play') return;
+        soundFX.init();
+        soundFX.playTick(true);
+        haptics.tick();
+
+        if (this.reactSignalTimer) {
+            clearTimeout(this.reactSignalTimer);
+            this.reactSignalTimer = null;
+        }
+        this.reactFouled = new Set();
+        this.reactWinnerIdx = -1;
+        this.reactLastMs = null;
+        this.reactWinReason = 'speed';
+        this.reactPhase = 'waiting';
+
+        const screen = document.getElementById('screen-react');
+        if (screen) screen.classList.remove('react-signal-on');
+        const arena = document.getElementById('react-arena');
+        if (arena) arena.classList.remove('react-signal-on');
+
+        this.reactSyncHub();
+        this.reactUpdateZonesUI();
+
+        const delayMs = 2000 + Math.random() * 3000;
+        this.reactSignalTimer = setTimeout(() => {
+            this.reactTriggerSignal();
+        }, delayMs);
+    },
+
+    reactTriggerSignal() {
+        this.reactSignalTimer = null;
+        if (this.currentScreen !== 'react' || this.reactPhase !== 'waiting') return;
+
+        this.reactPhase = 'go';
+        this.reactSignalTime = performance.now();
+
+        const screen = document.getElementById('screen-react');
+        if (screen) screen.classList.add('react-signal-on');
+        const arena = document.getElementById('react-arena');
+        if (arena) arena.classList.add('react-signal-on');
+
+        this.reactSyncHub();
+        this.reactUpdateZonesUI();
+        soundFX.playTick(true);
+        soundFX.playSpark();
+        haptics.buildUp();
+    },
+
+    reactHandleZonePress(playerIdx, x, y) {
+        if (this.currentScreen !== 'react' || this.reactStage !== 'play') return;
+        if (playerIdx < 0 || playerIdx >= this.reactPlayerCount) return;
+
+        if (this.reactPhase === 'waiting') {
+            if (this.reactFouled.has(playerIdx)) return;
+            this.reactFouled.add(playerIdx);
+            soundFX.playFail();
+            haptics.loser();
+            fxEngine.sparks(x || window.innerWidth / 2, y || window.innerHeight / 2, 18, '#ff0055');
+
+            const remaining = [];
+            for (let idx = 0; idx < this.reactPlayerCount; idx++) {
+                if (!this.reactFouled.has(idx)) remaining.push(idx);
+            }
+            if (remaining.length === 1) {
+                this.reactFinishRound(remaining[0], null, 'foul', x, y);
+            } else {
+                this.reactUpdateZonesUI();
+            }
+            return;
+        }
+
+        if (this.reactPhase === 'go') {
+            if (this.reactFouled.has(playerIdx)) return;
+            const reactionMs = Math.max(0, Math.round(performance.now() - this.reactSignalTime));
+            this.reactFinishRound(playerIdx, reactionMs, 'speed', x, y);
+        }
+    },
+
+    reactFinishRound(winnerIdx, reactionMs, reason, x, y) {
+        if (this.reactSignalTimer) {
+            clearTimeout(this.reactSignalTimer);
+            this.reactSignalTimer = null;
+        }
+        this.reactPhase = 'result';
+        this.reactWinnerIdx = winnerIdx;
+        this.reactLastMs = reactionMs;
+        this.reactWinReason = reason;
+        this.reactWins[winnerIdx] = (this.reactWins[winnerIdx] || 0) + 1;
+
+        const screen = document.getElementById('screen-react');
+        if (screen) screen.classList.remove('react-signal-on');
+        const arena = document.getElementById('react-arena');
+        if (arena) arena.classList.remove('react-signal-on');
+
+        soundFX.playTada();
+        haptics.buildUp();
+        fxEngine.confetti(x || window.innerWidth / 2, y || window.innerHeight / 2, 70);
+
+        this.reactUpdateZonesUI();
+        this.reactSyncHub();
+    },
+
+    reactPlayAgain() {
+        soundFX.playTick();
+        haptics.tick();
+        if (this.reactSignalTimer) {
+            clearTimeout(this.reactSignalTimer);
+            this.reactSignalTimer = null;
+        }
+        this.reactFouled = new Set();
+        this.reactWinnerIdx = -1;
+        this.reactLastMs = null;
+        this.reactWinReason = 'speed';
+        this.reactPhase = 'ready';
+
+        const screen = document.getElementById('screen-react');
+        if (screen) screen.classList.remove('react-signal-on');
+        const arena = document.getElementById('react-arena');
+        if (arena) arena.classList.remove('react-signal-on');
+
+        this.reactUpdateZonesUI();
+        this.reactSyncHub();
+    },
+
+    reactBackToStart() {
+        soundFX.playTick();
+        haptics.tick();
+        this.initReact();
     },
 
     /* ============================================================
