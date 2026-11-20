@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -4798,6 +4798,200 @@ body.hot .hot-toggle-btn {
     width: 100%; min-height: 48px; border-radius: 14px; border: 0; cursor: pointer;
     background: #f8fafc; color: #0a0a0c; font: 800 0.95rem/1 inherit; font-family: inherit;
 }
+
+/* ===== Main Menu List Redesign (.menu-list / .menu-row-) ===== */
+#screen-main .main-header {
+    padding: calc(12px + env(safe-area-inset-top, 0px)) 14px 8px;
+}
+
+#screen-main .main-header .title {
+    font-size: clamp(1.3rem, 6vw, 2.2rem);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 78px;
+    margin-bottom: 6px;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+#screen-main .player-setup {
+    margin-bottom: 4px;
+    padding: 4px 8px 4px 12px;
+    gap: 8px;
+    max-width: 100%;
+}
+
+#screen-main .player-label {
+    font-size: clamp(0.76rem, 3.4vw, 0.9rem);
+    white-space: nowrap;
+}
+
+#screen-main .player-count-val {
+    width: 26px;
+}
+
+#screen-main .cnt-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+#screen-main .cnt-btn:active {
+    background: rgba(0, 243, 255, 0.18);
+    transform: scale(0.95);
+}
+
+.menu-list {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 6px 10px calc(52px + env(safe-area-inset-bottom, 0px));
+}
+
+.menu-row-btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 68px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    background: rgba(26, 29, 36, 0.84);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.14s ease, background-color 0.14s ease, border-color 0.14s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.menu-row-btn:focus-visible {
+    outline: 2px solid var(--secondary-neon);
+    outline-offset: 2px;
+    border-color: var(--border-strong);
+}
+
+.menu-row-btn:active {
+    background: rgba(46, 52, 66, 0.92);
+    border-color: var(--border-strong);
+    transform: scale(0.98);
+}
+
+.menu-row-icon {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.menu-row-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--primary-neon);
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.menu-row-btn:nth-child(3n+2) .menu-row-icon::before {
+    background: var(--secondary-neon);
+}
+
+.menu-row-btn:nth-child(3n) .menu-row-icon::before {
+    background: var(--tertiary-neon);
+}
+
+.menu-row-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.menu-row-title {
+    display: block;
+    font-size: clamp(0.95rem, 4vw, 1.05rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-row-desc {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #b8c4d6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-row-right {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu-row-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-strong);
+    color: #e2e8f0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.menu-row-arrow {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+    padding-left: 1px;
+}
 </style>
 </head>
 <body>
@@ -4809,9 +5003,9 @@ body.hot .hot-toggle-btn {
                 <div class="header-controls-row" style="justify-content:center;">
                     <div class="player-setup">
                         <span class="player-label">인원수 · Players:</span>
-                        <button class="cnt-btn" onclick="app.changePlayerCount(-1)">-</button>
+                        <button type="button" class="cnt-btn" aria-label="인원 줄이기" onclick="app.changePlayerCount(-1)">−</button>
                         <span id="player-count-display" class="player-count-val">4</span>
-                        <button class="cnt-btn" onclick="app.changePlayerCount(1)">+</button>
+                        <button type="button" class="cnt-btn" aria-label="인원 늘리기" onclick="app.changePlayerCount(1)">+</button>
                     </div>
                 </div>
             </div>
@@ -4823,73 +5017,127 @@ body.hot .hot-toggle-btn {
                 </span>
                 <span class="ad-banner-cta">열기 · Open</span>
             </a>
-            <div class="quad-menu">
-                <div class="quad-shared-bg"></div>
-                <button class="quad-btn quad-1" onclick="app.navigate('roulette')">
-                    <span class="quad-badge">2~10인 · Roulette</span>
-                    <span class="quad-icon">&#127919;</span>
-                    <span class="quad-label-en">Mission Roulette</span>
-                    <span class="quad-label-kr">미션 룰렛</span>
+            <div class="menu-list">
+                <button type="button" class="menu-row-btn" aria-label="미션 룰렛 · Mission Roulette" onclick="app.navigate('roulette')">
+                    <span class="menu-row-icon" aria-hidden="true">🎯</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">미션 룰렛</span>
+                        <span class="menu-row-desc">미션을 적고 돌려서 정하기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~10인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn quad-2" onclick="app.navigate('crocodile')">
-                    <span class="quad-badge">2~8인 · Luck Test</span>
-                    <span class="quad-icon">&#128010;</span>
-                    <span class="quad-label-en">Crocodile Roulette</span>
-                    <span class="quad-label-kr">크로커다일 룰렛</span>
+                <button type="button" class="menu-row-btn" aria-label="여행자 라이어 게임 · Traveler Liar" onclick="app.navigate('liar')">
+                    <span class="menu-row-icon" aria-hidden="true">🕵️</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">여행자 라이어 게임</span>
+                        <span class="menu-row-desc">여행 단어를 보고 대화로 라이어 찾기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">3~12인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn quad-3" onclick="app.navigate('bomb')">
-                    <span class="quad-badge">2~10인 · Reflex</span>
-                    <span class="quad-icon">&#128163;</span>
-                    <span class="quad-label-en">Time Bomb</span>
-                    <span class="quad-label-kr">시간 폭탄</span>
+                <button type="button" class="menu-row-btn" aria-label="이마 단어 퀴즈 · Forehead Quiz" onclick="app.navigate('forehead')">
+                    <span class="menu-row-icon" aria-hidden="true">🙆</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">이마 단어 퀴즈</span>
+                        <span class="menu-row-desc">이마에 댄 단어를 설명 듣고 맞히기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2인 이상</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn quad-4" onclick="app.navigate('finger')">
-                    <span class="quad-badge">🔥 TOP · 2~6P</span>
-                    <span class="quad-icon">&#128070;</span>
-                    <span class="quad-label-en">Touch Roulette</span>
-                    <span class="quad-label-kr">터치 룰렛</span>
+                <button type="button" class="menu-row-btn" aria-label="10초 맞추기 · Blind 10 Seconds" onclick="app.navigate('tensec')">
+                    <span class="menu-row-icon" aria-hidden="true">⏱️</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">10초 맞추기</span>
+                        <span class="menu-row-desc">가려진 시계를 감으로 멈춰 겨루기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~12인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn quad-5" onclick="app.navigate('titanic')">
-                    <span class="quad-badge">2~8인 · Pour Game</span>
-                    <span class="quad-icon">&#9973;</span>
-                    <span class="quad-label-en">Neon Titanic</span>
-                    <span class="quad-label-kr">찰랑찰랑 타이타닉</span>
+                <button type="button" class="menu-row-btn" aria-label="번개 반응 대결 · Lightning Reflex" onclick="app.navigate('react')">
+                    <span class="menu-row-icon" aria-hidden="true">⚡</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">번개 반응 대결</span>
+                        <span class="menu-row-desc">신호가 오면 가장 먼저 누르기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~4인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn quad-6" onclick="app.navigate('bridge')">
-                    <span class="quad-badge">🔥 2P · Couple</span>
-                    <span class="quad-icon">&#128149;</span>
-                    <span class="quad-label-en">Love Drink</span>
-                    <span class="quad-label-kr">러브 드링크</span>
+                <button type="button" class="menu-row-btn" aria-label="시간 폭탄 · Time Bomb" onclick="app.navigate('bomb')">
+                    <span class="menu-row-icon" aria-hidden="true">💣</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">시간 폭탄</span>
+                        <span class="menu-row-desc">터지기 전에 옆 사람에게 넘기기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~10인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn quad-9" onclick="app.navigate('cards')">
-                    <span class="quad-badge">2~10인 · Mission Card</span>
-                    <span class="quad-icon">&#127183;</span>
-                    <span class="quad-label-en">Card Flip</span>
-                    <span class="quad-label-kr">카드 뒤집기</span>
+                <button type="button" class="menu-row-btn" aria-label="카드 뒤집기 · Card Flip" onclick="app.navigate('cards')">
+                    <span class="menu-row-icon" aria-hidden="true">🃏</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">카드 뒤집기</span>
+                        <span class="menu-row-desc">인원수만큼 깔린 카드를 한 장씩</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~10인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn liar-menu-btn" onclick="app.navigate('liar')">
-                    <span class="quad-badge">3~12인 · Talk</span>
-                    <span class="quad-icon">&#128373;&#65039;</span>
-                    <span class="quad-label-en">Traveler Liar</span>
-                    <span class="quad-label-kr">여행자 라이어 게임</span>
+                <button type="button" class="menu-row-btn" aria-label="크로커다일 룰렛 · Crocodile Roulette" onclick="app.navigate('crocodile')">
+                    <span class="menu-row-icon" aria-hidden="true">🐊</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">크로커다일 룰렛</span>
+                        <span class="menu-row-desc">함정 이빨을 피해 번갈아 누르기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~8인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn tensec-menu-btn" onclick="app.navigate('tensec')">
-                    <span class="quad-badge">2~12인 · Timing</span>
-                    <span class="quad-icon">&#9201;&#65039;</span>
-                    <span class="quad-label-en">Blind 10 Seconds</span>
-                    <span class="quad-label-kr">10초 맞추기</span>
+                <button type="button" class="menu-row-btn" aria-label="터치 룰렛 · Touch Roulette" onclick="app.navigate('finger')">
+                    <span class="menu-row-icon" aria-hidden="true">👆</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">터치 룰렛</span>
+                        <span class="menu-row-desc">손가락을 올리고 기다리면 당첨자 결정</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~6인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn forehead-menu-btn" onclick="app.navigate('forehead')">
-                    <span class="quad-badge">2인 이상 · Quiz</span>
-                    <span class="quad-icon">&#128582;</span>
-                    <span class="quad-label-en">Forehead Quiz</span>
-                    <span class="quad-label-kr">이마 단어 퀴즈</span>
+                <button type="button" class="menu-row-btn" aria-label="찰랑찰랑 타이타닉 · Neon Titanic" onclick="app.navigate('titanic')">
+                    <span class="menu-row-icon" aria-hidden="true">🚢</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">찰랑찰랑 타이타닉</span>
+                        <span class="menu-row-desc">잔이 가라앉지 않게 조금씩 채우기</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2~8인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
-                <button class="quad-btn react-menu-btn" onclick="app.navigate('react')">
-                    <span class="quad-badge">2~4인 · Reflex</span>
-                    <span class="quad-icon">&#9889;</span>
-                    <span class="quad-label-en">Lightning Reflex</span>
-                    <span class="quad-label-kr">번개 반응 대결</span>
+                <button type="button" class="menu-row-btn" aria-label="러브 드링크 · Love Drink" onclick="app.navigate('bridge')">
+                    <span class="menu-row-icon" aria-hidden="true">🤝</span>
+                    <span class="menu-row-body">
+                        <span class="menu-row-title">러브 드링크</span>
+                        <span class="menu-row-desc">손가락을 올린 사람 중 둘을 연결</span>
+                    </span>
+                    <span class="menu-row-right">
+                        <span class="menu-row-badge">2인</span>
+                        <span class="menu-row-arrow" aria-hidden="true">›</span>
+                    </span>
                 </button>
             </div>
         </section>
